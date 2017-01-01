@@ -1,0 +1,14 @@
+version: "2"
+services:
+  app:
+    build:
+      context: ./dockerfiles
+      dockerfile: Dockerfile.app
+      args:
+        ruby_version: 2.4.0
+    volumes:
+      - .:/mobishelf
+      - gem-data:/root/.rbenv/versions/2.4.0/lib/ruby/gems
+volumes:
+  gem-data:
+    driver: local
