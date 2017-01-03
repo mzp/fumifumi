@@ -7,24 +7,22 @@ end
 
 gem 'rails', '5.0.1'
 
+gem 'coffee-rails'
+gem 'jbuilder'
+gem 'jquery-rails'
 gem 'mysql2'
 gem 'puma'
 gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
-
-gem 'jquery-rails'
 gem 'turbolinks'
-
-gem 'jbuilder'
+gem 'uglifier'
 
 group :development, :test do
   gem 'byebug'
 end
 
 group :development do
-  gem 'web-console'
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
+  gem 'web-console'
 end
