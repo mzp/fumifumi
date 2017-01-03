@@ -9,6 +9,16 @@ services:
     volumes:
       - .:/mobishelf
       - gem-data:/root/.rbenv/versions/2.4.0/lib/ruby/gems
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 volumes:
   gem-data:
+    driver: local
+  mysql-data:
     driver: local
