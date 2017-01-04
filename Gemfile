@@ -10,9 +10,11 @@ gem 'rails', '5.0.1'
 gem 'jbuilder'
 gem 'mysql2'
 gem 'puma'
+gem 'haml'
 
 group :development, :test do
   gem 'byebug'
+  gem 'pry'
 end
 
 group :development do
@@ -20,4 +22,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
+end
+
+group :test do
+  gem 'rspec-rails'
 end
