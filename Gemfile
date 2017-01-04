@@ -7,14 +7,9 @@ end
 
 gem 'rails', '5.0.1'
 
-gem 'coffee-rails'
 gem 'jbuilder'
-gem 'jquery-rails'
 gem 'mysql2'
 gem 'puma'
-gem 'sass-rails'
-gem 'turbolinks'
-gem 'uglifier'
 
 group :development, :test do
   gem 'byebug'
