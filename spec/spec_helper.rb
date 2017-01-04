@@ -16,6 +16,8 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.include FactoryGirl::Syntax::Methods
+
   config.example_status_persistence_file_path = 'spec/examples.txt'
   config.filter_rails_from_backtrace!
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
