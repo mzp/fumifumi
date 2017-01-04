@@ -2,7 +2,7 @@ version: "2"
 services:
   app:
     build:
-      context: ./dockerfiles
+      context: ./config/docker
       dockerfile: Dockerfile.app
       args:
         ruby_version: 2.4.0
