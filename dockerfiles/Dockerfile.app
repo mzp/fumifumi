@@ -22,4 +22,4 @@ RUN bash -i -c "rbenv install $ruby_version"
 
 RUN bash -i -c "rbenv shell $ruby_version && gem i bundler --no-document"
 
-WORKDIR /mobishelf
+WORKDIR /fumifumi

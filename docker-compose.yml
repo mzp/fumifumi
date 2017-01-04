@@ -10,7 +10,7 @@ services:
       - "3000:3000"
     command: bash -i -c './bin/rails s -b 0.0.0.0 -p 3000'
     volumes:
-      - .:/mobishelf
+      - .:/fumifumi
       - gemsets-data:/root/.rbenv/versions/2.4.0/gemsets
     links:
       - db
