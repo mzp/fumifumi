@@ -7,3 +7,12 @@ AllCops:
     - 'bin/**/*'
     - 'db/migrate/**/*'
     - 'db/schema.rb'
+
+Metrics/LineLength:
+  AllowURI: true
+    - http
+    - https
+  Max: 128
+
+Style/Documentation:
+  Enabled: false
