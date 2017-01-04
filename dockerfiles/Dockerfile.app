@@ -12,6 +12,8 @@ RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 
 RUN git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
+RUN git clone https://github.com/jf/rbenv-gemset.git ~/.rbenv/plugins/rbenv-gemset
+
 RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 
 RUN echo 'eval "$(rbenv init -)"' >> ~/.bashrc
