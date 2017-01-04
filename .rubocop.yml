@@ -1,0 +1,9 @@
+AllCops:
+  DisplayCopNames: true
+  Include:
+    - '**/*.thor'
+    - '**/*.rake'
+  Exclude:
+    - 'bin/**/*'
+    - 'db/migrate/**/*'
+    - 'db/schema.rb'
