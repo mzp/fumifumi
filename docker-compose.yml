@@ -6,6 +6,9 @@ services:
       dockerfile: Dockerfile.app
       args:
         ruby_version: 2.4.0
+    ports:
+      - "3000:3000"
+    command: bash -i -c './bin/rails s -b 0.0.0.0 -p 3000'
     volumes:
       - .:/mobishelf
       - gem-data:/root/.rbenv/versions/2.4.0/lib/ruby/gems
