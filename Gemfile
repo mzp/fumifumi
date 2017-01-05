@@ -21,7 +21,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
@@ -30,6 +29,7 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'haml_lint'
+  gem 'listen'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop'

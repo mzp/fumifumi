@@ -31,7 +31,7 @@ steps:
       content: |-
         cd /codefresh/volume/fumifumi
         bundle install --with test
-        sleep 10
+        sleep 20
         bundle exec rake db:setup
         bundle exec haml-lint
         bundle exec rubocop
