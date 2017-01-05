@@ -1,0 +1,12 @@
+linters:
+  LineLength:
+    max: 120
+  RuboCop:
+    ignored_cops:
+      - Lint/Void
+      - Metrics/BlockLength
+      - Metrics/LineLength
+      - Style/FrozenStringLiteralComment
+      - Style/StringLiteralsInInterpolation
+      - Style/TrailingBlankLines
+      - Rails/OutputSafety

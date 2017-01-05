@@ -20,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'haml_lint'
   gem 'listen'
   gem 'rubocop'
   gem 'spring'
