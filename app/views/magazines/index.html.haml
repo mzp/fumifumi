@@ -6,4 +6,4 @@
     %div
       %h1
         %a{ href: magazine_path(magazine) }= magazine.title
-      %img{ src: magazine.cover.url }
+      %img{ src: magazine.cover&.url }
