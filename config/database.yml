@@ -17,5 +17,5 @@ test:
 production:
   <<: *default
   database: fumifumi_production
-  username: fumifumi
+  username: <%= ENV['FUMIFUMI_DATABASE_USERNAME'] %>
   password: <%= ENV['FUMIFUMI_DATABASE_PASSWORD'] %>
