@@ -8,7 +8,7 @@ end
 gem 'rails', '5.0.1'
 
 gem 'gepub'
-gem 'haml'
+gem 'haml-rails'
 gem 'jbuilder'
 gem 'mysql2'
 gem 'paperclip'
