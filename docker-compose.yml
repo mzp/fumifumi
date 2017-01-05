@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: ./config/docker
-      dockerfile: Dockerfile.app
+      dockerfile: Dockerfile.app.dev
       args:
         ruby_version: 2.4.0
     ports:
