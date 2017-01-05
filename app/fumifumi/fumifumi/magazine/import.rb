@@ -52,7 +52,10 @@ module Fumifumi
       end
 
       def image_item(item)
-        path = image_link(item.content)
+        relative_path = image_link(item.content)
+        return nil unless relative_path.present?
+
+        path = Pathname(item.href).join('..', relative_path).to_s
         find_by_path(path)
       end
 
