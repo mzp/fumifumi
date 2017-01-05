@@ -7,7 +7,7 @@ RSpec.describe Magazine, type: :model do
     end
 
     subject do
-      described_class.create.tap do |magazine|
+      create(:magazine).tap do |magazine|
         magazine.pages << build(:page, no: 3)
         magazine.pages << cover
         magazine.pages << build(:page, no: 2)
