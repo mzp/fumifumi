@@ -1,0 +1,48 @@
+version: '1.0'
+steps:
+  BuildingDockerImage:
+    title: Building Docker Image
+    type: build
+    image_name: mzp/fumifumi
+    working_directory: .
+    dockerfile: config/docker/Dockerfile.app
+  RunningUnitTests:
+    title: Running Unit Tests
+    type: composition
+    composition:
+      version: '2'
+      services:
+        db:
+          image: 'mysql:5.7'
+          environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    composition_candidates:
+      fumifumi:
+        image: '${{BuildingDockerImage}}'
+        entrypoint: bash -i /codefresh/volume/cf-generated/unit_test_script
+        volumes:
+          - '${{CF_VOLUME}}:/codefresh/volume'
+        depends_on:
+          - db
+    add_flow_volume_to_composition: true
+    create_file:
+      path: /codefresh/volume/cf-generated
+      name: unit_test_script
+      content: |-
+        cd /codefresh/volume/fumifumi
+        bundle install --with test
+        sleep 10
+        bundle exec rake db:setup
+        bundle exec haml-lint
+        bundle exec rubocop
+        bundle exec rspec
+    on_success:
+      metadata:
+        set:
+          - '${{BuildingDockerImage.imageId}}':
+              - CF_QUALITY: true
+    on_fail:
+      metadata:
+        set:
+          - '${{BuildingDockerImage.imageId}}':
+              - CF_QUALITY: false
