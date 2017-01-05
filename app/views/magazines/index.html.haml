@@ -1,0 +1,9 @@
+%h1 Magazine#index
+%p
+  %a{ href: new_magazine_path } 📥
+%div
+  - @magazines.each do |magazine|
+    %div
+      %h1
+        %a{ href: magazine_path(magazine) }= magazine.title
+      %img{ src: magazine.cover.url }

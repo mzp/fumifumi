@@ -2,15 +2,22 @@
 
 RSpec.describe Magazine, type: :model do
   describe '#pages' do
+    let(:cover) do
+      build(:page, no: 1)
+    end
+
     subject do
       described_class.create.tap do |magazine|
         magazine.pages << build(:page, no: 3)
-        magazine.pages << build(:page, no: 1)
+        magazine.pages << cover
         magazine.pages << build(:page, no: 2)
       end
     end
 
-    it { expect(subject).to be_persisted }
-    it { expect(subject.pages.map(&:no)).to eq([1, 2, 3]) }
+    it do
+      expect(subject).to be_persisted
+      expect(subject.pages.map(&:no)).to eq([1, 2, 3])
+      expect(subject.cover).to eq(cover)
+    end
   end
 end

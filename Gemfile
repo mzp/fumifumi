@@ -29,6 +29,7 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'haml_lint'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop'
 end

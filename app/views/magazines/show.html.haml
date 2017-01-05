@@ -1,0 +1,7 @@
+%p
+  %a{ href: magazines_path } ⏫
+%h1= @magazine.title
+
+- @magazine.pages.each do |page|
+  %div
+    %img{ src: page.url }

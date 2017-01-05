@@ -6,4 +6,6 @@ class Page < ApplicationRecord
   validates_attachment :content,
                        presence: true,
                        content_type: { content_type: %r{\Aimage/.*\z} }
+
+  delegate :url, to: :content
 end
