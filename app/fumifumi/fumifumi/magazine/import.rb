@@ -39,26 +39,30 @@ module Fumifumi
         @pages ||= book.spine.itemref_list.map { |ref| ref['idref'] }
       end
 
-      # extract image from page
-      def extract(text)
+      # find image link from page
+      def image_link(text)
         html = Nokogiri::HTML(text)
 
         html.css('image').first&.[]('xlink:href') ||
           html.css('img').first&.[]('src')
       end
 
-      def find(href)
-        items.values.find { |item| item.href == href }
+      def find_by_path(path)
+        items.values.find { |item| item.href == path }
+      end
+
+      def image_item(item)
+        path = image_link(item.content)
+        find_by_path(path)
       end
 
       def each_content
         pages.each.with_index do |page, index|
-          href = extract(items[page].content)
-          content = find(href)&.content
-          next unless content
+          item = image_item(items[page])
+          next unless item
 
           tempfile do |temp|
-            temp.write content
+            temp.write item.content
             yield temp, index
           end
         end
