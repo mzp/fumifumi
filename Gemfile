@@ -13,6 +13,7 @@ gem 'jbuilder'
 gem 'mysql2'
 gem 'paperclip'
 gem 'puma'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug'
