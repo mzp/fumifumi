@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
 RSpec.describe Fumifumi::Magazine::Import do
-  let(:epub) { file_fixture('saint_oniisan.epub') }
+  let(:magazine) { create(:magazine) }
 
   describe 'count' do
-    subject { Fumifumi::Magazine::Import.new(epub).call }
+    subject { Fumifumi::Magazine::Import.new(magazine).call }
 
     it { expect { subject }.to change(::Page, :count).by(5) }
-    it { expect { subject }.to change(::Magazine, :count).by(1) }
   end
 
   describe 'imported magazine' do
-    subject { Fumifumi::Magazine::Import.new(epub).call }
+    subject { Fumifumi::Magazine::Import.new(magazine).call }
 
     it do
       expect(subject.title).to eq('聖☆おにいさん')
