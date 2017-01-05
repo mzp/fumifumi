@@ -9,10 +9,10 @@ module Fumifumi
       def call
         ApplicationRecord.transaction do
           ::Magazine.create!(title: book.title).tap do |magazine|
-            each_content do |content|
+            each_content do |content, no|
               Tempfile.create(encoding: Encoding::ASCII_8BIT) do |temp|
                 temp.write content
-                magazine.pages.create content: temp
+                magazine.pages.create no: no, content: temp
               end
             end
           end
@@ -48,13 +48,13 @@ module Fumifumi
       end
 
       def each_content
-        pages.each do |page|
+        pages.each.with_index do |page, index|
           item = items[page]
           href = extract(item.content)
 
           content = find(href)&.content
 
-          yield content if content
+          yield content, index if content
         end
       end
     end
