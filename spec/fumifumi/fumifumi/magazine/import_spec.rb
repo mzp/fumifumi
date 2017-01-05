@@ -11,6 +11,11 @@ RSpec.describe Fumifumi::Magazine::Import do
       expect(subject.title).to eq('聖☆おにいさん')
       expect(subject.pages.size).to eq(5)
       expect(subject.pages.map(&:no)).to eq((0..4).to_a)
+
+      expect(subject.episodes.size).to eq(4)
+      expect(subject.episodes.map(&:page)).to contain_exactly(
+        *subject.pages[1..4].to_a
+      )
     end
   end
 
