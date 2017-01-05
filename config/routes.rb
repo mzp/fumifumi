@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   get '/' => 'welcome#index'
   resources :magazines, only: %i(index new create show)
 
+  namespace :magazines do
+    resources :import, only: %i(update)
+  end
+
   mount Sidekiq::Web => '/sidekiq'
 end

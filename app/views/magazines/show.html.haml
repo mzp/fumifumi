@@ -2,6 +2,8 @@
   %a{ href: magazines_path } ⏫
 %h1= @magazine.title
 
+%div
+  = button_to '↪️', magazines_import_path(@magazine), method: :put
 - @magazine.pages.each do |page|
   %div
     %img{ src: page.url }
