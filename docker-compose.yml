@@ -1,6 +1,6 @@
 version: "2"
 services:
-  app:
+  app: &app
     build:
       context: ./config/docker
       dockerfile: Dockerfile.app.dev
@@ -14,12 +14,19 @@ services:
       - gemsets-data:/root/.rbenv/versions/2.4.0/gemsets
     links:
       - db
+      - redis
+  job:
+    <<: *app
+    command: bash -i -c 'bundle exec sidekiq'
+    ports: []
   db:
     image: mysql:5.7
     volumes:
       - mysql-data:/var/lib/mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  redis:
+    image: redis:3-alpine
 volumes:
   gemsets-data:
     driver: local

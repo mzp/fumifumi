@@ -2,6 +2,11 @@
 class Magazine < ApplicationRecord
   has_many :pages, -> { order(:no) }
 
+  has_attached_file :source
+  validates_attachment :source,
+                       presence: true,
+                       content_type: { content_type: %r{\Aapplication/epub.*\z} }
+
   def cover
     pages.first
   end

@@ -6,12 +6,17 @@ RSpec.describe MagazinesController, type: :controller do
   end
 
   describe '#create' do
+    subject do
+      post :create, params: {
+        magazine: { attachment: attachment }
+      }
+    end
+
     it do
       expect do
-        post :create, params: {
-          magazine: { attachment: attachment }
-        }
+        subject
       end.to change(::Magazine, :count).by(1)
+        .and have_enqueued_job(ImportMagazineJob)
       expect(response).to redirect_to(magazines_path)
     end
   end

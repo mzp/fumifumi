@@ -11,9 +11,11 @@ class MagazinesController < ApplicationController
   end
 
   def create
-    ::Fumifumi::Magazine::Import
-      .new(params[:magazine][:attachment].tempfile)
-      .call
+    magazine = ::Magazine.create(
+      title: '<WIP>',
+      source: params[:magazine][:attachment].tempfile
+    )
+    ::ImportMagazineJob.perform_later magazine
     redirect_to :magazines
   end
 end

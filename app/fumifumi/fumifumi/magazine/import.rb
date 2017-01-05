@@ -2,18 +2,16 @@
 module Fumifumi
   module Magazine
     class Import
-      def initialize(path)
-        @path = Pathname(path)
+      def initialize(magazine)
+        @magazine = magazine
       end
 
       def call
         ApplicationRecord.transaction do
-          ::Magazine.create!(title: book.title).tap do |magazine|
+          magazine.tap do |magazine|
+            magazine.update! title: book.title
             each_content do |content, no|
-              Tempfile.create(encoding: Encoding::ASCII_8BIT) do |temp|
-                temp.write content
-                magazine.pages.create no: no, content: temp
-              end
+              magazine.pages.create no: no, content: content
             end
           end
         end
@@ -21,10 +19,16 @@ module Fumifumi
 
       private
 
-      attr_reader :path
+      attr_reader :magazine
 
       def book
-        @book ||= GEPUB::Book.parse(path)
+        @book ||=
+          begin
+            tempfile do |temp|
+              magazine.source.copy_to_local_file(:original, temp.path)
+              GEPUB::Book.parse(temp.path)
+            end
+          end
       end
 
       def items
@@ -49,13 +53,19 @@ module Fumifumi
 
       def each_content
         pages.each.with_index do |page, index|
-          item = items[page]
-          href = extract(item.content)
-
+          href = extract(items[page].content)
           content = find(href)&.content
+          next unless content
 
-          yield content, index if content
+          tempfile do |temp|
+            temp.write content
+            yield temp, index
+          end
         end
+      end
+
+      def tempfile
+        Tempfile.create(encoding: Encoding::ASCII_8BIT, &Proc.new)
       end
     end
   end
