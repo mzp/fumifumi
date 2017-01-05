@@ -3,7 +3,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   get '/' => 'welcome#index'
-  resources :magazines, only: %i(index new create show)
+  resources :magazines, only: %i(index new create show destroy)
 
   namespace :magazines do
     resources :import, only: %i(update)

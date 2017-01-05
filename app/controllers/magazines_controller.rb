@@ -18,4 +18,10 @@ class MagazinesController < ApplicationController
     ::ImportMagazineJob.perform_later magazine
     redirect_to :magazines
   end
+
+  def destroy
+    @magazine = ::Magazine.find(params[:id])
+    @magazine.destroy!
+    redirect_to :magazines
+  end
 end
