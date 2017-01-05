@@ -18,4 +18,10 @@ RSpec.describe Fumifumi::Magazine::Import do
       expect(subject.pages.map(&:no)).to eq((0..4).to_a)
     end
   end
+
+  xdescribe 'real epub' do
+    let(:magazine) { create(:magazine, source: Rails.root.join('sample.epub').open) }
+    subject { Fumifumi::Magazine::Import.new(magazine).call }
+    it { expect(subject.pages).to_not be_empty }
+  end
 end
