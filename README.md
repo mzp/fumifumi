@@ -1,4 +1,5 @@
 # fumi\*fumi
+[![Build status](https://g.codefresh.io/api/badges/build?branch=master&repoName=fumifumi&repoOwner=mzp&pipelineName=spec&accountName=mzp)](https://g.codefresh.io/repositories/mzp/fumifumi/builds?filter=trigger:build)
 
 fumi\*fumi is web app to manage ebooks, especially comic magazine. It imports magazines, splits these, and merges with same author.
 

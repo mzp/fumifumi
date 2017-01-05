@@ -1,25 +1,20 @@
-FROM ubuntu:16.10
-
-WORKDIR /tmp
+FROM ruby:2.4.0
 
 RUN apt-get update
 
-RUN apt-get install -y build-essential curl git libssl-dev libreadline-dev zlib1g-dev libmysqlclient-dev file
+RUN apt-get install -y mysql-client --no-install-recommends
 
-ARG ruby_version
+RUN bundle config --global frozen 1
 
-RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+RUN mkdir -p /usr/src/app
 
-RUN git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+COPY Gemfile /usr/src/app
+COPY Gemfile.lock /usr/src/app
 
-RUN git clone https://github.com/jf/rbenv-gemset.git ~/.rbenv/plugins/rbenv-gemset
+WORKDIR /usr/src/app
 
-RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+RUN bundle --without development test
+COPY . /usr/src/app
 
-RUN echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-
-RUN bash -i -c "rbenv install $ruby_version"
-
-RUN bash -i -c "rbenv shell $ruby_version && gem i bundler --no-document"
-
-WORKDIR /fumifumi
+EXPOSE 3000
+CMD [ 'bin/launch' ]
