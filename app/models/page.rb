@@ -9,4 +9,8 @@ class Page < ApplicationRecord
                        content_type: { content_type: %r{\Aimage/.*\z} }
 
   delegate :url, to: :content
+
+  def episode_cover?
+    episode.present?
+  end
 end
