@@ -5,6 +5,9 @@
 %div
   = button_to '↪️', magazines_import_path(@magazine), method: :put
   = button_to '❌', magazine_path(@magazine), method: :delete
+
 - @magazine.pages.each do |page|
+  - if page.episode_cover?
+    %h2= page.episode.title
   %div
     %img{ src: page.url }
