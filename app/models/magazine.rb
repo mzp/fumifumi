@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class Magazine < ApplicationRecord
   has_many :pages, -> { order(:no) }
+  has_many :episodes, -> { includes(:page).order('pages.no') }
 
   has_attached_file :source
   validates_attachment :source,

@@ -7,12 +7,16 @@ module Fumifumi
       end
 
       def call
-        ApplicationRecord.transaction do
-          magazine.tap do |magazine|
-            magazine.update! title: book.title
-            each_content do |content, no|
-              magazine.pages.create no: no, content: content
-            end
+        update_magazine do |magazine|
+          magazine.update! title: book.title
+          toc = {}
+
+          each_page do |item, content, no|
+            toc[item.href] = magazine.pages.create!(no: no, content: content)
+          end
+
+          each_nav do |title, ref|
+            magazine.episodes.create! title: title, page: toc[ref]
           end
         end
       end
@@ -59,15 +63,28 @@ module Fumifumi
         find_by_path(path)
       end
 
-      def each_content
+      def update_magazine
+        ApplicationRecord.transaction do
+          magazine.tap(&Proc.new)
+        end
+      end
+
+      def each_page
         pages.each.with_index do |page, index|
           item = image_item(items[page])
           next unless item
 
           tempfile do |temp|
             temp.write item.content
-            yield temp, index
+            yield items[page], temp, index
           end
+        end
+      end
+
+      def each_nav
+        html = Nokogiri::HTML(items['ncx'].content)
+        html.css('navpoint').each do |e|
+          yield e.css('text').text, e.css('content').attribute('src').value
         end
       end
 
