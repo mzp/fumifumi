@@ -6,8 +6,9 @@ module Fumifumi
         @magazine = magazine
       end
 
-      def call
+      def call # rubocop:disable Metrics/MethodLength
         update_magazine do |magazine|
+          magazine.reset!
           magazine.update! title: book.title
           toc = {}
 

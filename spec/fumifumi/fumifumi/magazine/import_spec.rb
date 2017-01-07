@@ -17,6 +17,14 @@ RSpec.describe Fumifumi::Magazine::Import do
         *subject.pages[1..4].to_a
       )
     end
+
+    context 'import again' do
+      subject { magazine.reload }
+      it do
+        3.times { Fumifumi::Magazine::Import.new(magazine).call }
+        expect(subject.pages.size).to eq(5)
+      end
+    end
   end
 
   xcontext 'real epub' do
