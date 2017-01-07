@@ -18,6 +18,7 @@ gem 'sidekiq'
 group :development, :test do
   gem 'byebug'
   gem 'pry'
+  gem 'listen'
 end
 
 group :development do
@@ -29,7 +30,6 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'haml_lint'
-  gem 'listen'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rubocop'
