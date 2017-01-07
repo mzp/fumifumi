@@ -16,4 +16,8 @@ class Magazine < ApplicationRecord
     pages.delete_all
     episodes.delete_all
   end
+
+  def episode_pages
+    @episode_pages ||= pages.slice_before(&:episode).reject(&:empty?)
+  end
 end
