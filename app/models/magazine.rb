@@ -11,4 +11,9 @@ class Magazine < ApplicationRecord
   def cover
     pages.first
   end
+
+  def reset!
+    pages.delete_all
+    episodes.delete_all
+  end
 end
