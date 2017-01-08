@@ -22,3 +22,5 @@ public/system
 public/test
 
 sample.epub
+
+node_modules/
