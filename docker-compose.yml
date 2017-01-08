@@ -19,6 +19,20 @@ services:
     <<: *app
     command: bash -i -c 'bundle exec sidekiq'
     ports: []
+  js:
+    build:
+      context: ./config/docker
+      dockerfile: Dockerfile.js
+    volumes:
+      - .:/fumifumi
+  web:
+    build:
+      context: ./config/docker
+      dockerfile: Dockerfile.web
+    ports:
+      - "80:80"
+    links:
+      - app
   db:
     image: mysql:5.7
     volumes:
