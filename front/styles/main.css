@@ -1,0 +1,7 @@
+:root {
+  --color: red;
+}
+
+div {
+  color: var(--color);
+}

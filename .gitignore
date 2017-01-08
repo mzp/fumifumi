@@ -20,5 +20,11 @@ spec/examples.txt
 
 public/system
 public/test
+/public/bundle.css
+/public/bundle.min.css
+/public/bundle.js
+/public/bundle.min.js
 
 sample.epub
+
+node_modules/

@@ -1,0 +1,14 @@
+[ignore]
+.*/app/.*
+.*/config/.*
+.*/node_modules/ava/.*.flow
+.*/public/.*
+.*/spec/.*
+
+[include]
+
+[libs]
+
+[options]
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=front/src

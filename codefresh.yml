@@ -1,5 +1,20 @@
 version: '1.0'
 steps:
+  BuildingJsImage:
+    title: Building Docker Image for frontend
+    type: build
+    image_name: mzp/fumifumi-js
+    working_directory: config/docker
+    dockerfile: Dockerfile.js
+  BuldingAssets:
+    title: Building Frontend assets
+    image: '${{BuildingJsImage}}'
+    commands:
+      - yarn install
+      - yarn lint
+      - yarn typecheck
+      - yarn test front/test
+      - ./front/script/build
   BuildingDockerImage:
     title: Building Docker Image
     type: build
