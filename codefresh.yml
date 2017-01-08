@@ -18,7 +18,7 @@ steps:
   BuildingDockerImage:
     title: Building Docker Image
     type: build
-    image_name: mzp/fumifumi
+    image_name: mzpi/fumifumi
     working_directory: .
     dockerfile: config/docker/Dockerfile.app
   RunningUnitTests:
@@ -61,3 +61,12 @@ steps:
         set:
           - '${{BuildingDockerImage.imageId}}':
               - CF_QUALITY: false
+  DeployToDockerHub:
+    type: push
+    description: Push to docker hub
+    candidate: ${{BuildingDockerImage}}
+    tag: latest
+    when:
+      branch:
+        only:
+          - master
