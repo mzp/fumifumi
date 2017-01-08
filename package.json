@@ -7,6 +7,9 @@
     "watch:js": "webpack -w"
   },
   "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
     "webpack": "^1.14.0"
   }
 }

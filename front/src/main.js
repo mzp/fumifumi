@@ -1,2 +1,3 @@
 /* @flow */
-console.log("hello");
+import foo from './foo';
+console.log(foo());
