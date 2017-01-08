@@ -3,7 +3,7 @@
 
 fumi\*fumi is web app to manage ebooks, especially comic magazine. It imports magazines, splits these, and merges with same author.
 
-## Setup
+## Build
 
 ### Development
 
@@ -23,6 +23,9 @@ docker-compose run app bash -i -c './bin/rails db:setup'
 docker-compose up app
 docker-compose up job
 ```
+
+### Deployment
+See [#10](https://github.com/mzp/fumifumi/pull/10).
 
 ## Usage
 TBD
