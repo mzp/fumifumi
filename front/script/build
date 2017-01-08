@@ -1,0 +1,11 @@
+#!/bin/sh
+# build assets for deployment
+set -e
+
+yarn install
+
+yarn build:js:production
+$(yarn bin)/uglifyjs public/bundle.js > public/bundle.min.js
+
+rm -rf public/bundle.js
+rm -rf node_modules

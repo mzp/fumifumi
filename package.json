@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build:js": "webpack",
-    "build:js:production": "NODE_ENV=production webpack && uglifyjs public/bundle.js > public/bundle.min.js",
+    "build:js:production": "NODE_ENV=production webpack",
     "lint": "eslint front/src",
     "lint:fix": "eslint front/src --fix",
     "typecheck": "flow check",
