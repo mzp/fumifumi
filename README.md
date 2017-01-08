@@ -13,6 +13,7 @@ docker-compose build
 # prepare frontend asset
 docker-compose run js yarn install
 docker-compose run js yarn build:js
+docker-compose run js yarn build:css
 
 # prepare rails env
 docker-compose run app bash -i -c bundle
