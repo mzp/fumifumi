@@ -11,8 +11,13 @@ def system!(*args)
 end
 
 chdir APP_ROOT do
+  if ENV['FORCE_CREATE_DB']
+    puts "\n== Creating database =="
+    system! 'bin/rails db:create'
+  end
+
   puts "\n== Updating database =="
-  system! 'bin/rails db:create db:migrate'
+  system! 'bin/rails db:migrate'
 
   puts "\n== Starting application server =="
   system! 'bin/rails server -b 0.0.0.0'
