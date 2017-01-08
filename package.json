@@ -6,8 +6,8 @@
     "build:css": "postcss -c .postcssrc.json",
     "build:js": "NODE_ENV=test webpack",
     "build:js:production": "NODE_ENV=production webpack",
-    "lint": "eslint --ext .jsx --ext .js front/src"
-    "lint:fix": "eslint --ext .jsx --ext .js front/src --fix",
+    "lint": "eslint --ext .jsx --ext .js front/src front/test",
+    "lint:fix": "eslint --ext .jsx --ext .js front/src front/test --fix",
     "typecheck": "flow check",
     "watch:js": "webpack -w",
     "watch:css": "postcss -w -c .postcssrc.json",
