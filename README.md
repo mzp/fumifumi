@@ -7,11 +7,18 @@ fumi\*fumi is web app to manage ebooks, especially comic magazine. It imports ma
 
 ### Development
 
-```
+```sh
 docker-compose build
+
+# prepare frontend asset
+docker-compose run js yarn install
+docker-compose run js yarn build:js
+
+# prepare rails env
 docker-compose run app bash -i -c bundle
 docker-compose run app bash -i -c './bin/rails db:setup'
 
+# launch app/job container
 docker-compose up app
 docker-compose up job
 ```
