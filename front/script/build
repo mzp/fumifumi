@@ -7,5 +7,8 @@ yarn install
 yarn build:js:production
 $(yarn bin)/uglifyjs public/bundle.js > public/bundle.min.js
 
-rm -rf public/bundle.js
+yarn build:css
+$(yarn bin)/csswring public/bundle.css > public/bundle.min.css
+
+rm -rf public/bundle.js public/bundle.css
 rm -rf node_modules
