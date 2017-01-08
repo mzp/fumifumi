@@ -20,6 +20,7 @@ spec/examples.txt
 
 public/system
 public/test
+/public/bundle.js
 
 sample.epub
 

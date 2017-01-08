@@ -1,5 +1,12 @@
 {
   "name": "fumifumi",
   "private": true,
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build:js": "webpack",
+    "watch:js": "webpack -w"
+  },
+  "dependencies": {
+    "webpack": "^1.14.0"
+  }
 }
