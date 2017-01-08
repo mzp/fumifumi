@@ -1,5 +1,14 @@
 version: "2"
 services:
+  web:
+    build:
+      context: ./config/docker
+      dockerfile: Dockerfile.web
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - app
   app: &app
     build:
       context: ./config/docker
@@ -23,14 +32,6 @@ services:
       dockerfile: Dockerfile.js
     volumes:
       - .:/fumifumi
-  web:
-    build:
-      context: ./config/docker
-      dockerfile: Dockerfile.web
-    ports:
-      - "80:80"
-    links:
-      - app
   db:
     image: mysql:5.7
     volumes:
