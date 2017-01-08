@@ -1,5 +1,9 @@
 /* @flow */
 
-export default function() {
-  return 42;
+const Answer = 42;
+
+export default function () {
+
+    return Answer;
+
 }

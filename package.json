@@ -4,12 +4,17 @@
   "license": "MIT",
   "scripts": {
     "build:js": "webpack",
+    "lint": "eslint front/src",
+    "lint:fix": "eslint front/src --fix",
     "watch:js": "webpack -w"
   },
   "dependencies": {
     "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "eslint": "^3.13.0",
+    "eslint-plugin-import": "^2.2.0",
     "webpack": "^1.14.0"
   }
 }
