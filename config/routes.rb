@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resources :import, only: %i(update)
   end
 
+  resources :pages, only: %i(show)
+
   mount Sidekiq::Web => '/sidekiq'
 end
