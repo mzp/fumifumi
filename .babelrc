@@ -1,7 +1,6 @@
 {
   "sourceMaps": "inline",
   "plugins": [
-    "transform-class-properties",
     "transform-flow-strip-types",
     "transform-function-bind",
     "transform-react-jsx"
@@ -12,7 +11,10 @@
     },
     "production": {
       "presets": ["es2015"],
-      "plugins": ["transform-runtime"]
+      "plugins": [
+        "transform-class-properties",
+        "transform-runtime"
+      ]
     }
   }
 }
