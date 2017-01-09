@@ -1,5 +1,7 @@
 /* @flow */
 
+var path = require('path');
+
 module.exports = {
   entry: "./front/src/main.js",
   output: {
@@ -10,9 +12,18 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
+        include: [
+          path.resolve(__dirname, "front/src"),
+        ],
         exclude: /node_modules/,
         loader: 'babel-loader'
       }
     ]
+  },
+  resolve: {
+    root: [
+      path.join(__dirname, "front/src")
+    ],
+    extensions: ['', '.js', '.jsx']
   }
 };
