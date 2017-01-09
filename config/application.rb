@@ -20,5 +20,10 @@ Bundler.require(*Rails.groups)
 module Fumifumi
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
+
+    Paperclip::Attachment.default_options[:path] =
+      Pathname(ENV['FUMIFUMI_STORAGE_ROOT'] || '/tmp')
+      .join(':rails_env/:class/:attachment/:id_partition/:filename')
+      .to_s
   end
 end

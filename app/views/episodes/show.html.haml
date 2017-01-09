@@ -3,4 +3,4 @@
 %h1= @episode.title
 - @episode.pages.each do |page|
   %div
-    %img{ src: page.url }
+    %img{ src: page_path(page) }
