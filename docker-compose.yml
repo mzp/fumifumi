@@ -22,6 +22,8 @@ services:
     links:
       - db
       - redis
+    environment:
+      FUMIFUMI_STORAGE_ROOT: /fumifumi/tmp/storage
   job:
     <<: *app
     command: bash -i -c 'bundle exec sidekiq'
