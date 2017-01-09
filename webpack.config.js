@@ -3,7 +3,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: "./front/src/main.js",
+  entry: "./front/src/main.jsx",
   output: {
     path: "public",
     filename: "bundle.js"
