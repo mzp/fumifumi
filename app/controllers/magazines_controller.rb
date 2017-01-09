@@ -13,10 +13,10 @@ class MagazinesController < ApplicationController
   def create
     magazine = ::Magazine.create(
       title: '<WIP>',
-      source: params[:magazine][:attachment].tempfile
+      source: params[:attachment].tempfile
     )
     ::ImportMagazineJob.perform_later magazine
-    redirect_to :magazines
+    render json: 'ok'.to_json
   end
 
   def destroy
