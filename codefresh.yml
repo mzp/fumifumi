@@ -11,6 +11,7 @@ steps:
     image: '${{BuildingJsImage}}'
     commands:
       - yarn install
+      - yarn build:js
       - yarn lint
       - yarn typecheck
       - yarn test front/test
