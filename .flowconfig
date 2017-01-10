@@ -6,6 +6,7 @@
 .*/spec/.*
 
 [include]
+front/src
 
 [libs]
 
