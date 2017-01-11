@@ -1,8 +1,10 @@
 {
   "sourceMaps": "inline",
   "plugins": [
+    "transform-decorators-legacy",
     "transform-flow-strip-types",
     "transform-function-bind",
+    "transform-object-rest-spread",
     "transform-react-jsx"
   ],
   "env": {
