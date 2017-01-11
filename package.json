@@ -46,6 +46,10 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-dropzone": "^3.8.0",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-actions": "^1.2.0",
+    "redux-saga": "^0.14.2",
     "uglifyjs": "^2.4.10",
     "webpack": "^1.14.0"
   },
