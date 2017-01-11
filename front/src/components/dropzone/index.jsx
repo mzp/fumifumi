@@ -32,7 +32,10 @@ export default class extends React.Component {
                     {this.props.magazineFiles.map((file) =>
                         <li key={file.id}>
                             {file.name}
-                            <Status status={file.status} />
+                            <Status
+                                error={file.error}
+                                status={file.status}
+                            />
                         </li>)}
                 </ul>
             </div>);

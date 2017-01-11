@@ -11,12 +11,14 @@ class MagazinesController < ApplicationController
   end
 
   def create
-    magazine = ::Magazine.create(
+    magazine = ::Magazine.create!(
       title: '<WIP>',
       source: params[:attachment].tempfile
     )
     ::ImportMagazineJob.perform_later magazine
     render json: 'ok'.to_json
+  rescue ActiveRecord::RecordInvalid => e
+    render json: e.message.to_json, status: :bad_request
   end
 
   def destroy
