@@ -53,7 +53,7 @@
     "func-call-spacing": 2,
     "func-name-matching": 2,
     "func-names": 2,
-    "func-style": 2,
+    "func-style": ["error", "declaration"],
     "generator-star-spacing": 2,
     "global-require": 2,
     "guard-for-in": 2,
@@ -214,8 +214,6 @@
     "object-curly-spacing": 2,
     "object-property-newline": 2,
     "object-shorthand": 2,
-    "one-var-declaration-per-line": 2,
-    "one-var": 2,
     "operator-assignment": 2,
     "operator-linebreak": 2,
     "prefer-arrow-callback": 2,
@@ -260,7 +258,6 @@
     "flowtype/generic-spacing": 2,
     "flowtype/no-dupe-keys": 2,
     "flowtype/no-primitive-constructor-types": 2,
-    "flowtype/no-weak-types": 2,
     "flowtype/object-type-delimiter": 2,
     "flowtype/require-valid-file-annotation": 2,
     "flowtype/semi": 2,
@@ -287,7 +284,13 @@
     "import/no-duplicates" : 2,
     "import/no-dynamic-require" : 2,
     "import/no-extraneous-dependencies" : 2,
-    "import/no-internal-modules" : 2,
+    "import/no-internal-modules" :  [ "error", {
+      "allow": [
+        "components/*", "actions/*", "api/*",
+        "**/lib/*",
+        "redux-saga/*"
+      ]
+    } ],
     "import/no-mutable-exports" : 2,
     "import/no-named-as-default-member" : 2,
     "import/no-named-as-default" : 2,
@@ -345,7 +348,6 @@
     "react/no-unknown-property" : 2,
     "react/no-unused-prop-types" : 2,
     "react/prefer-es6-class" : 2,
-    "react/prefer-stateless-function" : 2,
     "react/prop-types" : 2,
     "react/react-in-jsx-scope" : 2,
     "react/require-default-props" : 2,
