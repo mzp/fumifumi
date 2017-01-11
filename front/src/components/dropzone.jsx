@@ -1,7 +1,7 @@
 import {post} from "axios";
 import React from "react";
 import Dropzone from "react-dropzone";
-import headers from "rails-header";
+import upload from "api/upload";
 
 /* eslint-disable react/no-set-state */
 export default class extends React.Component {
@@ -13,20 +13,9 @@ export default class extends React.Component {
     }
 
     handleDrop (files) {
-        const
-            config = {
-                "headers": headers(),
-                "onUploadProgress": (e) => {
-                    const progress = Math.round(e.loaded * 100 / e.total);
-
-                    this.setState({"message": `${progress}%`});
-                }
-            },
-            data = new FormData();
-
-        data.append("attachment", files[0]);
-
-        post("/magazines", data, config).
+        upload(files[0], (progress) => {
+          this.setState({"message": `${progress}%`});
+        }).
         then(() => this.setState({"message": "ok"})).
         catch((err) => this.setState({"message": err.message}));
     }
