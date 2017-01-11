@@ -18,12 +18,20 @@ class MagazinesController < ApplicationController
     ::ImportMagazineJob.perform_later magazine
     render json: 'ok'.to_json
   rescue ActiveRecord::RecordInvalid => e
-    render json: e.message.to_json, status: :bad_request
+    render_error(e)
   end
 
   def destroy
     @magazine = ::Magazine.find(params[:id])
     @magazine.destroy!
     redirect_to :magazines
+  end
+
+  private
+
+  def render_error(e)
+    Rails.logger.error e
+    Rails.logger.error e.backtrace
+    render json: e.message.to_json, status: :bad_request
   end
 end
