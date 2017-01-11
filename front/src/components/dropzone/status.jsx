@@ -2,14 +2,18 @@ import React from "react";
 
 export default class extends React.PureComponent {
     static displayName = "Dropzone.Status"
-    static propTypes = {"status": React.PropTypes.string.isRequired};
+    static propTypes = {
+        "error": React.PropTypes.shape({"response": React.PropTypes.object}),
+        "status": React.PropTypes.string.isRequired
+    };
+    static defaultProps = {"error": null};
 
     render () {
         switch (this.props.status) {
         case "success":
             return <span>{"✅"}</span>;
         case "error":
-            return <span>{"⚠️"}</span>;
+            return <span>{"⚠️:"}{this.props.error.response.data}</span>;
         case "start":
             return <span>{"⏫"}</span>;
         case "prepare":
