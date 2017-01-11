@@ -1,18 +1,9 @@
 import {post} from "axios";
 import headers from "./lib/rails-header";
 
-export default function (file, onProgress) {
+export default function (file) {
     const
-        config = {
-            "headers": headers(),
-            "onUploadProgress": (e) => {
-                const progress = Math.round(e.loaded * 100 / e.total);
-
-                if (onProgress) {
-                    onProgress(progress);
-                }
-            }
-        },
+        config = {"headers": headers()},
         data = new FormData();
 
     data.append("attachment", file);
