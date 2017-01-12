@@ -4,11 +4,14 @@ services:
     build:
       context: ./config/docker
       dockerfile: Dockerfile.web
+    command: "h2o -c /etc/h2o/h2o.conf"
     ports:
       - "80:80"
       - "443:443"
     links:
       - app
+    volumes:
+      - ./pems:/etc/letsencrypt/live/fumifumi.mzp.jp
   app: &app
     build:
       context: ./config/docker
