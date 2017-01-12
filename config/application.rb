@@ -17,9 +17,12 @@ require 'sprockets/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative '../lib/monkey_patches/rack_multipart_buffer'
+
 module Fumifumi
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
+    config.middleware.insert_before Rack::Runtime, ::RackMultipartBuffer
 
     Paperclip::Attachment.default_options[:path] =
       Pathname(ENV['FUMIFUMI_STORAGE_ROOT'] || '/tmp')
