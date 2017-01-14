@@ -13,6 +13,6 @@
   }
 
   &_bodyArea {
-    padding: 0 var(--side-margin);
+    padding: 30px var(--side-margin);
   }
 }
