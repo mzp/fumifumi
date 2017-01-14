@@ -11,7 +11,7 @@
             &gt;
         .magazineEpisodeLayout_content
           %img{ src: page_url(magazine.cover) }
-        - magazine.episodes.each do |episode|
+        - magazine.episodes.includes(:page).each do |episode|
           .magazineEpisodeLayout_content
             %a{ href: episode_path(episode) }
               %img{ src: page_url(episode.page) }
