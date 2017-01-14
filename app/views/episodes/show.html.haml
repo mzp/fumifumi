@@ -1,6 +1,8 @@
-%p
-  %a{ href: magazines_path } ⏫
-%h1= @episode.title
-- @episode.pages.each do |page|
-  %div
-    %img{ src: page_path(page) }
+.pageInfo
+  %h1.pageInfo_title= @episode.title
+  - if @episode.author.present?
+    %h2.pageInfo_author= link_to @episode.author, episodes_author_index_path(name: @episode.author)
+.pagesLayout
+  - @episode.pages.each do |page|
+    .pagesLayout_page
+      %img{ src: page_path(page) }
