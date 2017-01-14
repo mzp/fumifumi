@@ -1,6 +1,6 @@
 - @magazines.each do |magazine|
   .magazineLayout
-    %h1.magazineLayout_title= magazine.title
+    %h1.magazineLayout_title= link_to magazine.title, magazine_path(magazine)
     .magazineLayout_content
       .magazineEpisodeLayout
         .magazineEpisodeLayout_prev.navButton
@@ -13,4 +13,5 @@
           %img{ src: page_url(magazine.cover) }
         - magazine.episodes.each do |episode|
           .magazineEpisodeLayout_content
-            %img{ src: page_url(episode.page) }
+            %a{ href: episode_path(episode) }
+              %img{ src: page_url(episode.page) }
