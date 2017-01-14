@@ -1,8 +1,3 @@
-:root {
-  --episode-count: 3;
-  --episode-width: ((100vw - 2 * var(--side-margin)) / var(--episode-count));
-}
-
 .magazineEpisodeLayout {
   position: relative;
   display: flex;
