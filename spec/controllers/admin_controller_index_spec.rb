@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe WelcomeController, type: :controller do
+RSpec.describe AdminController, type: :controller do
   describe '#index' do
     it do
       get :index
