@@ -20,11 +20,12 @@ services:
     volumes:
       - .:/fumifumi
       - bundle-data:/usr/local/bundle/
+      - storage-data:/storage
     links:
       - db
       - redis
     environment:
-      FUMIFUMI_STORAGE_ROOT: /fumifumi/tmp/storage
+      FUMIFUMI_STORAGE_ROOT: /storage
   job:
     <<: *app
     command: bash -i -c 'bundle exec sidekiq'
@@ -44,6 +45,8 @@ services:
   redis:
     image: redis:3-alpine
 volumes:
+  storage-data:
+    driver: local
   bundle-data:
     driver: local
   mysql-data:
