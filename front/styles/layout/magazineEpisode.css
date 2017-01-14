@@ -1,6 +1,5 @@
 .magazineEpisodeLayout {
   position: relative;
-  display: flex;
   margin-left: calc(-1 * var(--episode-width));
   margin-right: calc(-1 * var(--episode-width));
 
@@ -9,6 +8,7 @@
     top: 0;
     width: var(--side-margin);
     bottom: 0;
+    z-index: 100;
   }
 
   &_prev {
@@ -17,6 +17,13 @@
 
   &_next {
     left: calc(var(--episode-width)*4);
+  }
+
+  &_contents {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   &_content {
