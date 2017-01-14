@@ -23,6 +23,7 @@ module Fumifumi
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
     config.middleware.insert_before Rack::Runtime, ::RackMultipartBuffer
+    config.middleware.use Rack::TempfileReaper
 
     Paperclip::Attachment.default_options[:path] =
       Pathname(ENV['FUMIFUMI_STORAGE_ROOT'] || '/tmp')
