@@ -13,6 +13,7 @@
     .mainLayout
       .mainLayout_headerArea
         .header
-          %h1.header_title fumi*fumi
+          %h1.header_title
+            %a{ href: '/' } fumi*fumi
       .mainLayout_bodyArea
         = yield

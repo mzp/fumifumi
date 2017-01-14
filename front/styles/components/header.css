@@ -4,5 +4,9 @@
   &_title {
     height: 100%;
     font-size: inherit;
+
+    & a {
+      color: inherit;
+    }
   }
 }
