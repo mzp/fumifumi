@@ -10,4 +10,8 @@
       %link{ rel: 'stylesheet', media: 'all', href: '/bundle.css' }
       %script{ src: '/bundle.js' }
   %body
-    = yield
+    .mainLayout
+      .mainLayout_headerArea
+        %h1 fumi*fumi
+      .mainLayout_bodyArea
+        = yield

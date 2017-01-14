@@ -1,0 +1,18 @@
+:root {
+  --header-height: 44px;
+  --header-text-size: 1.5rem;
+}
+
+.mainLayout {
+  &_headerArea {
+    background-color: var(--key-color);
+    color: white;
+    height: var(--header-height);
+    padding: calc((44px - 1.5rem) / 2) var(--side-margin);
+    font-size: var(--header-text-size);
+  }
+
+  &_bodyArea {
+    padding: 0 var(--side-margin);
+  }
+}
