@@ -10,8 +10,6 @@ services:
       - "443:443"
     links:
       - app
-    volumes:
-      - ./pems:/etc/letsencrypt/live/fumifumi.mzp.jp
   app: &app
     build:
       context: ./config/docker
