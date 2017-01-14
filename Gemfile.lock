@@ -1,3 +1,15 @@
+GIT
+  remote: https://github.com/erkki/paperclip.git
+  revision: 8e1dae7dd50b18b97bebf89cf9b40b750109b50c
+  branch: unlink_tempfiles
+  specs:
+    paperclip (4.3.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -104,12 +116,6 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-    paperclip (5.1.0)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
-      cocaine (~> 0.5.5)
-      mime-types
-      mimemagic (~> 0.3.0)
     parser (2.3.3.1)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -231,7 +237,7 @@ DEPENDENCIES
   jbuilder
   listen
   mysql2
-  paperclip
+  paperclip!
   pry
   puma
   rails (= 5.0.1)
