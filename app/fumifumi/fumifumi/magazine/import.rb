@@ -17,7 +17,7 @@ module Fumifumi
           end
 
           each_nav do |title, ref|
-            magazine.episodes.create! title: title, page: toc[ref]
+            magazine.episodes.create! Fumifumi::Episode::Info.new(title).call.merge(page: toc[ref])
           end
         end
       end

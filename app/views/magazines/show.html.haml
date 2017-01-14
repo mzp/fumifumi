@@ -8,4 +8,6 @@
 
 %ul
   - @magazine.episodes.each do |episode|
-    %li= link_to episode.title, episode_path(episode)
+    %li
+      = episode.author
+      = link_to episode.title, episode_path(episode)
