@@ -1,6 +1,8 @@
 %h1 Magazine#index
 %p
   %a{ href: new_magazine_path } 📥
+%p
+  = button_to '↪️', magazines_import_index_path
 %div
   - @magazines.each do |magazine|
     %div
