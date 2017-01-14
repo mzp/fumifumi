@@ -4,7 +4,10 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   get '/' => 'welcome#index'
 
-  resources :episodes, only: %i(show)
+  resources :episodes, only: %i(show), constraints: { id: /\d+/ }
+  namespace :episodes do
+    resources :author, only: %i(index)
+  end
 
   resources :magazines, only: %i(index new create show destroy)
   namespace :magazines do

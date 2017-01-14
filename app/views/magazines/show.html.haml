@@ -9,5 +9,6 @@
 %ul
   - @magazine.episodes.each do |episode|
     %li
-      = episode.author
+      - if episode.author.present?
+        = link_to episode.author, episodes_author_index_path(name: episode.author)
       = link_to episode.title, episode_path(episode)
