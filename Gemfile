@@ -11,7 +11,9 @@ gem 'gepub'
 gem 'haml-rails'
 gem 'jbuilder'
 gem 'mysql2'
-gem 'paperclip'
+# close+unlink leaking tempfiles
+# https://github.com/thoughtbot/paperclip/pull/2143
+gem 'paperclip', github: 'erkki/paperclip', branch: 'unlink_tempfiles'
 gem 'puma'
 gem 'sidekiq'
 
