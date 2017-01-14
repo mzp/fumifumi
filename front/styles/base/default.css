@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', 'Noto Sans Japanese', -apple-system, 'BlinkMacSystemFont', sans-serif;
+  font-size: 14px;
+}
+
+p {
+  min-height: 1rem;
+  line-height: 1.5rem;
+}
