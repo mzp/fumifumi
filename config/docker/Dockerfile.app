@@ -16,5 +16,7 @@ WORKDIR /usr/src/app
 RUN bundle --without development test
 COPY . /usr/src/app
 
+RUN git rev-parse HEAD > public/HEAD
+
 EXPOSE 3000
 CMD [ 'bin/launch' ]
