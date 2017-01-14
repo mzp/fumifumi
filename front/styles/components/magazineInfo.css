@@ -1,0 +1,5 @@
+.magazineInfo {
+  &_title {
+    font-size: 2rem;
+  }
+}

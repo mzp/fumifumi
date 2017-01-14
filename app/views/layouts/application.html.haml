@@ -7,7 +7,13 @@
       %link{ rel: 'stylesheet', media: 'all', href: '/bundle.min.css' }
       %script{ src: '/bundle.min.js' }
     - else
-      %link{ rel: 'stylesheet', media: 'all', href: '/bundle.css' }
+      %link{ rel: 'stylesheet', media: 'all', href: "/bundle.css?#{Time.current.to_i}" }
       %script{ src: '/bundle.js' }
   %body
-    = yield
+    .mainLayout
+      .mainLayout_headerArea
+        .header
+          %h1.header_title
+            %a{ href: '/' } fumi*fumi
+      .mainLayout_bodyArea
+        = yield

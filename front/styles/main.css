@@ -1,7 +1,5 @@
-:root {
-  --color: red;
-}
-
-div {
-  color: var(--color);
-}
+@import 'variable';
+@import 'unit';
+@import 'base';
+@import 'components';
+@import 'layout';

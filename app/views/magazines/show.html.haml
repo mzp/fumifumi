@@ -1,14 +1,13 @@
-%p
-  %a{ href: magazines_path } ⏫
-%h1= @magazine.title
+.magazineInfo
+  %h1.magazineInfo_title
+    = @magazine.title
+
+.episodesLayout
+  - @magazine.episodes.each do |episode|
+    .episodesLayout_episode
+      %a{ href: episode_path(episode) }
+        %img{ src: page_url(episode.page) }
 
 %div
   = button_to '↪️', magazines_import_path(@magazine), method: :put
   = button_to '❌', magazine_path(@magazine), method: :delete
-
-%ul
-  - @magazine.episodes.each do |episode|
-    %li
-      - if episode.author.present?
-        = link_to episode.author, episodes_author_index_path(name: episode.author)
-      = link_to episode.title, episode_path(episode)

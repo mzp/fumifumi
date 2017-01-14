@@ -1,0 +1,8 @@
+.pagesLayout {
+  width: calc(100vw - 2 * var(--side-margin));
+  &_page {
+    & img {
+      width: 100%;
+    }
+  }
+}

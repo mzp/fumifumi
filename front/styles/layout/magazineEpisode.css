@@ -1,0 +1,31 @@
+.magazineEpisodeLayout {
+  position: relative;
+  display: flex;
+  margin-left: calc(-1 * var(--episode-width));
+  margin-right: calc(-1 * var(--episode-width));
+
+  &_prev, &_next {
+    position: absolute;
+    top: 0;
+    width: var(--side-margin);
+    bottom: 0;
+  }
+
+  &_prev {
+    right: calc(var(--episode-width)*4);
+  }
+
+  &_next {
+    left: calc(var(--episode-width)*4);
+  }
+
+  &_content {
+    flex-basis: calc(var(--episode-width));
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    & img {
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+:root {
+  --magazine-height: 280px;
+}
+
+.magazineLayout {
+  &_title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,12 @@
+.header {
+  height: 100%;
+
+  &_title {
+    height: 100%;
+    font-size: inherit;
+
+    & a {
+      color: inherit;
+    }
+  }
+}
