@@ -1,0 +1,7 @@
+%h1= @author
+
+%ul
+  - @episodes.each do |episode|
+    %li
+      = episode.magazine.title
+      = link_to episode.title, episode_path(episode)

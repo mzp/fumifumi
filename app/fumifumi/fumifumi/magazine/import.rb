@@ -6,9 +6,8 @@ module Fumifumi
         @magazine = magazine
       end
 
-      def call # rubocop:disable Metrics/MethodLength
+      def call
         update_magazine do |magazine|
-          magazine.reset!
           magazine.update! title: book.title
           toc = {}
 
@@ -17,7 +16,7 @@ module Fumifumi
           end
 
           each_nav do |title, ref|
-            magazine.episodes.create! title: title, page: toc[ref]
+            magazine.episodes.create! attributes(title, ref, toc: toc)
           end
         end
       end
@@ -66,6 +65,7 @@ module Fumifumi
 
       def update_magazine
         ApplicationRecord.transaction do
+          magazine.reset!
           magazine.tap(&Proc.new)
         end
       end
@@ -87,6 +87,10 @@ module Fumifumi
         html.css('navpoint').each do |e|
           yield e.css('text').text, e.css('content').attribute('src').value
         end
+      end
+
+      def attributes(title, ref, toc:)
+        Fumifumi::Episode::Info.new(title).call.merge(page: toc[ref])
       end
 
       def tempfile
