@@ -7,8 +7,10 @@ html {
   font-size: 14px;
 }
 
-body {
+html, body {
+  position: relative;
   overflow-x: hidden;
+  width: 100%;
 }
 
 p {
