@@ -1,7 +1,7 @@
-.pageInfo
-  %h1.pageInfo_title= @episode.title
+.info
+  %h1.info_main= @episode.title
   - if @episode.author.present?
-    %h2.pageInfo_author= link_to @episode.author, episodes_author_index_path(name: @episode.author)
+    %h2.info_sub= link_to @episode.author, episodes_author_index_path(name: @episode.author)
 .pagesLayout
   - @episode.pages.each do |page|
     .pagesLayout_page
