@@ -1,7 +1,9 @@
-%h1= @author
+.info
+  %h1.info_main= @author
 
-%ul
+.episodesLayout
   - @episodes.each do |episode|
-    %li
-      = episode.magazine.title
-      = link_to episode.title, episode_path(episode)
+    .episodesLayout_episode
+      %a{ href: episode_path(episode) }
+        %img{ src: page_url(episode.page) }
+
