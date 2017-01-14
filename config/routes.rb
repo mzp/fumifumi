@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :magazines, only: %i(index new create show destroy)
   namespace :magazines do
-    resources :import, only: %i(update)
+    resources :import, only: %i(create update)
   end
 
   resources :pages, only: %i(show)
