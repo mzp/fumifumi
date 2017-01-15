@@ -4,7 +4,7 @@ import {render} from "react-dom";
 import {Provider} from "react-redux";
 import {Router, Route, browserHistory} from "react-router";
 import {syncHistoryWithStore} from "react-router-redux";
-import Dropzone from "components/dropzone";
+import MagazineImport from "components/magazine/import";
 import createStore from "store";
 
 window.onload = () => {
@@ -18,7 +18,7 @@ window.onload = () => {
             <Provider store={store}>
                 <Router history={history}>
                     <Route
-                        component={Dropzone}
+                        component={MagazineImport}
                         path="/magazines/new"
                     />
                 </Router>

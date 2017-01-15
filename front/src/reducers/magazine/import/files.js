@@ -14,7 +14,7 @@ function update (files, target, f) {
 export default handleActions({
     "@@INIT": (state) => state,
 
-    "magazine-files.error": (state, action) => {
+    "magazine.import.error": (state, action) => {
         const {file, error} = action.payload;
 
         return update(state, file, (x) =>
@@ -25,7 +25,7 @@ export default handleActions({
             }));
     },
 
-    "magazine-files.set": (state, action) =>
+    "magazine.import.set": (state, action) =>
         action.payload.map((file, i) => ({
             file,
             "id": i,
@@ -33,14 +33,14 @@ export default handleActions({
             "status": "prepare"
         })),
 
-    "magazine-files.start": (state, action) =>
+    "magazine.import.start": (state, action) =>
         update(state, action.payload, (file) =>
             ({
                 ...file,
                 "status": "start"
             })),
 
-    "magazine-files.success": (state, action) =>
+    "magazine.import.success": (state, action) =>
         update(state, action.payload, (file) =>
             ({
                 ...file,

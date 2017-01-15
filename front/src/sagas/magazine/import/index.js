@@ -1,12 +1,12 @@
 /* @flow */
 import {call, take, put} from "redux-saga/effects";
-import action from "actions/magazine-files";
+import action from "actions/magazine/import";
 import apiUpload from "api/upload";
 
 export default function *(): Generator<*, *, *> {
     // eslint-disable-next-line no-constant-condition
     while (true) {
-        const {payload} = yield take("saga.upload-magazine");
+        const {payload} = yield take("saga.magazine.import");
 
         yield put(action.set(payload));
 

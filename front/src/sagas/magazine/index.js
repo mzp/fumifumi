@@ -1,6 +1,6 @@
 import {fork} from "redux-saga/effects";
-import magazine from "./magazine";
+import import_ from "./import";
 
 export default function *() {
-    yield fork(magazine);
+    yield fork(import_);
 }
