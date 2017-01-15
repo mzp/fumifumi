@@ -45,6 +45,7 @@ steps:
       path: /codefresh/volume/cf-generated
       name: unit_test_script
       content: |-
+        set -e
         cd /codefresh/volume/fumifumi
         bundle install --with test
         sleep 20
