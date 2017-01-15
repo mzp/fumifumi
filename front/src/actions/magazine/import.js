@@ -1,14 +1,16 @@
 /* @flow */
-import {createAction} from "redux-actions";
+import createAction from "actions/lib/create-action";
+
+const action = createAction("magazine.import");
 
 export default {
-    "error": createAction("magazine.import.error",
+    "error": action("error",
       (file, error) => ({
           error,
           file
       })),
 
-    "set": createAction("magazine.import.set"),
-    "start": createAction("magazine.import.start"),
-    "success": createAction("magazine.import.success")
+    "set": action("set"),
+    "start": action("start"),
+    "success": action("success")
 };
