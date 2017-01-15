@@ -2,7 +2,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  get '/' => redirect("/magazines")
+  get '/' => redirect('/magazines')
   get '/admin' => 'admin#index'
 
   resources :episodes, only: %i(show), constraints: { id: /\d+/ }
