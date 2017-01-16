@@ -10,12 +10,20 @@ Rails.application.routes.draw do
     resources :author, only: %i(index)
   end
 
-  resources :magazines, only: %i(index new create show destroy)
+  resources :magazines, only: %i(new create show destroy)
   namespace :magazines do
     resources :import, only: %i(create update)
   end
 
+  scope :api do
+    resources :magazines, only: %i(index)
+  end
+
   resources :pages, only: %i(show)
+
+  %w(/magazines).each do |path|
+    get path => 'react#mount_page'
+  end
 
   mount Sidekiq::Web => '/sidekiq'
 end

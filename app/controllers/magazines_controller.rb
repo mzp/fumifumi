@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class MagazinesController < ApplicationController
   def index
-    @magazines = ::Magazine.all
+    render json: Magazine.all.map(&Resource::Magazine.method(:new))
   end
 
   def new; end
