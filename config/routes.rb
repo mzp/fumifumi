@@ -21,5 +21,9 @@ Rails.application.routes.draw do
 
   resources :pages, only: %i(show)
 
+  %w(/magazines).each do |path|
+    get path => 'react#mount_page'
+  end
+
   mount Sidekiq::Web => '/sidekiq'
 end
