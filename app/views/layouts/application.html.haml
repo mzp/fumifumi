@@ -8,7 +8,7 @@
       %script{ src: '/bundle.min.js' }
     - else
       %link{ rel: 'stylesheet', media: 'all', href: "/bundle.css?#{Time.current.to_i}" }
-      %script{ src: '/bundle.js' }
+      %script{ src: "/bundle.js?#{Time.current.to_i}" }
   %body
     .mainLayout
       .mainLayout_headerArea
