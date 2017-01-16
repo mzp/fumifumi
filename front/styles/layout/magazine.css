@@ -3,8 +3,11 @@
 }
 
 .magazineLayout {
+  margin-bottom: 40px;
+
   &_title {
     font-size: 1.8rem;
+    height: 1.8rem;
     margin-bottom: 20px;
   }
 }
