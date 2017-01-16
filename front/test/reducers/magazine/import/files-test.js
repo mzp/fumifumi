@@ -1,7 +1,7 @@
 import test from "ava";
 
 // eslint-disable-next-line import/no-internal-modules
-import reducer from "reducers/magazine-files";
+import reducer from "reducers/magazine/import/files";
 
 const foo = {"name": "foo"};
 const bar = {"name": "bar"};
@@ -10,7 +10,7 @@ test((t) => {
     t.deepEqual(
         reducer([], {
             "payload": [foo, bar],
-            "type": "magazine-files.set"
+            "type": "magazine.import.set"
         }),
         [
             {
@@ -47,7 +47,7 @@ test((t) => {
     const next =
     reducer(state, {
         "payload": foo,
-        "type": "magazine-files.start"
+        "type": "magazine.import.start"
     });
 
     t.is(next[0].status, "start");
@@ -58,7 +58,7 @@ test((t) => {
     const next =
     reducer(state, {
         "payload": foo,
-        "type": "magazine-files.success"
+        "type": "magazine.import.success"
     });
 
     t.is(next[0].status, "success");
@@ -72,7 +72,7 @@ test((t) => {
             "error": "error",
             "file": foo
         },
-        "type": "magazine-files.error"
+        "type": "magazine.import.error"
     });
 
     t.is(next[0].status, "error");

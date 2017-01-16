@@ -1,5 +1,10 @@
 /* @flow */
 import {combineReducers} from "redux";
-import magazineFiles from "./magazine-files";
+import {routerReducer} from "react-router-redux";
+import magazine from "./magazine";
 
-export default combineReducers({magazineFiles});
+
+export default combineReducers({
+    magazine,
+    "routing": routerReducer
+});

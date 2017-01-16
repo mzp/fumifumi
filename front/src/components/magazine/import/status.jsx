@@ -1,7 +1,7 @@
 import React from "react";
 
 export default class extends React.PureComponent {
-    static displayName = "Dropzone.Status"
+    static displayName = "Magazine.Import.Status"
     static propTypes = {
         "error": React.PropTypes.shape({"response": React.PropTypes.object}),
         "status": React.PropTypes.string.isRequired

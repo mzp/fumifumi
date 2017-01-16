@@ -3,22 +3,22 @@ import Dropzone from "react-dropzone";
 import Status from "./status";
 import connect from "components/lib/connect";
 
-@connect()
+@connect("magazine.import_")
 export default class extends React.Component {
-    static displayName = "Dropzone"
+    static displayName = "Magazine.Import"
     static propTypes = {
         "dispatch": React.PropTypes.func,
-        "magazineFiles": React.PropTypes.arrayOf(Object)
+        "files": React.PropTypes.arrayOf(Object)
     };
     static defaultProps = {
         "dispatch": null,
-        "magazineFiles": []
+        "files": []
     };
 
     handleDrop (files) {
         this.props.dispatch({
             "payload": files,
-            "type": "saga.upload-magazine"
+            "type": "saga.magazine.import"
         });
     }
 
@@ -29,7 +29,7 @@ export default class extends React.Component {
                     {"📥"}
                 </Dropzone>
                 <ul>
-                    {this.props.magazineFiles.map((file) =>
+                    {this.props.files.map((file) =>
                         <li key={file.id}>
                             {file.name}
                             <Status

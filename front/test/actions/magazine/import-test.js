@@ -1,12 +1,12 @@
 import test from "ava";
-import action from "actions/magazine-files";
+import action from "actions/magazine/import";
 
 test((t) => {
     t.deepEqual(
         action.set(["foo", "bar"]),
         {
             "payload": ["foo", "bar"],
-            "type": "magazine-files.set"
+            "type": "magazine.import.set"
         });
 });
 
@@ -15,7 +15,7 @@ test((t) => {
         action.start("foo"),
         {
             "payload": "foo",
-            "type": "magazine-files.start"
+            "type": "magazine.import.start"
         });
 });
 
@@ -24,7 +24,7 @@ test((t) => {
         action.success("foo"),
         {
             "payload": "foo",
-            "type": "magazine-files.success"
+            "type": "magazine.import.success"
         });
 });
 
@@ -36,6 +36,6 @@ test((t) => {
                 "error": "error",
                 "file": "foo"
             },
-            "type": "magazine-files.error"
+            "type": "magazine.import.error"
         });
 });

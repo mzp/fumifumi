@@ -2,7 +2,9 @@
 import React from "react";
 import {render} from "react-dom";
 import {Provider} from "react-redux";
-import Dropzone from "components/dropzone";
+import {Router, Route, browserHistory} from "react-router";
+import {syncHistoryWithStore} from "react-router-redux";
+import MagazineImport from "components/magazine/import";
 import createStore from "store";
 
 window.onload = () => {
@@ -10,7 +12,17 @@ window.onload = () => {
 
     if (mountNode) {
         const store = createStore();
+        const history = syncHistoryWithStore(browserHistory, store);
 
-        render(<Provider store={store}><Dropzone /></Provider>, mountNode);
+        render(
+            <Provider store={store}>
+                <Router history={history}>
+                    <Route
+                        component={MagazineImport}
+                        path="/magazines/new"
+                    />
+                </Router>
+            </Provider>,
+          mountNode);
     }
 };
