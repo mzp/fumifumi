@@ -1,6 +1,7 @@
 import React from "react";
 import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
+import Magazine from "./Magazine";
 import connect from "components/lib/connect";
 
 @connect("magazine.list")
@@ -28,7 +29,15 @@ export default class extends React.Component {
             <ReactPlaceholder
                 customPlaceholder={Placeholder}
                 ready={this.props.ready}
-            />
+            >
+                <div>
+                    {magazines.map((m) =>
+                        <Magazine
+                            key={m.id}
+                            {...m}
+                        />) }
+                </div>
+            </ReactPlaceholder>
         );
     }
 }
