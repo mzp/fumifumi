@@ -5,6 +5,7 @@ import {Provider} from "react-redux";
 import {Router, Route, browserHistory} from "react-router";
 import {syncHistoryWithStore} from "react-router-redux";
 import MagazineImport from "components/magazine/import";
+import MagazineList from "components/magazine/list";
 import createStore from "store";
 
 window.onload = () => {
@@ -20,6 +21,10 @@ window.onload = () => {
                     <Route
                         component={MagazineImport}
                         path="/magazines/new"
+                    />
+                    <Route
+                        component={MagazineList}
+                        path="/magazines"
                     />
                 </Router>
             </Provider>,
