@@ -15,7 +15,6 @@ function content (alpha) {
         >
             <RectShape
                 color={`rgba(0,0,0,${alpha})`}
-                style={{"height": "20rem"}}
             />
         </div>
     );
@@ -37,7 +36,7 @@ function magazine () {
                         {content(0.2)}
                         {content(0.2)}
                         {content(0.2)}
-                        {content(0)}
+                        {content(0.2)}
                     </div>
                 </div>
             </div>
