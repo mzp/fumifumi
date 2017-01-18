@@ -8,4 +8,24 @@
   justify-content: center;
   align-items: center;
   @apply --clickable;
+
+  &-hidden {
+    animation: hide 0.5s;
+    opacity: 0;
+  }
+
+  &-shown {
+    animation: show 0.5s;
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes show {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
