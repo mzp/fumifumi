@@ -3675,6 +3675,11 @@ rx-lite@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-3.1.2.tgz#19ce502ca572665f3b647b10939f97fd1615f102"
 
+"scroll-to@file:./front/lib/scroll-to":
+  version "0.1.0"
+  dependencies:
+    tween.js "https://github.com/tweenjs/tween.js/archive/16.4.tar.gz"
+
 semver-diff@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/semver-diff/-/semver-diff-2.1.0.tgz#4bbb8437c8d37e4b0cf1a68fd726ec6d645d6d36"
@@ -4019,6 +4024,10 @@ tty-browserify@0.0.0:
 tunnel-agent@~0.4.1:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.4.3.tgz#6373db76909fe570e08d73583365ed828a74eeeb"
+
+"tween.js@https://github.com/tweenjs/tween.js/archive/16.4.tar.gz":
+  version "0.0.0-development"
+  resolved "https://github.com/tweenjs/tween.js/archive/16.4.tar.gz#16dda8b6701ccc30b1b5715e165bf5a51877a4b1"
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
