@@ -1,5 +1,6 @@
 import React from "react";
 import cx from "classnames";
+import b from "components/lib/b";
 
 export default class extends React.PureComponent {
     static displayName = "MagazineList.Magazine";
@@ -17,7 +18,7 @@ export default class extends React.PureComponent {
 
         return (
             <div className={cx(layout, "navButton")}>
-                <div className="navButton_label">{label}</div>
+                <div className={b("navButton", "label")}>{label}</div>
             </div>
         );
     }

@@ -1,5 +1,6 @@
 import React from "react";
 import {RectShape} from "react-placeholder/lib/placeholders";
+import b from "components/lib/b";
 
 // Because react-placeholder use style props, disable eslist.
 /* eslint-disable react/forbid-component-props */
@@ -7,10 +8,13 @@ import {RectShape} from "react-placeholder/lib/placeholders";
 // I want to define placeholder module at one file.
 /* eslint-disable react/no-multi-comp */
 
-function content (alpha) {
+const magazine = b.with("magazineLayout");
+const magazineEpisode = b.with("magazineEpisodeLayout");
+
+function contentArea (alpha) {
     return (
         <div
-            className="magazineEpisodeLayout_content"
+            className={magazineEpisode("content")}
             style={{"padding": "1px"}}
         >
             <RectShape
@@ -20,23 +24,23 @@ function content (alpha) {
     );
 }
 
-function magazine () {
+function magazineArea () {
     return (
-        <div className="magazineLayout">
-            <div className="magazineLayout_title">
+        <div className={magazine()}>
+            <div className={magazine("title")}>
                 <RectShape
                     color="rgba(0,0,0,0.2)"
                     style={{"width": "20rem"}}
                 />
             </div>
-            <div className="magazineLayout_content">
-                <div className="magazineEpisodeLayout">
-                    <div className="magazineEpisodeLayout_contents">
-                        {content(0)}
-                        {content(0.2)}
-                        {content(0.2)}
-                        {content(0.2)}
-                        {content(0.2)}
+            <div className={magazine("content")}>
+                <div className={magazineEpisode()}>
+                    <div className={magazineEpisode("contents")}>
+                        {contentArea(0)}
+                        {contentArea(0.2)}
+                        {contentArea(0.2)}
+                        {contentArea(0.2)}
+                        {contentArea(0.2)}
                     </div>
                 </div>
             </div>
@@ -46,8 +50,8 @@ function magazine () {
 
 export default (
     <div>
-        {magazine()}
-        {magazine()}
-        {magazine()}
+        {magazineArea()}
+        {magazineArea()}
+        {magazineArea()}
     </div>
 );
