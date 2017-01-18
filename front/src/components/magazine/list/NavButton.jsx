@@ -22,7 +22,7 @@ export default class extends React.PureComponent {
 
         return (
             <div
-                className={cx(layout, navButton({ hidden: !enable }))}
+                className={cx(layout, navButton({"hidden": !enable}))}
                 onClick={onNav}
             >
                 <div className={navButton("label")}>{label}</div>
