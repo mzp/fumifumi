@@ -13,12 +13,31 @@ function ceil (n, base) {
     return Math.ceil(n / base) * base;
 }
 
-export default class extends React.PureComponent {
+export default class extends React.Component {
     static displayName = "MagazineList.Magazine"
     static propTypes = Types.magazine;
 
+    ref (contents) {
+//        console.log(contents);
+        if(this.contents) { return; }
+        this.contents = contents;
+        contents.addEventListener('scroll', (e) => {
+          this.setState({ 'scroll': e.target.scrollLeft });
+        });
+    }
+
+    isPrev () {
+        if(!this.contents) { return true; }
+        const max = this.contents.scrollWidth - this.contents.offsetWidth;
+        return this.state && this.state.scroll !== max;
+    }
+
     onPrev () {
         scollTo(this.contents, floor(this.x + this.unit, this.width()), 0);
+    }
+
+    isNext () {
+        return this.state && this.state.scroll !== 0;
     }
 
     onNext () {
@@ -46,20 +65,20 @@ export default class extends React.PureComponent {
                 <div className={magazine("content")}>
                     <div className={magazineEpisode()}>
                         <NavButton
+                            enable={this.isPrev()}
                             label="<"
                             layout={magazineEpisode("prev")}
                             onNav={::this.onPrev}
                         />
                         <NavButton
+                            enable={this.isNext()}
                             label=">"
                             layout={magazineEpisode("next")}
                             onNav={::this.onNext}
                         />
                         <div
                             className={magazineEpisode("contents")}
-                            ref={(c) => {
-                                this.contents = c;
-                            }}
+                            ref={::this.ref}
                         >
                             <div
                                 className={magazineEpisode("content")}
