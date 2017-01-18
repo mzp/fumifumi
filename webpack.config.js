@@ -4,6 +4,7 @@ var path = require('path');
 
 module.exports = {
   entry: "./front/src/main.jsx",
+  devtool: "inline-source-map",
   output: {
     path: "public",
     filename: "bundle.js"
