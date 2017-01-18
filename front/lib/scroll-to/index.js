@@ -34,15 +34,15 @@ function scrollTo (element, x, y, options) {
     }, options.delay || 1000);
 
     // Scroll
-    tween.onUpdate(() => {
+    tween.onUpdate(function () {
         element.scrollLeft = position.left || 0;
         element.scrollTop = position.top || 0;
     });
 
-    let rid = null;
+    var rid = null;
 
     // Handle end
-    tween.onStop(() => {
+    tween.onStop(function () {
         window.cancelAnimationFrame(rid);
     });
 
