@@ -6,7 +6,8 @@ export default class extends React.PureComponent {
     static displayName = "MagazineList.Magazine";
     static propTypes = {
         "label": React.PropTypes.string,
-        "layout": React.PropTypes.string
+        "layout": React.PropTypes.string,
+        "onNav": React.PropTypes.func
     };
     static defaultProps = {
         "label": "",
@@ -14,10 +15,13 @@ export default class extends React.PureComponent {
     }
 
     render () {
-        const {layout, label} = this.props;
+        const {layout, label, onNav} = this.props;
 
         return (
-            <div className={cx(layout, "navButton")}>
+            <div
+                className={cx(layout, "navButton")}
+                onClick={onNav}
+            >
                 <div className={b("navButton", "label")}>{label}</div>
             </div>
         );
