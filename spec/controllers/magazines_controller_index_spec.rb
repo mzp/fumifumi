@@ -40,6 +40,7 @@ RSpec.describe MagazinesController, type: :controller do
       let(:magazine) { create(:magazine) }
       let(:page) { create(:page, magazine: magazine) }
       let!(:episode) { create(:episode, magazine: magazine, page: page) }
+      before { create_list(:page, 3, magazine: magazine) }
 
       it do
         expect(subject).to be_json_eql(episode.id.to_json)
@@ -48,6 +49,8 @@ RSpec.describe MagazinesController, type: :controller do
           .at_path('0/episodes/0/url')
         expect(subject).to be_json_eql(page_path(page).to_json)
           .at_path('0/episodes/0/page/image_url')
+        expect(subject).to have_json_size(4)
+          .at_path('0/episodes/0/pages')
       end
     end
   end
