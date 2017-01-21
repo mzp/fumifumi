@@ -12,7 +12,6 @@ class MagazinesController < ApplicationController
 
   def create
     magazine = ::Magazine.create!(
-      title: '<WIP>',
       source: params[:attachment].tempfile
     )
     ::ImportMagazineJob.perform_later magazine

@@ -8,7 +8,7 @@ module Fumifumi
 
       def call
         update_magazine do |magazine|
-          magazine.update! title: book.title
+          magazine.update! title: book.title, finished_at: Time.current
           toc = {}
 
           each_page do |item, content, no|
