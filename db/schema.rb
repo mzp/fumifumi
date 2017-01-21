@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114010605) do
+ActiveRecord::Schema.define(version: 20170121114056) do
 
   create_table "episodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "magazine_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170114010605) do
     t.string   "source_content_type"
     t.integer  "source_file_size"
     t.datetime "source_updated_at"
+    t.datetime "finished_at"
   end
 
   create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

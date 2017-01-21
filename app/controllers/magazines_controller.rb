@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class MagazinesController < ApplicationController
   def index
-    render json: Magazine.all.map(&Resource::Magazine.method(:new))
+    render json: Magazine.finished.map(&Resource::Magazine.method(:new))
   end
 
   def new; end
@@ -12,7 +12,6 @@ class MagazinesController < ApplicationController
 
   def create
     magazine = ::Magazine.create!(
-      title: '<WIP>',
       source: params[:attachment].tempfile
     )
     ::ImportMagazineJob.perform_later magazine

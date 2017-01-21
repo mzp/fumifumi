@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 RSpec.describe Magazine, type: :model do
+  describe 'finished_at' do
+    let!(:magazine) { create(:magazine) }
+    let!(:wip_magazine) { create(:wip_magazine) }
+    describe '.finished' do
+      subject { described_class.finished }
+      it do
+        expect(subject).to include(magazine)
+        expect(subject).to_not include(wip_magazine)
+      end
+    end
+  end
+
   describe '#reset!' do
     let(:magazine) { create(:magazine) }
     let!(:pages) { create_list(:page, 3, magazine: magazine) }

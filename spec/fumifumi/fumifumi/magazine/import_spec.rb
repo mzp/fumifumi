@@ -4,7 +4,7 @@ RSpec.describe Fumifumi::Magazine::Import do
   subject { Fumifumi::Magazine::Import.new(magazine).call }
 
   describe '#import' do
-    let(:magazine) { create(:magazine) }
+    let(:magazine) { create(:wip_magazine) }
     it do
       expect { subject }.to change(::Page, :count).by(5)
 
@@ -16,6 +16,7 @@ RSpec.describe Fumifumi::Magazine::Import do
       expect(subject.episodes.map(&:page)).to contain_exactly(
         *subject.pages[1..4].to_a
       )
+      expect(subject.finished_at).to be_present
     end
 
     context 'import again' do
