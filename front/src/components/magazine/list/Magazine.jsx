@@ -1,7 +1,9 @@
 import React from "react";
+import includes from "lodash.includes";
 import Page from "./Page";
 import Types from "./types";
 import Scroll from "./Scroll";
+import Episode from "./Episode";
 import b from "components/lib/b";
 import connect from "components/lib/connect";
 import action from "actions/magazine/list";
@@ -46,6 +48,10 @@ export default class extends React.Component {
                                 />)
                         ]}
                     </Scroll>
+                    <Episode
+                        ready={includes(episodes, selectedEpisode)}
+                        {...selectedEpisode}
+                    />
                 </div>
             </div>
         );

@@ -3,7 +3,10 @@ import {PropTypes} from "react";
 const page = {"image_url": PropTypes.string};
 
 const episode = {
+    "author": PropTypes.string,
     "page": PropTypes.shape(page),
+    "pages": PropTypes.arrayOf(PropTypes.shape(page)),
+    "title": PropTypes.string,
     "url": PropTypes.string
 };
 
