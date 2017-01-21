@@ -4,8 +4,6 @@ class MagazinesController < ApplicationController
     render json: Magazine.finished.map(&Resource::Magazine.method(:new))
   end
 
-  def new; end
-
   def show
     @magazine = ::Magazine.find(params[:id])
   end

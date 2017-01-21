@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :author, only: %i(index)
   end
 
-  resources :magazines, only: %i(new create show), constraints: { id: /\d+/ }
+  resources :magazines, only: %i(create show), constraints: { id: /\d+/ }
   namespace :magazines do
     resources :dashboard, only: %i(index destroy)
     resources :import, only: %i(create update)
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :pages, only: %i(show)
 
-  %w(/magazines).each do |path|
+  %w(/magazines /magazines/new).each do |path|
     get path => 'react#mount_page'
   end
 
