@@ -20,7 +20,7 @@ export default class extends React.Component {
 
     render () {
         if (!this.props.ready) {
-            return <div />;
+            return null;
         }
 
         const {author, title, pages} = this.props;
@@ -30,7 +30,7 @@ export default class extends React.Component {
         const button = b.with("button");
 
         return (
-            <div className={layout()}>
+            <div className={cx(layout(), "episodeInfo")}>
                 <div className={layout("title")}>{title}</div>
                 <div className={layout("author")}>{author}</div>
                 <div className={cx(layout("pages"), thumbnail())}>
