@@ -9,6 +9,7 @@ RSpec.describe MagazinesController, type: :controller do
 
     describe 'magazines' do
       let!(:magazines) { create_list(:magazine, 3) }
+      let!(:wip_magazine) { create(:wip_magazine) }
 
       before do
         magazines.each do |magazine|
@@ -23,6 +24,9 @@ RSpec.describe MagazinesController, type: :controller do
           expect(subject).to include_json(magazine.to_json)
             .excluding('cover', 'episodes')
         end
+
+        expect(subject).to_not include_json(wip_magazine.to_json)
+          .excluding('cover', 'episodes')
       end
     end
 
