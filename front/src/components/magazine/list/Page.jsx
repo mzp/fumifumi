@@ -1,17 +1,35 @@
 import React from "react";
+import cx from "classnames";
 import Types from "./types";
 import b from "components/lib/b";
 
 export default class extends React.PureComponent {
     static displayName = "MagazineList.Page";
-    static propTypes = Types.page;
+    static propTypes = {
+        "focus": React.PropTypes.bool,
+        "layout": React.PropTypes.string,
+        "onClick": React.PropTypes.func,
+        ...Types.page
+    };
+
+    static defaultProps = {
+        "focus": false,
+        "layout": "",
+        "onClick": null
+    }
 
     render () {
-        const {"image_url": imageURL, url} = this.props;
+        const {"image_url": imageURL, layout, onClick, focus} = this.props;
 
         return (
-            <div className={b("magazineEpisodeLayout", "content")} >
-                <a href={url}><img src={imageURL} /></a>
+            <div
+                className={cx(layout, b("pageThumbnail", {
+                    "clickable": Boolean(onClick),
+                    focus
+                }))}
+                onClick={onClick}
+            >
+                <img src={imageURL} />
             </div>
         );
     }

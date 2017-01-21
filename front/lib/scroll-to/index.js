@@ -35,8 +35,12 @@ function scrollTo (element, x, y, options) {
 
     // Scroll
     tween.onUpdate(function () {
-        element.scrollLeft = position.left || 0;
-        element.scrollTop = position.top || 0;
+        if (element.scrollTo) {
+          element.scrollTo(position.left, position.top);
+        } else {
+          element.scrollLeft = position.left || 0;
+          element.scrollTop = position.top || 0;
+        }
     });
 
     var rid = null;
@@ -64,8 +68,8 @@ function scrollTo (element, x, y, options) {
  * @api private
  */
 function scroll (element) {
-    const y = element.scrollTop;
-    const x = element.scrollLeft;
+    const y = element.scrollTop || element.scrollY;
+    const x = element.scrollLeft || element.scrollX;
 
     return {
         "top": y,

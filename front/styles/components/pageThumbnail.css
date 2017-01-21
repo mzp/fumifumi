@@ -1,0 +1,17 @@
+.pageThumbnail {
+  position: relative;
+  height: 100%;
+
+  &-focus {
+    outline: 5px solid var(--key-color);
+    outline-offset: -5px;
+  }
+
+  &-clickable {
+    @apply --clickable;
+  }
+
+  & img {
+    max-height: 100%;
+  }
+}

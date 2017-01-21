@@ -1,3 +1,7 @@
+@import 'button';
+@import 'episodeInfo';
+@import 'episodeThumbnail';
 @import 'header';
-@import 'navButton';
 @import 'info';
+@import 'navButton';
+@import 'pageThumbnail';

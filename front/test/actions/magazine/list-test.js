@@ -15,3 +15,12 @@ test((t) => {
             "type": "magazine.list.fetch"
         });
 });
+
+test((t) => {
+    t.deepEqual(
+        action.show("foo"),
+        {
+            "payload": "foo",
+            "type": "magazine.list.show"
+        });
+});

@@ -1,0 +1,9 @@
+:root {
+  --block: {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+  }
+}

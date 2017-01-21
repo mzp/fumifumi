@@ -1,6 +1,6 @@
 /* eslint-disable react/no-set-state */
 import React from "react";
-import scollTo from "scroll-to";
+import scrollTo from "scroll-to";
 import NavButton from "./NavButton";
 
 function floor (n, base) {
@@ -54,7 +54,7 @@ export default class extends React.Component {
     }
 
     onPrev () {
-        scollTo(this.contents, floor(this.x + this.unit, this.width()), 0);
+        scrollTo(this.contents, floor(this.x + this.unit, this.width()), 0);
     }
 
     isNext () {
@@ -62,7 +62,7 @@ export default class extends React.Component {
     }
 
     onNext () {
-        scollTo(this.contents, ceil(this.x - this.unit, this.width()), 0);
+        scrollTo(this.contents, ceil(this.x - this.unit, this.width()), 0);
     }
 
     get x () {
