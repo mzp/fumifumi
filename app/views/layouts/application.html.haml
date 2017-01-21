@@ -16,5 +16,7 @@
         %header.header
           %h1.header_title
             %a{ href: '/' } fumi*fumi
+          .header_action
+            = link_to '📈', magazines_dashboard_index_path
       .mainLayout_bodyArea
         = yield

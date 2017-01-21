@@ -1,5 +1,6 @@
 .header {
   height: 100%;
+  position: relative;
 
   &_title {
     height: 100%;
@@ -8,5 +9,11 @@
     & a {
       color: inherit;
     }
+  }
+
+  &_action {
+    position: absolute;
+    right: 10px;
+    bottom: 3px;
   }
 }
