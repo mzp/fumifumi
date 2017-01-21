@@ -1,5 +1,6 @@
 import React from "react";
 import includes from "lodash.includes";
+import scrollTo from "scroll-to";
 import Page from "./Page";
 import Types from "./types";
 import Scroll from "./Scroll";
@@ -16,6 +17,7 @@ export default class extends React.Component {
     onClick (episode) {
         const {dispatch} = this.props;
 
+        scrollTo(window, 0, this.e.offsetTop);
         dispatch(action.show(episode));
     }
 
@@ -25,7 +27,12 @@ export default class extends React.Component {
         const magazineEpisode = b.with("magazineEpisodeLayout");
 
         return (
-            <div className={magazine()}>
+            <div
+                className={magazine()}
+                ref={(e) => {
+                    this.e = e;
+                }}
+            >
                 <div className={magazine("title")}>
                     {title}
                 </div>
