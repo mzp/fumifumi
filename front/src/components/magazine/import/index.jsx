@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-component-props */
 import React from "react";
 import Dropzone from "react-dropzone";
 import Status from "./status";
@@ -25,7 +26,10 @@ export default class extends React.Component {
     render () {
         return (
             <div>
-                <Dropzone onDrop={::this.handleDrop}>
+                <Dropzone
+                    className={"dropzone"}
+                    onDrop={::this.handleDrop}
+                >
                     {"📥"}
                 </Dropzone>
                 <ul>

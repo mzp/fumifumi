@@ -4,8 +4,6 @@ class MagazinesController < ApplicationController
     render json: Magazine.finished.map(&Resource::Magazine.method(:new))
   end
 
-  def new; end
-
   def show
     @magazine = ::Magazine.find(params[:id])
   end
@@ -18,12 +16,6 @@ class MagazinesController < ApplicationController
     render json: 'ok'.to_json
   rescue ActiveRecord::RecordInvalid => e
     render_error(e)
-  end
-
-  def destroy
-    @magazine = ::Magazine.find(params[:id])
-    @magazine.destroy!
-    redirect_to :magazines
   end
 
   private
