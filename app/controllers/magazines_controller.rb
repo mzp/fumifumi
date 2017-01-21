@@ -20,12 +20,6 @@ class MagazinesController < ApplicationController
     render_error(e)
   end
 
-  def destroy
-    @magazine = ::Magazine.find(params[:id])
-    @magazine.destroy!
-    redirect_to :magazines
-  end
-
   private
 
   def render_error(e)

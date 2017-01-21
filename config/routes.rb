@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     resources :author, only: %i(index)
   end
 
-  resources :magazines, only: %i(new create show destroy)
+  resources :magazines, only: %i(new create show), constraints: { id: /\d+/ }
   namespace :magazines do
+    resources :dashboard, only: %i(index destroy)
     resources :import, only: %i(create update)
   end
 

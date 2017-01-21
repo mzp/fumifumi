@@ -3,5 +3,7 @@
 @import 'episodeThumbnail';
 @import 'header';
 @import 'info';
+@import 'magazineAction';
+@import 'magazineDashboard';
 @import 'navButton';
 @import 'pageThumbnail';

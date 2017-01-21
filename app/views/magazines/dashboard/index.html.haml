@@ -1,0 +1,17 @@
+.magazineAction
+  = link_to '📥', magazines_new_path
+  = button_to '⏭', magazines_import_index_path
+  = link_to '🏃', sidekiq_web_path
+
+%table.magazineDashboard
+  - @magazines.each do |magazine|
+    %tr
+      %td.magazineDashboard_title= magazine.title
+      %td.magazineDashboard_status
+        - if magazine.finished_at.present?
+          ✅
+        - else
+          🚧
+      %td.magazineDashboard_action
+        = button_to '▶️', magazines_import_path(magazine), method: :put
+        = button_to '❌', magazines_dashboard_path(magazine), method: :delete

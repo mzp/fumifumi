@@ -1,0 +1,16 @@
+.magazineAction {
+  font-size: 2rem;
+  margin-bottom: 20px;
+
+  & form {
+    display: inline-block;
+  }
+
+  & input {
+    padding: 2px;
+    background-color: rgba(0,0,0,0);
+
+    @apply --clickable;
+    font-size: 2rem;
+  }
+}
