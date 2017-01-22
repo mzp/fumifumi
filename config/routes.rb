@@ -4,7 +4,6 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   get '/' => redirect('/magazines')
 
-  resources :episodes, only: %i(show), constraints: { id: /\d+/ }
   namespace :episodes do
     resources :author, only: %i(index)
   end
@@ -17,11 +16,12 @@ Rails.application.routes.draw do
 
   scope :api do
     resources :magazines, only: %i(index)
+    resources :episodes, only: %i(show)
   end
 
   resources :pages, only: %i(show)
 
-  %w(/magazines /magazines/new).each do |path|
+  %w(/magazines /magazines/new /episodes/:id).each do |path|
     get path => 'react#mount_page'
   end
 

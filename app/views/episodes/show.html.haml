@@ -1,8 +1,0 @@
-.info
-  %h1.info_main= @episode.title
-  - if @episode.author.present?
-    %h2.info_sub= link_to @episode.author, episodes_author_index_path(name: @episode.author)
-.pagesLayout
-  - @episode.pages.each do |page|
-    .pagesLayout_page
-      %img{ src: page_path(page) }

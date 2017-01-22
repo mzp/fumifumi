@@ -2,11 +2,11 @@ import React from "react";
 import includes from "lodash.includes";
 import scrollTo from "scroll-to";
 import Page from "./Page";
-import Types from "./types";
 import Scroll from "./Scroll";
 import Episode from "./Episode";
 import b from "components/lib/b";
 import connect from "components/lib/connect";
+import Types from "components/prop-types";
 import action from "actions/magazine/list";
 
 @connect("magazine.list")

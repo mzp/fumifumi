@@ -49,7 +49,7 @@ RSpec.describe MagazinesController, type: :controller do
       it do
         expect(subject).to be_json_eql(episode.id.to_json)
           .at_path('0/episodes/0/id')
-        expect(subject).to be_json_eql(episode_path(episode).to_json)
+        expect(subject).to be_json_eql("/episodes/#{episode.id}".to_json)
           .at_path('0/episodes/0/url')
         expect(subject).to be_json_eql(page_path(page).to_json)
           .at_path('0/episodes/0/page/image_url')

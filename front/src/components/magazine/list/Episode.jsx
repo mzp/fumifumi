@@ -2,7 +2,7 @@ import React from "react";
 import cx from "classnames";
 import take from "lodash.take";
 import Page from "./Page";
-import Types from "./types";
+import Types from "components/prop-types";
 import b from "components/lib/b";
 
 export default class extends React.Component {
