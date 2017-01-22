@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :pages, only: %i(show)
 
-  %w(/magazines /magazines/new).each do |path|
+  %w(/magazines /magazines/new /episodes/:id).each do |path|
     get path => 'react#mount_page'
   end
 
