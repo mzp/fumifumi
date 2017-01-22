@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router";
 import b from "components/lib/b";
 
 export default class extends React.Component {
@@ -11,7 +12,7 @@ export default class extends React.Component {
         return (
             <header className={header()}>
                 <h1 className={header("title")}>
-                    <a href="/">{"fumi*fumi"}</a>
+                    <Link to="/magazines">{"fumi*fumi"}</Link>
                 </h1>
                 <div className={header("action")}>
                     <a href="/magazines/dashboard">{"📈"}</a>
