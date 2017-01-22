@@ -4,7 +4,7 @@ import {render} from "react-dom";
 import {Provider} from "react-redux";
 import {Router, Route, browserHistory} from "react-router";
 import {syncHistoryWithStore} from "react-router-redux";
-import layout from "components/layout";
+import {mainLayout} from "components/layout";
 import MagazineImport from "components/magazine/import";
 import MagazineList from "components/magazine/list";
 import Episode from "components/episode/show";
@@ -21,15 +21,15 @@ window.onload = () => {
             <Provider store={store}>
                 <Router history={history}>
                     <Route
-                        component={layout(MagazineImport)}
+                        component={mainLayout(MagazineImport)}
                         path="/magazines/new"
                     />
                     <Route
-                        component={layout(MagazineList)}
+                        component={mainLayout(MagazineList)}
                         path="/magazines"
                     />
                     <Route
-                        component={layout(Episode, {"float": true})}
+                        component={mainLayout(Episode)}
                         path="/episodes/:id"
                     />
                 </Router>

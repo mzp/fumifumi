@@ -1,23 +1,3 @@
-import React from "react";
-import Header from "./Header";
-import b from "components/lib/b";
-import passThrough from "./pass-through";
+import main from "./main-layout";
 
-export default (Component) => class extends React.Component {
-    static displayName = "Header"
-
-    render () {
-        const layout = b.with("mainLayout");
-
-        return (
-            <div className={layout()}>
-                <div className={layout("headerArea")}>
-                    <Header />
-                </div>
-                <div className={layout("bodyArea")}>
-                    <Component {...passThrough(this.props)} />
-                </div>
-            </div>
-        );
-    }
-};
+export const mainLayout = main;
