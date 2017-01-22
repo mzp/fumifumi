@@ -14,3 +14,15 @@ test((t) => {
         reducer(false, {"type": "layout.header.toggle"}),
       true);
 });
+
+test((t) => {
+    t.is(
+        reducer(true, {"type": "layout.header.hide"}),
+      false);
+});
+
+test((t) => {
+    t.is(
+        reducer(false, {"type": "layout.header.hide"}),
+      false);
+});

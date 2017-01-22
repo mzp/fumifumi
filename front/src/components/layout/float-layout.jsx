@@ -18,6 +18,10 @@ export default (Component) => @connect("layout") class extends React.Component {
         this.props.dispatch({"type": "layout.header.toggle"});
     }
 
+    componentWillMount () {
+        this.props.dispatch({"type": "layout.header.hide"});
+    }
+
     render () {
         const {header} = this.props;
         const layout = b.with("floatLayout");
