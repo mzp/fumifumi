@@ -4,8 +4,13 @@ import b from "components/lib/b";
 export default (Component) => class extends React.Component {
     static displayName = "Header"
 
+    // eslint-disable-next-line react/forbid-prop-types
+    static propTypes = {"params": React.PropTypes.object}
+    static defaultProps = {"params": {}}
+
     // eslint-disable-next-line class-methods-use-this
     render () {
+        const {params} = this.props;
         const layout = b.with("mainLayout");
         const header = b.with("header");
 
@@ -22,7 +27,7 @@ export default (Component) => class extends React.Component {
                     </header>
                 </div>
                 <div className={layout("bodyArea")}>
-                    <Component />
+                    <Component params={params} />
                 </div>
             </div>
         );
