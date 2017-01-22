@@ -1,12 +1,11 @@
 /* @flow */
 import {combineReducers} from "redux";
-import {routerReducer} from "react-router-redux";
-import magazine from "./magazine";
+import ready from "./ready";
 import episode from "./episode";
-
+import pages from "./pages";
 
 export default combineReducers({
     episode,
-    magazine,
-    "routing": routerReducer
+    pages,
+    ready
 });
