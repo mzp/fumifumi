@@ -3,8 +3,9 @@ import React from "react";
 import Dropzone from "react-dropzone";
 import Status from "./status";
 import connect from "components/lib/connect";
+import {mainLayout} from "components/layout";
 
-@connect("magazine.import_")
+@mainLayout @connect("magazine.import_")
 export default class extends React.Component {
     static displayName = "Magazine.Import"
     static propTypes = {
