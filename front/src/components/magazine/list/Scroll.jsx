@@ -39,6 +39,9 @@ export default class extends React.Component {
         if (this.contents) {
             return;
         }
+        if (!contents) {
+            return;
+        }
         this.contents = contents;
         contents.addEventListener("scroll", this.handleScroll);
     }
