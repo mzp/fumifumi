@@ -1,4 +1,5 @@
 import React from "react";
+import {browserHistory} from "react-router";
 import cx from "classnames";
 import take from "lodash.take";
 import Page from "./Page";
@@ -15,7 +16,7 @@ export default class extends React.Component {
     static defaultProps = {"ready": false}
 
     onClick () {
-        location.href = this.props.url;
+        browserHistory.push(this.props.url);
     }
 
     render () {
