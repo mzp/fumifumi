@@ -18,6 +18,7 @@ function contentArea (alpha) {
             style={{"padding": "1px"}}
         >
             <RectShape
+                className="placeholder"
                 color={`rgba(0,0,0,${alpha})`}
             />
         </div>
@@ -29,6 +30,7 @@ function magazineArea () {
         <div className={magazine()}>
             <div className={magazine("title")}>
                 <RectShape
+                    className="placeholder"
                     color="rgba(0,0,0,0.2)"
                     style={{"width": "20rem"}}
                 />

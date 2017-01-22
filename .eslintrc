@@ -285,7 +285,7 @@
     "import/no-extraneous-dependencies" : 2,
     "import/no-internal-modules" :  [ "error", {
       "allow": [
-        "components/*/*", "actions/*/*", "api/*",
+        "components/*", "components/*/*", "actions/*/*", "api/*",
         "**/lib/*",
         "redux-saga/*"
       ]
