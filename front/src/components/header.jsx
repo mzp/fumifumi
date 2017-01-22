@@ -8,7 +8,6 @@ export default (Component) => class extends React.Component {
     static propTypes = {"params": React.PropTypes.object}
     static defaultProps = {"params": {}}
 
-    // eslint-disable-next-line class-methods-use-this
     render () {
         const {params} = this.props;
         const layout = b.with("mainLayout");
