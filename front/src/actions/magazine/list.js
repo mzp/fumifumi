@@ -1,8 +1,10 @@
 /* @flow */
-import {createAction} from "redux-actions";
+import createAction from "actions/lib/create-action";
+
+const action = createAction("magazine.list");
 
 export default {
-    "fetch": createAction("magazine.list.fetch"),
-    "show": createAction("magazine.list.show"),
-    "start": createAction("magazine.list.start")
+    "fetch": action("fetch"),
+    "show": action("show"),
+    "start": action("start")
 };
