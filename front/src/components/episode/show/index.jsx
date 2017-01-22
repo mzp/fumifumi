@@ -6,8 +6,9 @@ import Page from "./Page";
 import Types from "components/prop-types";
 import connect from "components/lib/connect";
 import b from "components/lib/b";
+import {floatLayout} from "components/layout";
 
-@connect("episode.show")
+@floatLayout @connect("episode.show")
 export default class extends React.Component {
     static displayName = "Episode.Show"
 

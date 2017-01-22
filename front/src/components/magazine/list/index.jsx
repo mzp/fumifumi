@@ -3,8 +3,9 @@ import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
 import Magazine from "./Magazine";
 import connect from "components/lib/connect";
+import {mainLayout} from "components/layout";
 
-@connect("magazine.list")
+@mainLayout @connect("magazine.list")
 export default class extends React.Component {
     static displayName = "MagazineList"
     static propTypes = {

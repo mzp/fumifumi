@@ -1,13 +1,27 @@
-.mainLayout {
+.floatLayout {
   &_headerArea {
     background-color: var(--key-color);
     color: white;
     height: var(--header-height);
     padding: calc((44px - 1.5rem) / 2) var(--side-margin);
     font-size: var(--header-text-size);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    &-hide {
+      opacity: 0;
+      z-index: -1;
+      animation: hide 0.1s;
+    }
+
+    &-show {
+      opacity: 1;
+      animation: show 0.1s;
+    }
   }
 
   &_bodyArea {
-    padding: 30px var(--side-margin);
   }
 }
