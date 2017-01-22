@@ -14,8 +14,8 @@ export default class extends React.Component {
     static propTypes = {
         "dispatch": React.PropTypes.func,
         "episode": React.PropTypes.shape(Types.episode),
-        "pages": React.PropTypes.arrayOf(React.PropType.shape(Types.page)),
-        "params": React.PropTypes.shape({"id": React.PropType.string}),
+        "pages": React.PropTypes.arrayOf(React.PropTypes.shape(Types.page)),
+        "params": React.PropTypes.shape({"id": React.PropTypes.string}),
         "ready": React.PropTypes.bool
     }
 
