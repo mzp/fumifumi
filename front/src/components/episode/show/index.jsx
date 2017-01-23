@@ -1,7 +1,6 @@
 import React from "react";
 import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
-import Info from "./Info";
 import Page from "./Page";
 import Types from "components/prop-types";
 import connect from "components/lib/connect";
@@ -46,7 +45,6 @@ export default class extends React.Component {
                 ready={ready}
             >
                 <div>
-                    <Info {...episode} />
                     <div className={layout()}>
                         {pages.map((page) =>
                             <Page
