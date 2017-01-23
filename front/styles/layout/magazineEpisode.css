@@ -20,10 +20,7 @@
   }
 
   &_contents {
-    display: flex;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
+    @apply --scroll-x;
   }
 
   &_content {
