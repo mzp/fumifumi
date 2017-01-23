@@ -36,7 +36,7 @@ export default class extends React.Component {
     }
 
     render () {
-        const {episode, pages, ready} = this.props;
+        const {pages, ready} = this.props;
         const layout = b.with("pagesLayout");
 
         return (
