@@ -61,7 +61,7 @@
     "redux-saga": "^0.14.2",
     "scroll-to": "file:./front/lib/scroll-to",
     "uglifyjs": "^2.4.10",
-    "webpack": "^1.14.0"
+    "webpack": "2.2.0"
   },
   "ava": {
     "require": [
