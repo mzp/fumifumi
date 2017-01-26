@@ -10,21 +10,22 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         include: [
           path.resolve(__dirname, "front/src"),
         ],
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: 'babel-loader'
       }
     ]
   },
   resolve: {
-    root: [
-      path.join(__dirname, "front/src")
+    modules: [
+      path.join(__dirname, "front/src"),
+      "node_modules"
     ],
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   }
 };
