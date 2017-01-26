@@ -36,6 +36,7 @@ services:
       dockerfile: Dockerfile.js
     volumes:
       - .:/fumifumi
+    command: yarn start
   db:
     image: mysql:5.7
     volumes:
