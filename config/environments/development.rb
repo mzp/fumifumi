@@ -53,5 +53,5 @@ Rails.application.configure do
   # doesn't work at network mounted disk(i.e. docker-machine)
   config.file_watcher = ActiveSupport::FileUpdateChecker
 
-  config.web_console.whitelisted_ips = %w( 0.0.0.0/0 ::/0 )
+  config.web_console.whitelisted_ips = %w(0.0.0.0/0 ::/0)
 end
