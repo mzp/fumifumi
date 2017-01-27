@@ -22,4 +22,14 @@ class Magazine < ApplicationRecord
   def episode_pages
     @episode_pages ||= pages.slice_before(&:episode).reject(&:empty?)
   end
+
+  def create_toc!(toc)
+    pages.reduce(nil) do |episode, page|
+      toc[page]&.update! magazine: self
+
+      (toc[page] || episode).tap do |e|
+        page.update! episode: e
+      end
+    end
+  end
 end
