@@ -30,6 +30,7 @@ group :development do
 end
 
 group :test do
+  gem 'database_rewinder'
   gem 'factory_girl_rails'
   gem 'haml_lint'
   gem 'json_spec'
