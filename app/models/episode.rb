@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 class Episode < ApplicationRecord
   belongs_to :magazine
-  belongs_to :page
-  scope :sorted, -> { includes(:page).order('pages.no') }
+  has_many :pages, -> { order(:no) }
 
-  def pages
-    @pages ||= magazine.episode_pages.find do |pages|
-      pages.first.episode == self
-    end
+  scope :sorted, lambda {
+    all.sort_by { |episode| episode.page.no }
+  }
+
+  def page
+    pages.first
   end
 end
