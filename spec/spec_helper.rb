@@ -17,6 +17,14 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.before(:suite) do
+    DatabaseRewinder.clean_all
+  end
+
+  config.after(:each) do
+    DatabaseRewinder.clean
+  end
+
   config.include FactoryGirl::Syntax::Methods
   config.include JsonSpec::Helpers
 
@@ -26,5 +34,5 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.order = :random
   config.shared_context_metadata_behavior = :apply_to_host_groups
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 end
