@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121114056) do
+ActiveRecord::Schema.define(version: 20170127111840) do
 
   create_table "episodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "magazine_id"
-    t.integer  "page_id"
     t.string   "title"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "author"
     t.index ["magazine_id"], name: "index_episodes_on_magazine_id", using: :btree
-    t.index ["page_id"], name: "index_episodes_on_page_id", using: :btree
   end
 
   create_table "magazines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -43,6 +41,8 @@ ActiveRecord::Schema.define(version: 20170121114056) do
     t.integer  "content_file_size"
     t.datetime "content_updated_at"
     t.integer  "magazine_id"
+    t.integer  "episode_id"
+    t.index ["episode_id"], name: "index_pages_on_episode_id", using: :btree
     t.index ["magazine_id"], name: "index_pages_on_magazine_id", using: :btree
   end
 

@@ -9,15 +9,13 @@ module Fumifumi
       def call
         update_magazine do |magazine|
           magazine.update! title: book.title, finished_at: Time.current
-          toc = {}
+          pages = {}
 
           each_page do |item, content, no|
-            toc[item.href] = magazine.pages.create!(no: no, content: content)
+            pages[item.href] = magazine.pages.create!(no: no, content: content)
           end
 
-          each_nav do |title, ref|
-            magazine.episodes.create! attributes(title, ref, toc: toc)
-          end
+          magazine.create_toc! toc(pages)
         end
       end
 
@@ -66,7 +64,7 @@ module Fumifumi
       def update_magazine
         ApplicationRecord.transaction do
           magazine.reset!
-          magazine.tap(&Proc.new)
+          magazine.tap(&Proc.new).reload
         end
       end
 
@@ -89,8 +87,18 @@ module Fumifumi
         end
       end
 
-      def attributes(title, ref, toc:)
-        Fumifumi::Episode::Info.new(title).call.merge(page: toc[ref])
+      def toc(pages)
+        hash = {}
+
+        each_nav do |title, ref|
+          hash[pages[ref]] = episode(title)
+        end
+
+        hash
+      end
+
+      def episode(title)
+        ::Episode.new(Fumifumi::Episode::Info.new(title).call)
       end
 
       def tempfile

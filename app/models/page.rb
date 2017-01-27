@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class Page < ApplicationRecord
   belongs_to :magazine
-  has_one :episode
+  belongs_to :episode, required: false
 
   has_attached_file :content
   validates_attachment :content,
@@ -11,6 +11,6 @@ class Page < ApplicationRecord
   delegate :url, to: :content
 
   def episode_cover?
-    episode.present?
+    episode.page == self
   end
 end
