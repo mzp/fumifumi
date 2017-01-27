@@ -42,9 +42,12 @@ RSpec.describe MagazinesController, type: :controller do
 
     describe 'episode' do
       let(:magazine) { create(:magazine) }
-      let(:page) { create(:page, magazine: magazine) }
-      let!(:episode) { create(:episode, magazine: magazine, page: page) }
-      before { create_list(:page, 3, magazine: magazine) }
+      let!(:page) { create(:page, magazine: magazine) }
+      let(:episode) { create(:episode, magazine: magazine) }
+      before do
+        create_list(:page, 3, magazine: magazine)
+        magazine.create_toc!(page => episode)
+      end
 
       it do
         expect(subject).to be_json_eql(episode.id.to_json)

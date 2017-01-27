@@ -2,12 +2,13 @@
 
 RSpec.describe EpisodesController, type: :controller do
   let(:magazine) { create(:magazine) }
-  let(:page) { create(:page, magazine: magazine) }
-  let!(:episode) { create(:episode, page: page, magazine: magazine, author: 'John') }
+  let(:episode) { create(:episode, magazine: magazine, author: 'John') }
 
   describe '#show' do
     subject do
+      page = create(:page, magazine: magazine)
       create_list :page, 3, magazine: magazine
+      magazine.reload.create_toc!(page => episode)
       get :show, params: { id: episode.id }
       response.body
     end
