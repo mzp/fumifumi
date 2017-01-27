@@ -3,13 +3,14 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build:css": "postcss -c .postcssrc.json",
+    "start": "yarn watch:css & yarn watch:js",
+    "build:css": "postcss -c .postcssrc.json -l",
     "build:js": "NODE_ENV=test webpack",
     "build:js:production": "NODE_ENV=production webpack --bail",
     "lint": "eslint --ext .jsx --ext .js front/src front/test",
     "lint:fix": "eslint --ext .jsx --ext .js front/src front/test --fix",
     "typecheck": "flow check",
-    "watch:js": "webpack -w",
+    "watch:js": "NODE_ENV=test webpack -w",
     "watch:css": "postcss -w -c .postcssrc.json",
     "test": "NODE_ENV=test NODE_PATH=front/src ava"
   },

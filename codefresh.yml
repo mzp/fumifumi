@@ -49,7 +49,7 @@ steps:
         cd /codefresh/volume/fumifumi
         bundle install --with test
         sleep 20
-        bundle exec rake db:setup
+        RAILS_ENV=test bundle exec rake db:setup
         bundle exec haml-lint
         bundle exec rubocop
         bundle exec rspec
