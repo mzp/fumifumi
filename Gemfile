@@ -35,6 +35,7 @@ group :test do
   gem 'haml_lint'
   gem 'json_spec'
   gem 'rails-controller-testing'
+  gem 'rspec-benchmark'
   gem 'rspec-rails'
   gem 'rubocop'
 end

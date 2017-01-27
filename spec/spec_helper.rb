@@ -27,6 +27,7 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include JsonSpec::Helpers
+  config.include RSpec::Benchmark::Matchers
 
   config.example_status_persistence_file_path = 'spec/examples.txt'
   config.filter_rails_from_backtrace!
