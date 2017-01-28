@@ -6,7 +6,10 @@ RSpec.describe Page, type: :model do
     subject { described_class.create no: 1, content: file, magazine: build(:magazine), episode: build(:episode) }
     it do
       expect(subject).to be_persisted
-      expect(subject.url).to start_with('/system/pages')
+      expect(subject.url(:origial)).to start_with('/system/pages')
+      expect(subject.url(:thumbnail)).to start_with('/system/pages')
+
+      expect(subject.content.path(:origial)).to_not eq(subject.content.path(:thumbnail))
     end
   end
 
