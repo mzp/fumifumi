@@ -27,7 +27,7 @@ module Fumifumi
 
     Paperclip::Attachment.default_options[:path] =
       Pathname(ENV['FUMIFUMI_STORAGE_ROOT'] || '/tmp')
-      .join(':rails_env/:class/:attachment/:id_partition/:filename')
+      .join(':rails_env/:class/:attachment/:style/:id_partition/:filename')
       .to_s
   end
 end
