@@ -33,7 +33,7 @@ export default class extends React.Component {
     render () {
         const {title, cover, selectedEpisode, episodes} = this.props;
         const magazine = b.with("magazineLayout");
-        const magazineEpisode = b.with("magazineEpisodeLayout");
+        const panel = b.with("panelLayout");
 
         return (
             <div
@@ -46,18 +46,18 @@ export default class extends React.Component {
                     {title} {this.suffix()}
                 </div>
                 <div className={magazine("content")}>
-                    <Scroll layout={magazineEpisode}>
+                    <Scroll layout={panel}>
                         {[
                             <Page
                                 key="cover"
-                                layout={magazineEpisode("content")}
+                                layout={panel("panel")}
                                 {...cover}
                             />,
                             ...episodes.map((e) =>
                                 <Page
                                     focus={e.id === selectedEpisode.id}
                                     key={e.id}
-                                    layout={magazineEpisode("content")}
+                                    layout={panel("panel")}
                                     onClick={() => this.onClick(e)}
                                     url={e.url}
                                     {...e.page}

@@ -1,6 +1,5 @@
 :root {
   --scroll-x: {
-    display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;

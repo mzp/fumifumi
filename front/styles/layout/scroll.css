@@ -1,4 +1,4 @@
-.magazineEpisodeLayout {
+.scrollLayout {
   position: relative;
   margin-left: calc(-1 * var(--episode-width));
   margin-right: calc(-1 * var(--episode-width));
@@ -21,16 +21,6 @@
 
   &_contents {
     @apply --scroll-x;
-  }
-
-  &_content {
-    flex-basis: calc(var(--episode-width));
-    flex-shrink: 0;
-    flex-grow: 0;
-    min-height: calc(var(--episode-aspect) * var(--episode-width));
-
-    & img {
-      width: 100%;
-    }
+    display: flex;
   }
 }

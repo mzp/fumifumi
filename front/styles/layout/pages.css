@@ -1,4 +1,5 @@
 .pagesLayout {
+  display: flex;
   @apply --scroll-x;
 
   width: 100vw;
