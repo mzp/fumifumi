@@ -1,4 +1,4 @@
-.magazineEpisodeLayout {
+.scrollLayout {
   position: relative;
   margin-left: calc(-1 * var(--episode-width));
   margin-right: calc(-1 * var(--episode-width));

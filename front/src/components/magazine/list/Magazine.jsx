@@ -34,7 +34,7 @@ export default class extends React.Component {
         const {title, cover, selectedEpisode, episodes} = this.props;
         const magazine = b.with("magazineLayout");
         const panel = b.with("panelLayout");
-        const magazineEpisode = b.with("magazineEpisodeLayout");
+        const magazineEpisode = b.with("scrollLayout");
 
         return (
             <div

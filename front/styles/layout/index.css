@@ -4,6 +4,6 @@
 @import 'episode';
 @import 'episodes';
 @import 'magazine';
-@import 'magazineEpisode';
 @import 'pages';
 @import 'panel';
+@import 'scroll';
