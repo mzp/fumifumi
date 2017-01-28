@@ -56,6 +56,8 @@ RSpec.describe MagazinesController, type: :controller do
           .at_path('0/episodes/0/url')
         expect(subject).to be_json_eql(page_path(page).to_json)
           .at_path('0/episodes/0/page/image_url')
+        expect(subject).to be_json_eql(page_path(page, thumbnail: true).to_json)
+          .at_path('0/episodes/0/page/thumbnail_url')
         expect(subject).to have_json_size(4)
           .at_path('0/episodes/0/pages')
       end

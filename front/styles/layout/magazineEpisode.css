@@ -30,7 +30,7 @@
     min-height: calc(var(--episode-aspect) * var(--episode-width));
 
     & img {
-      max-width: 100%;
+      width: 100%;
     }
   }
 }
