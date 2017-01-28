@@ -80,34 +80,34 @@ export default class extends React.Component {
 
     render () {
         const {children, layout} = this.props;
-        const panel = b.with("panelLayout");
+        const scroll = b.with("scrollLayout");
 
         return (
-            <div className={layout()}>
+            <div className={scroll()}>
                 <NavButton
                     enable={this.isPrev()}
                     label="<"
-                    layout={layout("prev")}
+                    layout={scroll("prev")}
                     onNav={::this.onPrev}
                 />
                 <NavButton
                     enable={this.isNext()}
                     label=">"
-                    layout={layout("next")}
+                    layout={scroll("next")}
                     onNav={::this.onNext}
                 />
                 <div
-                    className={cx(layout("contents"), panel())}
+                    className={cx(scroll("contents"), layout())}
                     ref={::this.ref}
                 >
                     <div
-                        className={panel("panel")}
+                        className={layout("panel")}
                         ref={(c) => {
                             this.width = () => c.offsetWidth;
                         }}
                     />
                     {children}
-                    <div className={panel("panel")} />
+                    <div className={layout("panel")} />
                 </div>
             </div>
         );

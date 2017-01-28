@@ -34,7 +34,6 @@ export default class extends React.Component {
         const {title, cover, selectedEpisode, episodes} = this.props;
         const magazine = b.with("magazineLayout");
         const panel = b.with("panelLayout");
-        const magazineEpisode = b.with("scrollLayout");
 
         return (
             <div
@@ -47,7 +46,7 @@ export default class extends React.Component {
                     {title} {this.suffix()}
                 </div>
                 <div className={magazine("content")}>
-                    <Scroll layout={magazineEpisode}>
+                    <Scroll layout={panel}>
                         {[
                             <Page
                                 key="cover"
