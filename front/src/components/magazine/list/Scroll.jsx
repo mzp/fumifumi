@@ -1,7 +1,9 @@
 /* eslint-disable react/no-set-state */
 import React from "react";
 import scrollTo from "scroll-to";
+import cx from "classnames";
 import NavButton from "./NavButton";
+import b from "components/lib/b";
 
 function floor (n, base) {
     return Math.floor(n / base) * base;
@@ -78,6 +80,7 @@ export default class extends React.Component {
 
     render () {
         const {children, layout} = this.props;
+        const panel = b.with("panelLayout");
 
         return (
             <div className={layout()}>
@@ -94,17 +97,17 @@ export default class extends React.Component {
                     onNav={::this.onNext}
                 />
                 <div
-                    className={layout("contents")}
+                    className={cx(layout("contents"), panel())}
                     ref={::this.ref}
                 >
                     <div
-                        className={layout("content")}
+                        className={panel("panel")}
                         ref={(c) => {
                             this.width = () => c.offsetWidth;
                         }}
                     />
                     {children}
-                    <div className={layout("content")} />
+                    <div className={panel("panel")} />
                 </div>
             </div>
         );

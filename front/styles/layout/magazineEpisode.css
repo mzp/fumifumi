@@ -23,15 +23,4 @@
     @apply --scroll-x;
     display: flex;
   }
-
-  &_content {
-    flex-basis: calc(var(--episode-width));
-    flex-shrink: 0;
-    flex-grow: 0;
-    min-height: calc(var(--episode-aspect) * var(--episode-width));
-
-    & img {
-      width: 100%;
-    }
-  }
 }

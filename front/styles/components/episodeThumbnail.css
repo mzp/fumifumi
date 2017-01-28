@@ -1,6 +1,4 @@
 .episodeThumbnail {
-  display: flex;
-
   &:after {
     @apply --block;
     top: 0;

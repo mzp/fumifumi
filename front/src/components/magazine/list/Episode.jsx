@@ -28,16 +28,18 @@ export default class extends React.Component {
 
         const layout = b.with("episodeLayout");
         const thumbnail = b.with("episodeThumbnail");
+        const panel = b.with("panelLayout");
         const button = b.with("button");
 
         return (
             <div className={cx(layout(), "episodeInfo")}>
                 <div className={layout("title")}>{title}</div>
                 <div className={layout("author")}>{author}</div>
-                <div className={cx(layout("pages"), thumbnail())}>
+                <div className={cx(layout("pages"), thumbnail(), panel())}>
                     {take(pages, 3).map((p) =>
                         <Page
                             key={p.id}
+                            layout={panel("panel")}
                             {...p}
                         />)}
                 </div>
