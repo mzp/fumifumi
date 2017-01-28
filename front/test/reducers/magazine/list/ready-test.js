@@ -5,8 +5,11 @@ import reducer from "reducers/magazine/list/ready";
 
 test((t) => {
     t.is(
-        reducer(true, {"type": "magazine.list.start"}),
+        reducer(false, {"type": "magazine.list.start"}),
       false);
+    t.is(
+        reducer(true, {"type": "magazine.list.start"}),
+      true);
 });
 
 test((t) => {
