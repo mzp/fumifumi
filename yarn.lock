@@ -3856,7 +3856,7 @@ rx-lite@^3.1.2:
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-3.1.2.tgz#19ce502ca572665f3b647b10939f97fd1615f102"
 
 "scroll-to@file:./front/lib/scroll-to":
-  version "0.2.1"
+  version "0.2.2"
   dependencies:
     tween.js "https://github.com/tweenjs/tween.js/archive/16.4.tar.gz"
 

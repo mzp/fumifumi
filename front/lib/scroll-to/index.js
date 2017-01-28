@@ -61,6 +61,14 @@ function scrollTo (element, x, y, options) {
     tween.start();
 }
 
+function fallback (x, y) {
+    if ( x === undefined ) {
+        return y;
+    } else {
+        return x;
+    }
+}
+
 /**
  * Return scroll position.
  *
@@ -68,9 +76,8 @@ function scrollTo (element, x, y, options) {
  * @api private
  */
 function scroll (element) {
-    const y = element.scrollTop || element.scrollY;
-    const x = element.scrollLeft || element.scrollX;
-
+    const y = fallback(element.scrollTop, element.scrollY);
+    const x = fallback(element.scrollLeft, element.scrollX);
     return {
         "top": y,
         "left": x
