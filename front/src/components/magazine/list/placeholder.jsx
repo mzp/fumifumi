@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import {RectShape} from "react-placeholder/lib/placeholders";
 import b from "components/lib/b";
 
@@ -9,12 +10,13 @@ import b from "components/lib/b";
 /* eslint-disable react/no-multi-comp */
 
 const magazine = b.with("magazineLayout");
-const magazineEpisode = b.with("magazineEpisodeLayout");
+const scroll = b.with("scrollLayout");
+const panel = b.with("panelLayout");
 
 function contentArea (alpha) {
     return (
         <div
-            className={magazineEpisode("content")}
+            className={panel("panel")}
             style={{"padding": "1px"}}
         >
             <RectShape
@@ -36,8 +38,8 @@ function magazineArea () {
                 />
             </div>
             <div className={magazine("content")}>
-                <div className={magazineEpisode()}>
-                    <div className={magazineEpisode("contents")}>
+                <div className={scroll()}>
+                    <div className={cx(scroll("contents"), panel())}>
                         {contentArea(0)}
                         {contentArea(0.2)}
                         {contentArea(0.2)}
