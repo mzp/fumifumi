@@ -21,6 +21,15 @@ export default class extends React.Component {
         dispatch(action.show(episode));
     }
 
+    suffix () {
+        if (this.props.fetching) {
+            return "💭";
+        }
+
+        return "";
+
+    }
+
     render () {
         const {title, cover, selectedEpisode, episodes} = this.props;
         const magazine = b.with("magazineLayout");
@@ -34,7 +43,7 @@ export default class extends React.Component {
                 }}
             >
                 <div className={magazine("title")}>
-                    {title}
+                    {title} {this.suffix()}
                 </div>
                 <div className={magazine("content")}>
                     <Scroll layout={magazineEpisode}>
