@@ -21,6 +21,7 @@
 
   &_contents {
     @apply --scroll-x;
+    display: flex;
   }
 
   &_content {
