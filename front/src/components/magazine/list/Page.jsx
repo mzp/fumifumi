@@ -19,7 +19,7 @@ export default class extends React.PureComponent {
     }
 
     render () {
-        const {"image_url": imageURL, layout, onClick, focus} = this.props;
+        const {"thumbnail_url": imageURL, layout, onClick, focus} = this.props;
 
         return (
             <div
