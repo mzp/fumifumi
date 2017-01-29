@@ -11,7 +11,7 @@
     "lint:fix": "eslint --ext .jsx --ext .js front/src front/test --fix",
     "typecheck": "flow check",
     "watch:js": "NODE_ENV=test webpack -w",
-    "watch:css": "postcss -w -c .postcssrc.json",
+    "watch:css": "postcss -w -c .postcssrc.json -l",
     "test": "NODE_ENV=test NODE_PATH=front/src ava"
   },
   "dependencies": {
