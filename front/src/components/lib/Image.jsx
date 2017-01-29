@@ -25,21 +25,14 @@ export default class extends React.Component {
     }
 
     render () {
-        const {src, ...props} = this.props;
+        const {...props} = this.props;
 
         return (
-            <span>
-                <img
-                    data-ready={this.state.ready}
-                    src={this.src()}
-                    {...props}
-                />
-                <img
-                    onLoad={::this.onLoad}
-                    src={src}
-                    style={{"opacity": 0}}
-                />
-            </span>
+            <img
+                data-ready={this.state.ready}
+                onLoad={::this.onLoad}
+                {...props}
+            />
         );
     }
 }
