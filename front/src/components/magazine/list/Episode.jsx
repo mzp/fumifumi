@@ -1,7 +1,7 @@
 import React from "react";
-import {browserHistory} from "react-router";
 import cx from "classnames";
 import take from "lodash.take";
+import {Link} from "react-router";
 import Page from "./Page";
 import Types from "components/prop-types";
 import b from "components/lib/b";
@@ -15,16 +15,12 @@ export default class extends React.Component {
 
     static defaultProps = {"ready": false}
 
-    onClick () {
-        browserHistory.push(this.props.url);
-    }
-
     render () {
         if (!this.props.ready) {
             return null;
         }
 
-        const {author, "author_url": url, title, pages} = this.props;
+        const {author, "author_url": authorUrl, url, title, pages} = this.props;
 
         const layout = b.with("episodeLayout");
         const thumbnail = b.with("episodeThumbnail");
@@ -34,7 +30,7 @@ export default class extends React.Component {
         return (
             <div className={cx(layout(), "episodeInfo")}>
                 <div className={layout("title")}>{title}</div>
-                <div className={layout("author")}><a href={url}>{author}</a></div>
+                <div className={layout("author")}><a href={authorUrl}>{author}</a></div>
                 <div className={cx(layout("pages"), thumbnail(), panel())}>
                     {take(pages, 3).map((p) =>
                         <Page
@@ -43,12 +39,14 @@ export default class extends React.Component {
                             {...p}
                         />)}
                 </div>
-                <div
+                <Link
+                    // eslint-disable-next-line react/forbid-component-props
                     className={cx(layout("action"), button())}
                     onClick={::this.onClick}
+                    to={url}
                 >
                     {"Read"}
-                </div>
+                </Link>
             </div>
         );
     }
