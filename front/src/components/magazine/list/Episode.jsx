@@ -42,7 +42,6 @@ export default class extends React.Component {
                 <Link
                     // eslint-disable-next-line react/forbid-component-props
                     className={cx(layout("action"), button())}
-                    onClick={::this.onClick}
                     to={url}
                 >
                     {"Read"}
