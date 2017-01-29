@@ -4,10 +4,6 @@ class MagazinesController < ApplicationController
     render json: Magazine.finished.includes(episodes: [:pages]).map(&Resource::Magazine.method(:new))
   end
 
-  def show
-    @magazine = ::Magazine.find(params[:id])
-  end
-
   def create
     magazine = ::Magazine.create!(
       source: params[:attachment].tempfile
