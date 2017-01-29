@@ -2,8 +2,8 @@
 @import 'main';
 
 @import 'episode';
-@import 'episodes';
 @import 'magazine';
 @import 'pages';
 @import 'panel';
 @import 'scroll';
+@import 'tile';
