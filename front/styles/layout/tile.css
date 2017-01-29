@@ -1,8 +1,8 @@
-.episodesLayout {
+.tileLayout {
   display: flex;
   flex-wrap: wrap;
 
-  &_episode {
+  &_tile {
     margin-top: 10px;
     flex-basis: calc(var(--episode-width));
     flex-shrink: 0;
