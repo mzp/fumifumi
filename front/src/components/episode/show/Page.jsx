@@ -1,5 +1,6 @@
 import React from "react";
 import Types from "components/prop-types";
+import Image from "components/lib/Image";
 
 export default class extends React.Component {
     static displayName = "Episode.Page"
@@ -16,7 +17,7 @@ export default class extends React.Component {
 
         return (
             <div className={layout}>
-                <img src={url} />
+                <Image src={url} />
             </div>
         );
     }

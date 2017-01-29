@@ -2,6 +2,7 @@ import React from "react";
 import cx from "classnames";
 import Types from "components/prop-types";
 import b from "components/lib/b";
+import Image from "components/lib/Image";
 
 export default class extends React.PureComponent {
     static displayName = "MagazineList.Page";
@@ -29,7 +30,7 @@ export default class extends React.PureComponent {
                 }))}
                 onClick={onClick}
             >
-                <img src={imageURL} />
+                <Image src={imageURL} />
             </div>
         );
     }

@@ -17,3 +17,8 @@ p {
   min-height: 1rem;
   line-height: 1.5rem;
 }
+
+img[data-ready="false"] {
+  background-color: rgba(0,0,0,0.2);
+  animation: blink 2s ease-in-out infinite;
+}
