@@ -2,8 +2,9 @@
   display: flex;
 
   &_panel {
-    flex-basis: calc(var(--episode-width));
     @apply --flex-fit;
+
+    flex-basis: calc(var(--episode-width));
     height: calc(var(--episode-aspect) * var(--episode-width));
   }
 }
