@@ -2,6 +2,7 @@
 .*/app/.*
 .*/config/.*
 .*/node_modules/ava/.*.flow
+.*/node_modules/stylelint/.*
 .*/public/.*
 .*/spec/.*
 
