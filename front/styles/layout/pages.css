@@ -9,6 +9,7 @@
   &_page {
     height: 100vh;
     width: calc(100vh / var(--episode-aspect));
+    @apply --flex-fit;
 
     & img {
       height: 100%;
