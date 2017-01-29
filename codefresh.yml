@@ -12,7 +12,8 @@ steps:
     commands:
       - yarn install
       - yarn build:js
-      - yarn lint
+      - yarn lint:js
+      - yarn lint:css
       - yarn typecheck
       - yarn test front/test
       - ./front/script/build
