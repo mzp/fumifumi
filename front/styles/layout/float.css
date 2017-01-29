@@ -1,5 +1,6 @@
 .floatLayout {
   &_headerArea {
+    z-index: 1000;
     background-color: var(--key-color);
     color: white;
     height: var(--header-height);
