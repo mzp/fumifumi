@@ -1,16 +1,12 @@
 .episodeInfo {
-    &:after {
-      @apply --block;
-      bottom: 0;
-      left: 0;
-      height: 0;
-      background: white;
-      z-index: 100;
-      animation: scrollDown 1.0s;
-    }
-}
+  &::after {
+    @apply --block;
 
-@keyframes scrollDown {
-  0% { height: 100%; }
-  100% { height: 0% }
+    bottom: 0;
+    left: 0;
+    height: 0;
+    background: white;
+    z-index: 100;
+    animation: scrollDown 1s;
+  }
 }

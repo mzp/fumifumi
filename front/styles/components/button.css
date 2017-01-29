@@ -1,7 +1,8 @@
 .button {
+  @apply --clickable;
+
   color: var(--key-color);
   padding: 10px 20px;
   border: 5px solid var(--key-color);
   border-radius: 10px;
-  @apply --clickable;
 }

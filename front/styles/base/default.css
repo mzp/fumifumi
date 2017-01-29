@@ -7,7 +7,8 @@ html {
   font-size: 14px;
 }
 
-html, body {
+html,
+body {
   position: relative;
   overflow-x: hidden;
   width: 100%;
@@ -19,6 +20,6 @@ p {
 }
 
 img[data-ready="false"] {
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   animation: blink 2s ease-in-out infinite;
 }

@@ -1,15 +1,16 @@
 .pagesLayout {
-  display: flex;
   @apply --scroll-x;
 
+  display: flex;
+  flex-direction: row-reverse;
   width: 100vw;
   height: 100vh;
-  flex-direction: row-reverse;
 
   &_page {
+    @apply --flex-fit;
+
     height: 100vh;
     width: calc(100vh / var(--episode-aspect));
-    @apply --flex-fit;
 
     & img {
       height: 100%;
