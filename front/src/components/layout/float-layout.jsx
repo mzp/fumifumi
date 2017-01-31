@@ -15,11 +15,11 @@ export default (Component) => @connect("layout") class extends React.Component {
     static defaultProps = {"header": false}
 
     onClick () {
-        this.props.dispatch({"type": "layout.header.toggle"});
+        this.props.dispatch({"type": "layout.float.toggle"});
     }
 
     componentWillMount () {
-        this.props.dispatch({"type": "layout.header.hide"});
+        this.props.dispatch({"type": "layout.float.hide"});
     }
 
     render () {

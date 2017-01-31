@@ -1,4 +1,4 @@
-.episodeThumbnail {
+.masked {
   &::after {
     @apply --block;
 

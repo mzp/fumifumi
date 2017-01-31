@@ -23,7 +23,7 @@ export default class extends React.Component {
         const {author, "author_url": authorUrl, url, title, pages} = this.props;
 
         const layout = b.with("episodeLayout");
-        const thumbnail = b.with("episodeThumbnail");
+        const masked = b.with("masked");
         const panel = b.with("panelLayout");
         const button = b.with("button");
 
@@ -31,7 +31,7 @@ export default class extends React.Component {
             <div className={cx(layout(), "episodeInfo")}>
                 <div className={layout("title")}>{title}</div>
                 <div className={layout("author")}><a href={authorUrl}>{author}</a></div>
-                <div className={cx(layout("pages"), thumbnail(), panel())}>
+                <div className={cx(layout("pages"), masked(), panel())}>
                     {take(pages, 3).map((p) =>
                         <Page
                             key={p.id}
