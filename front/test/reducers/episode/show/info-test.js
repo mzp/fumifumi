@@ -1,7 +1,7 @@
 import test from "ava";
 
 // eslint-disable-next-line import/no-internal-modules
-import reducer from "reducers/layout/header";
+import reducer from "reducers/episode/show/info";
 
 test((t) => {
     t.is(
