@@ -5,24 +5,24 @@ import reducer from "reducers/layout/header";
 
 test((t) => {
     t.is(
-        reducer(true, {"type": "layout.header.toggle"}),
+        reducer(true, {"type": "layout.float.toggle"}),
       false);
 });
 
 test((t) => {
     t.is(
-        reducer(false, {"type": "layout.header.toggle"}),
+        reducer(false, {"type": "layout.float.toggle"}),
       true);
 });
 
 test((t) => {
     t.is(
-        reducer(true, {"type": "layout.header.hide"}),
+        reducer(true, {"type": "layout.float.hide"}),
       false);
 });
 
 test((t) => {
     t.is(
-        reducer(false, {"type": "layout.header.hide"}),
+        reducer(false, {"type": "layout.float.hide"}),
       false);
 });
