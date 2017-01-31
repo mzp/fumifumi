@@ -1,0 +1,21 @@
+.overlayLayout {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  padding: 50px;
+  animation: show 0.1s;
+
+  &_main {
+    text-align: right;
+    margin-top: 40px;
+    font-size: 3rem;
+  }
+
+  &_sub {
+    margin-top: 40px;
+    text-align: right;
+    font-size: 2rem;
+  }
+}
