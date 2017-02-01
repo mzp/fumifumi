@@ -2,6 +2,6 @@
 class EpisodesController < ApplicationController
   def show
     episode = Episode.find(params[:id])
-    render json: Resource::Episode.new(episode)
+    render json: Resource::EpisodeDetail.new(episode)
   end
 end

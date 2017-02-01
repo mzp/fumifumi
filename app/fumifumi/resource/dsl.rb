@@ -28,7 +28,7 @@ module Resource
     end
 
     def fields
-      self.class.fields.each_with_object({}) do |field, hash|
+      classes(:fields).each_with_object({}) do |field, hash|
         name = field.name
 
         if field.with.present?
@@ -41,11 +41,17 @@ module Resource
     end
 
     def array_fields
-      self.class.array_fields.each_with_object({}) do |field, hash|
+      classes(:array_fields).each_with_object({}) do |field, hash|
         name = field.name
 
         xs = model.send(name)
         hash[name] = xs.map(&field.with.method(:new))
+      end
+    end
+
+    def classes(sym)
+      self.class.ancestors.flat_map do |c|
+        c.try(sym) || []
       end
     end
   end
