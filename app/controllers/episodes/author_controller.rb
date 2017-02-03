@@ -2,8 +2,10 @@
 module Episodes
   class AuthorController < ApplicationController
     def index
-      @author = params[:name]
-      @episodes = Episode.where(author: @author)
+      author = params[:name]
+      render json: Episode.where(author: author).map { |e|
+        Resource::Episode.new(e)
+      }
     end
   end
 end
