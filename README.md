@@ -14,8 +14,8 @@ docker-compose build
 
 # prepare dependencies
 docker-compose run js yarn install
-docker-compose run app bash -i -c bundle
-docker-compose run app bash -i -c './bin/rails db:setup'
+docker-compose run app bundle
+docker-compose run app ./bin/rails db:setup
 
 # launch app/job/js container
 dockre-compose up app job js
