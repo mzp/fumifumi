@@ -20,8 +20,8 @@ function info () {
                     className="placeholder"
                     color="rgba(0,0,0,0.2)"
                     style={{
-                        "width": "20rem",
-                        "height": "1.5rem"
+                        "height": "1.5rem",
+                        "width": "20rem"
                     }}
                 />
             </div>
