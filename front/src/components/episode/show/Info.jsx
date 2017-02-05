@@ -14,7 +14,7 @@ export default class extends React.Component {
     static defaultProps = {"show": false}
 
     render () {
-        const {author, "author_url": url, "magazine_title": magazineTitle, show, title} = this.props;
+        const {author, "author_url": url, "magazine_title": magazineTitle, "magazine_url": magazineUrl, show, title} = this.props;
 
         if (!show) {
             return null;
@@ -28,7 +28,9 @@ export default class extends React.Component {
                 <div className={layout("sub")}>
                     <Link to={url}>{author}</Link>
                 </div>
-                <div className={layout("sub")}>{magazineTitle}</div>
+                <div className={layout("sub")}>
+                    <Link to={magazineUrl}>{magazineTitle}</Link>
+                </div>
             </div>
         );
     }

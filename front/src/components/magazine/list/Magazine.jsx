@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router";
 import includes from "lodash.includes";
 import scrollTo from "scroll-to";
 import Page from "./Page";
@@ -31,7 +32,7 @@ export default class extends React.Component {
     }
 
     render () {
-        const {title, cover, selectedEpisode, episodes} = this.props;
+        const {title, url, cover, selectedEpisode, episodes} = this.props;
         const magazine = b.with("magazineLayout");
         const panel = b.with("panelLayout");
 
@@ -43,7 +44,7 @@ export default class extends React.Component {
                 }}
             >
                 <div className={magazine("title")}>
-                    {title} {this.suffix()}
+                    <Link to={url}>{title}</Link> {this.suffix()}
                 </div>
                 <div className={magazine("content")}>
                     <Scroll layout={panel}>
