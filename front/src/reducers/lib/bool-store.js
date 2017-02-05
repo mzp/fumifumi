@@ -1,7 +1,6 @@
-/* @flow */
 import {combineActions, handleActions} from "redux-actions";
 
-function next (types: string[], value: boolean) {
+function next (types, value) {
     if (types.length === 0) {
         return {};
     }
@@ -9,7 +8,7 @@ function next (types: string[], value: boolean) {
     return {[combineActions(...types)]: () => value};
 }
 
-export default (enableTypes: array[], disableTypes: array[], init: boolean) => handleActions({
+export default (enableTypes, disableTypes, init) => handleActions({
     "@@INIT": (state) => state,
     ...next(enableTypes, true),
     ...next(disableTypes, false)
