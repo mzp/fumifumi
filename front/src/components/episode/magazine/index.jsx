@@ -1,6 +1,8 @@
 import React from "react";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
+import Types from "components/prop-types";
+import Tile from "components/episode/tile";
 
 @mainLayout @connect("episode.magazine")
 export default class extends React.Component {
@@ -8,10 +10,15 @@ export default class extends React.Component {
 
     static propTypes = {
         "dispatch": React.PropTypes.func,
-        "params": React.PropTypes.shape({"id": React.PropTypes.string})
+        "episodes": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode)),
+        "params": React.PropTypes.shape({"id": React.PropTypes.string}),
+        "ready": React.PropTypes.bool
     }
 
-    static defaultProps = {"params": {}}
+    static defaultProps = {
+        "params": {},
+        "ready": false
+    }
 
     componentDidMount () {
         this.props.dispatch({
@@ -21,6 +28,13 @@ export default class extends React.Component {
     }
 
     render () {
-        return <div />;
+        const {episodes, ready} = this.props;
+
+        return (
+            <Tile
+                episodes={episodes}
+                ready={ready}
+            />
+        );
     }
 }
