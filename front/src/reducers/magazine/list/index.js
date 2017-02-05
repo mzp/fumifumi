@@ -1,13 +1,12 @@
 /* @flow */
 import {combineReducers} from "redux";
 import selectedEpisode from "./selected-episode";
-import ready from "./ready";
-import fetching from "./fetching";
 import valueStore from "reducers/lib/value-store";
+import boolStore from "reducers/lib/bool-store";
 
 export default combineReducers({
-    fetching,
+    "fetching": boolStore(["magazine.list.start"], ["magazine.list.fetch"], false),
     "magazines": valueStore("magazine.list.fetch", []),
-    ready,
+    "ready": boolStore(["magazine.list.fetch"], [], false),
     selectedEpisode
 });
