@@ -7,6 +7,7 @@ import {syncHistoryWithStore} from "react-router-redux";
 import MagazineImport from "components/magazine/import";
 import MagazineList from "components/magazine/list";
 import Author from "components/episode/author";
+import Magazine from "components/episode/magazine";
 import Episode from "components/episode/show";
 import createStore from "store";
 
@@ -31,6 +32,10 @@ window.onload = () => {
                     <Route
                         component={Author}
                         path="/episodes/author"
+                    />
+                    <Route
+                        component={Magazine}
+                        path="/episodes/magazine/:id"
                     />
                     <Route
                         component={Episode}
