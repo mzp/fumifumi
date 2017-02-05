@@ -2,13 +2,10 @@
 import React from "react";
 import {render} from "react-dom";
 import {Provider} from "react-redux";
-import {Router, Route, browserHistory} from "react-router";
+import {Router, browserHistory} from "react-router";
 import {syncHistoryWithStore} from "react-router-redux";
-import MagazineImport from "components/magazine/import";
-import MagazineList from "components/magazine/list";
-import Author from "components/episode/author";
-import Episode from "components/episode/show";
 import createStore from "store";
+import routes from "routes";
 
 window.onload = () => {
     const mountNode : Element = document.getElementById("js");
@@ -19,24 +16,10 @@ window.onload = () => {
 
         render(
             <Provider store={store}>
-                <Router history={history}>
-                    <Route
-                        component={MagazineImport}
-                        path="/magazines/new"
-                    />
-                    <Route
-                        component={MagazineList}
-                        path="/magazines"
-                    />
-                    <Route
-                        component={Author}
-                        path="/episodes/author"
-                    />
-                    <Route
-                        component={Episode}
-                        path="/episodes/:id"
-                    />
-                </Router>
+                <Router
+                    history={history}
+                    routes={routes}
+                />
             </Provider>,
           mountNode);
     }

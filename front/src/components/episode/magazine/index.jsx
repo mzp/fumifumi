@@ -1,23 +1,22 @@
 import React from "react";
-import ReactPlaceholder from "react-placeholder";
 import connect from "components/lib/connect";
-import Types from "components/prop-types";
 import {mainLayout} from "components/layout";
+import Types from "components/prop-types";
 import Tile from "components/episode/tile";
 
-@mainLayout @connect("episode.author")
+@mainLayout @connect("episode.magazine")
 export default class extends React.Component {
-    static displayName = "Episode.Author"
+    static displayName = "Episode.Magazine"
 
     static propTypes = {
         "dispatch": React.PropTypes.func,
         "episodes": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode)),
-        "params": React.PropTypes.shape({"name": React.PropTypes.string}).isRequired,
+        "magazine": React.PropTypes.shape(Types.magazine),
+        "params": React.PropTypes.shape({"id": React.PropTypes.string}),
         "ready": React.PropTypes.bool
     }
 
     static defaultProps = {
-        "episodes": [],
         "params": {},
         "ready": false
     }
@@ -25,18 +24,18 @@ export default class extends React.Component {
     componentDidMount () {
         this.props.dispatch({
             "payload": this.props.params,
-            "type": "saga.episode.author"
+            "type": "saga.episode.magazine"
         });
     }
 
     render () {
-        const {episodes, ready, "params": {name}} = this.props;
+        const {"magazine": {title}, episodes, ready} = this.props;
 
         return (
             <Tile
                 episodes={episodes}
                 ready={ready}
-                title={name}
+                title={title}
             />
         );
     }
