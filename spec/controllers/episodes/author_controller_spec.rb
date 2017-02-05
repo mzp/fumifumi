@@ -8,7 +8,7 @@ RSpec.describe Episodes::AuthorController, type: :controller do
     let!(:other_episode) { create(:episode, author: 'Jane Doe', magazine: magazine) }
 
     subject do
-      get :index, name: 'John Doe'
+      get :index, params: { name: 'John Doe' }
       response.body
     end
 
