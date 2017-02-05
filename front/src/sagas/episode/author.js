@@ -8,7 +8,7 @@ export default function *(): Generator<*, *, *> {
     while (true) {
         const {"payload": {name}} = yield take("saga.episode.author");
 
-        yield put(action.fetch(data));
+        yield put(action.start());
 
         const {data} = yield call(fetch, name);
 
