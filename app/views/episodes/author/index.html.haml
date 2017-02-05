@@ -1,9 +1,0 @@
-.info
-  %h1.info_main= @author
-
-.tileLayout
-  - @episodes.each do |episode|
-    .tileLayout_tile
-      %a{ href: "/episodes/#{episode.id}" }
-        %img{ src: page_url(episode.page, thumbnail: true) }
-

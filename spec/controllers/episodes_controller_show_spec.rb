@@ -16,7 +16,7 @@ RSpec.describe EpisodesController, type: :controller do
     it do
       expect(subject).to be_json_eql(episode.title.to_json)
         .at_path('title')
-      expect(subject).to be_json_eql(episodes_author_index_path(name: 'John').to_json)
+      expect(subject).to be_json_eql('/episodes/author?name=John'.to_json)
         .at_path('author_url')
       expect(subject).to be_json_eql(magazine.title.to_json)
         .at_path('magazine_title')

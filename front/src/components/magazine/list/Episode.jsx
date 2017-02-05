@@ -30,7 +30,7 @@ export default class extends React.Component {
         return (
             <div className={cx(layout(), "episodeInfo")}>
                 <div className={layout("title")}>{title}</div>
-                <div className={layout("author")}><a href={authorUrl}>{author}</a></div>
+                <div className={layout("author")}><Link to={authorUrl}>{author}</Link></div>
                 <div className={cx(layout("pages"), masked(), panel())}>
                     {take(pages, 3).map((p) =>
                         <Page
