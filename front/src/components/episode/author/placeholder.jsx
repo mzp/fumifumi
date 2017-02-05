@@ -10,6 +10,24 @@ import b from "components/lib/b";
 
 const layout = b.with("tileLayout");
 
+function info () {
+    const c = b.with("info");
+
+    return (
+        <div className={c()}>
+            <div className={c("title")}>
+                <RectShape
+                    className="placeholder"
+                    color="rgba(0,0,0,0.2)"
+                    style={{
+                        "width": "20rem",
+                        "height": "1.5rem"
+                    }}
+                />
+            </div>
+        </div>);
+}
+
 function page () {
     return (
         <div className={layout("tile")}>
@@ -22,11 +40,14 @@ function page () {
 }
 
 export default (
-    <div className={layout()}>
-        {page()}
-        {page()}
-        {page()}
-        {page()}
-        {page()}
+    <div>
+        {info()}
+        <div className={layout()}>
+            {page()}
+            {page()}
+            {page()}
+            {page()}
+            {page()}
+        </div>
     </div>
 );
