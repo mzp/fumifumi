@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router";
 import b from "components/lib/b";
 import Types from "components/prop-types";
 
@@ -25,7 +26,7 @@ export default class extends React.Component {
             <div className={layout()}>
                 <div className={layout("main")}>{title}</div>
                 <div className={layout("sub")}>
-                    <a href={url}>{author}</a>
+                    <Link to={url}>{author}</Link>
                 </div>
                 <div className={layout("sub")}>{magazineTitle}</div>
             </div>
