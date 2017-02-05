@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :episodes, only: %i(show), constraints: { id: /\d+/ }
     namespace :episodes do
       resources :author, only: %i(index)
+      resources :magazine, only: %i(show)
     end
   end
 
