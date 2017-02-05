@@ -1,5 +1,5 @@
 import {post} from "axios";
-import headers from "./lib/rails-header";
+import headers from "api/lib/rails-header";
 
 export default function (file) {
     const

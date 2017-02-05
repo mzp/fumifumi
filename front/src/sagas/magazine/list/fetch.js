@@ -1,7 +1,7 @@
 /* @flow */
 import {call, take, put} from "redux-saga/effects";
 import action from "actions/magazine/list";
-import fetch from "api/fetch";
+import fetch from "api/magazine/fetch";
 
 export default function *(): Generator<*, *, *> {
     // eslint-disable-next-line no-constant-condition

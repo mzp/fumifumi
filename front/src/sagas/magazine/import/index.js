@@ -1,7 +1,7 @@
 /* @flow */
 import {call, take, put} from "redux-saga/effects";
 import action from "actions/magazine/import";
-import apiUpload from "api/upload";
+import apiUpload from "api/magazine/upload";
 
 export default function *(): Generator<*, *, *> {
     // eslint-disable-next-line no-constant-condition
