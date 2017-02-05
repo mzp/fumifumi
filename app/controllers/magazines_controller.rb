@@ -6,6 +6,7 @@ class MagazinesController < ApplicationController
 
   def create
     magazine = ::Magazine.create!(
+      title: params[:attachment].original_filename,
       source: params[:attachment].tempfile
     )
     ::ImportMagazineJob.perform_later magazine

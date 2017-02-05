@@ -19,6 +19,7 @@ RSpec.describe MagazinesController, type: :controller do
         end.to change(::Magazine, :count).by(1)
           .and have_enqueued_job(ImportMagazineJob)
         expect(response.body).to eq('ok'.to_json)
+        expect(Magazine.last.title).to_not be_nil
         expect(Magazine.last.finished_at).to be_nil
       end
     end
