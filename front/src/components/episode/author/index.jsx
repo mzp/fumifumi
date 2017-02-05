@@ -1,4 +1,6 @@
 import React from "react";
+import ReactPlaceholder from "react-placeholder";
+import Placeholder from "./placeholder";
 import Info from "./Info";
 import Page from "./Page";
 import b from "components/lib/b";
@@ -13,12 +15,14 @@ export default class extends React.Component {
     static propTypes = {
         "dispatch": React.PropTypes.func,
         "episodes": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode)),
-        "params": React.PropTypes.shape({"name": React.PropTypes.string}).isRequired
+        "params": React.PropTypes.shape({"name": React.PropTypes.string}).isRequired,
+        "ready": React.PropTypes.bool
     }
 
     static defaultProps = {
         "episodes": [],
-        "params": {}
+        "params": {},
+        "ready": false
     }
 
     componentDidMount () {
@@ -29,23 +33,28 @@ export default class extends React.Component {
     }
 
     render () {
-        const {episodes, "params": {name}} = this.props;
+        const {episodes, ready, "params": {name}} = this.props;
         const layout = b.with("tileLayout");
 
         return (
-            <div>
-                <Info name={name} />
-                <div className={layout()}>
-                    {episodes.map((e) =>
-                        <Page
-                            key={e.id}
-                            layout={layout("tile")}
-                            url={e.url}
-                            {...e.page}
-                        />)
-                    }
+            <ReactPlaceholder
+                customPlaceholder={Placeholder}
+                ready={ready}
+            >
+                <div>
+                    <Info name={name} />
+                    <div className={layout()}>
+                        {episodes.map((e) =>
+                            <Page
+                                key={e.id}
+                                layout={layout("tile")}
+                                url={e.url}
+                                {...e.page}
+                            />)
+                        }
+                    </div>
                 </div>
-            </div>
+            </ReactPlaceholder>
         );
     }
 }
