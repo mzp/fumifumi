@@ -1,9 +1,8 @@
 import React from "react";
+import scrollTo from "scroll-to";
 import {Link} from "react-router";
 import includes from "lodash.includes";
-import scrollTo from "scroll-to";
-import Page from "./Page";
-import Scroll from "./Scroll";
+import Episodes from "./Episodes";
 import Episode from "./Episode";
 import b from "components/lib/b";
 import connect from "components/lib/connect";
@@ -28,13 +27,11 @@ export default class extends React.Component {
         }
 
         return "";
-
     }
 
     render () {
         const {title, url, cover, selectedEpisode, episodes} = this.props;
         const magazine = b.with("magazineLayout");
-        const panel = b.with("panelLayout");
 
         return (
             <div
@@ -47,24 +44,12 @@ export default class extends React.Component {
                     <Link to={url}>{title}</Link> {this.suffix()}
                 </div>
                 <div className={magazine("content")}>
-                    <Scroll layout={panel}>
-                        {[
-                            <Page
-                                key="cover"
-                                layout={panel("panel")}
-                                {...cover}
-                            />,
-                            ...episodes.map((e) =>
-                                <Page
-                                    focus={e.id === selectedEpisode.id}
-                                    key={e.id}
-                                    layout={panel("panel")}
-                                    onClick={() => this.onClick(e)}
-                                    url={e.url}
-                                    {...e.page}
-                                />)
-                        ]}
-                    </Scroll>
+                    <Episodes
+                        cover={cover}
+                        episodes={episodes}
+                        onClick={::this.onClick}
+                        selectedEpisode={selectedEpisode}
+                    />
                     <Episode
                         ready={includes(episodes, selectedEpisode)}
                         {...selectedEpisode}
