@@ -14,7 +14,14 @@ export default class extends React.Component {
     static defaultProps = {"show": false}
 
     render () {
-        const {author, "author_url": url, "magazine_title": magazineTitle, "magazine_url": magazineUrl, show, title} = this.props;
+        const {
+          author,
+          "author_url": url,
+          "magazine_title": magazineTitle,
+          "magazine_url": magazineUrl,
+          show,
+          title
+        } = this.props;
 
         if (!show) {
             return null;
