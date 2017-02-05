@@ -5,9 +5,11 @@ export default {
     "childRoutes": [
         {
             "component": Import,
-            "path": "new"
+            "path": "magazines/new"
+        },
+        {
+            "component": List,
+            "path": "magazines"
         }
-    ],
-    "component": List,
-    "path": "magazines"
+    ]
 };
