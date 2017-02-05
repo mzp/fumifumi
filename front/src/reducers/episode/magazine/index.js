@@ -1,4 +1,9 @@
 /* @flow */
 import {combineReducers} from "redux";
+import valueStore from "reducers/lib/value-store";
+import boolStore from "reducers/lib/bool-store";
 
-export default combineReducers({});
+export default combineReducers({
+    "episodes": valueStore("episode.magazine.fetch", []),
+    "ready": boolStore(["episode.magazine.fetch"], ["episode.magazine.start"], false)
+});
