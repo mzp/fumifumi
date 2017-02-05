@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import passThrough from "./pass-through";
+import routerParams from "./router-params";
 import b from "components/lib/b";
 import connect from "components/lib/connect";
 
@@ -39,7 +39,7 @@ export default (Component) => @connect("layout") class extends React.Component {
                     className={layout("bodyArea")}
                     onClick={::this.onClick}
                 >
-                    <Component {...passThrough(this.props)} />
+                    <Component {...routerParams(this.props)} />
                 </div>
             </div>
         );

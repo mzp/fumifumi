@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import passThrough from "./pass-through";
+import routerParams from "./router-params";
 import b from "components/lib/b";
 
 export default (Component) => class extends React.Component {
@@ -15,7 +15,7 @@ export default (Component) => class extends React.Component {
                     <Header />
                 </div>
                 <div className={layout("bodyArea")}>
-                    <Component {...passThrough(this.props)} />
+                    <Component {...routerParams(this.props)} />
                 </div>
             </div>
         );
