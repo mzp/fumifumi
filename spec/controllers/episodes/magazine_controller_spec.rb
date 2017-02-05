@@ -14,12 +14,17 @@ RSpec.describe Episodes::MagazineController, type: :controller do
 
     it do
       aggregate_failures do
+        expect(subject).to be_json_eql(magazine.title.to_json)
+          .at_path('title')
         expect(subject).to include_json(episode1.to_json)
           .excluding('page', 'author_url', 'url', 'pages')
+          .at_path('episodes')
         expect(subject).to include_json(episode2.to_json)
           .excluding('page', 'author_url', 'url', 'pages')
+          .at_path('episodes')
         expect(subject).to_not include_json(other_episode.to_json)
           .excluding('page', 'author_url', 'url', 'pages')
+          .at_path('episodes')
       end
     end
   end

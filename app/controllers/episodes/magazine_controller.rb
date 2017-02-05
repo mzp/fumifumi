@@ -2,10 +2,8 @@
 module Episodes
   class MagazineController < ApplicationController
     def show
-      id = params[:id]
-      render json: Magazine.find(id).episodes.map { |e|
-        Resource::Episode.new(e)
-      }
+      magazine = Magazine.find(params[:id])
+      render json: Resource::Magazine.new(magazine)
     end
   end
 end

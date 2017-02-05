@@ -11,6 +11,7 @@ export default class extends React.Component {
     static propTypes = {
         "dispatch": React.PropTypes.func,
         "episodes": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode)),
+        "magazine": React.PropTypes.shape(Types.magazine),
         "params": React.PropTypes.shape({"id": React.PropTypes.string}),
         "ready": React.PropTypes.bool
     }
@@ -28,12 +29,13 @@ export default class extends React.Component {
     }
 
     render () {
-        const {episodes, ready} = this.props;
+        const {"magazine": {title}, episodes, ready} = this.props;
 
         return (
             <Tile
                 episodes={episodes}
                 ready={ready}
+                title={title}
             />
         );
     }

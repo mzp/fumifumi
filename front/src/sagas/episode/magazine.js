@@ -12,6 +12,7 @@ export default function *(): Generator<*, *, *> {
 
         const {data} = yield call(fetch, id);
 
-        yield put(action.fetch(data));
+        yield put(action.fetchEpisodes(data.episodes));
+        yield put(action.fetchMagazine(data));
     }
 }
