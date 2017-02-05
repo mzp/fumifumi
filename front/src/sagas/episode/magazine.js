@@ -1,6 +1,7 @@
 /* @flow */
 import {call, put, take} from "redux-saga/effects";
 import action from "actions/episode/magazine";
+import fetch from "api/episode/magazine";
 
 export default function *(): Generator<*, *, *> {
     // eslint-disable-next-line no-constant-condition
@@ -9,7 +10,7 @@ export default function *(): Generator<*, *, *> {
 
         yield put(action.start());
 
-        const data = [];
+        const {data} = yield call(fetch, id);
 
         yield put(action.fetch(data));
     }
