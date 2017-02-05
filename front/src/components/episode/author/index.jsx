@@ -1,12 +1,9 @@
 import React from "react";
 import ReactPlaceholder from "react-placeholder";
-import Placeholder from "./placeholder";
-import Info from "./Info";
-import Page from "./Page";
-import b from "components/lib/b";
 import connect from "components/lib/connect";
 import Types from "components/prop-types";
 import {mainLayout} from "components/layout";
+import Tile from "components/episode/tile";
 
 @mainLayout @connect("episode.author")
 export default class extends React.Component {
@@ -34,27 +31,13 @@ export default class extends React.Component {
 
     render () {
         const {episodes, ready, "params": {name}} = this.props;
-        const layout = b.with("tileLayout");
 
         return (
-            <ReactPlaceholder
-                customPlaceholder={Placeholder}
+            <Tile
+                episodes={episodes}
                 ready={ready}
-            >
-                <div>
-                    <Info name={name} />
-                    <div className={layout()}>
-                        {episodes.map((e) =>
-                            <Page
-                                key={e.id}
-                                layout={layout("tile")}
-                                url={e.url}
-                                {...e.page}
-                            />)
-                        }
-                    </div>
-                </div>
-            </ReactPlaceholder>
+                title={name}
+            />
         );
     }
 }
