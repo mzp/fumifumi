@@ -2,17 +2,19 @@ import React from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import connect from "components/lib/connect";
 
-@connect()
+@connect("magazine.list")
 export default class extends React.Component {
     static displayName = "MagazineLint.MagazinePager"
 
     static propTypes = {
         "children": React.PropTypes.arrayOf(Object),
-        "dispatch": React.PropTypes.func
+        "dispatch": React.PropTypes.func,
+        "hasMore": React.PropTypes.bool
     };
     static defaultProps = {
         "children": [],
-        "dispatch": null
+        "dispatch": null,
+        "hasMore": false
     };
 
     loadMore (page) {
@@ -23,12 +25,12 @@ export default class extends React.Component {
     }
 
     render () {
-        const {children} = this.props;
+        const {children, hasMore} = this.props;
 
 
         return (
             <InfiniteScroll
-                hasMore
+                hasMore={hasMore}
                 loadMore={::this.loadMore}
                 loader={<div className="loader">{"Loading ..."}</div>}
                 pageStart={1}

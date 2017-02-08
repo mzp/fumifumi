@@ -8,10 +8,11 @@ export default function *(): Generator<*, *, *> {
     while (true) {
         yield take("saga.magazine.list.fetch");
         yield put(action.start());
-        const {data} = yield call(fetch);
+        const {data, "headers": {hasmore}} = yield call(fetch);
 
         // TODO: add error handling
 
         yield put(action.fetch(data));
+        yield put(action.hasMore(hasmore === "true"));
     }
 }
