@@ -1,7 +1,8 @@
 import React from "react";
 import ReactPlaceholder from "react-placeholder";
-import Placeholder from "./placeholder";
 import Magazine from "./Magazine";
+import MagazinePager from "./MagazinePager";
+import Placeholder from "./placeholder";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 
@@ -31,13 +32,13 @@ export default class extends React.Component {
                 customPlaceholder={Placeholder}
                 ready={this.props.ready}
             >
-                <div>
+                <MagazinePager>
                     {magazines.map((m) =>
                         <Magazine
                             key={m.id}
                             {...m}
                         />) }
-                </div>
+                </MagazinePager>
             </ReactPlaceholder>
         );
     }
