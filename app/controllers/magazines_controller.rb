@@ -1,7 +1,11 @@
 # frozen_string_literal: true
-class MagazinesController < ApplicationController
+class MagazinesController < ApiController
+  include Rails::Pagination
+
   def index
-    render json: Magazine.finished.map(&Resource::Magazine.method(:new))
+    magazines = paginate Magazine.finished, per_page: 3
+
+    render json: magazines.map(&Resource::Magazine.method(:new))
   end
 
   def create
