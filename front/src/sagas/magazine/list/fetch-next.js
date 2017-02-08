@@ -7,9 +7,9 @@ export default function *(): Generator<*, *, *> {
     // eslint-disable-next-line no-constant-condition
     while (true) {
         const {"payload": {page}} = yield take("saga.magazine.list.fetch-next");
-        const response = yield call(fetch, page);
+        const {data} = yield call(fetch, page);
 
         // TODO: add error handling
-        yield put(action.fetchNext(response.data));
+        yield put(action.fetchNext(data));
     }
 }
