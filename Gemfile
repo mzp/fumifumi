@@ -7,9 +7,11 @@ end
 
 gem 'rails', '5.0.1'
 
+gem 'api-pagination'
 gem 'gepub'
 gem 'haml-rails'
 gem 'jbuilder'
+gem 'kaminari'
 gem 'mysql2'
 # close+unlink leaking tempfiles
 # https://github.com/thoughtbot/paperclip/pull/2143
