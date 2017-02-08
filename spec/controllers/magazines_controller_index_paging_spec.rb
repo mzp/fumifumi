@@ -31,12 +31,33 @@ RSpec.describe MagazinesController, type: :controller do
     end
   end
 
-  describe 'header' do
-    let(:params) { {} }
-    subject { response.header.to_h }
+  describe 'headers' do
+    describe 'api-paginate provided' do
+      let(:params) { {} }
+      subject { response.header.to_h }
 
-    it do
-      expect(subject).to include('Total' => '10')
+      it do
+        expect(subject).to include('Total' => '10')
+      end
+    end
+
+    describe'has-more' do
+      subject { response.header.to_h }
+
+      context 'not last page' do
+        let(:params) { { page: 3 } }
+        it { expect(subject).to include('HasMore' => 'true') }
+      end
+
+      context 'last page' do
+        let(:params) { { page: 4 } }
+        it { expect(subject).to include('HasMore' => 'false') }
+      end
+
+      context 'beyond last page' do
+        let(:params) { { page: 5 } }
+        it { expect(subject).to include('HasMore' => 'false') }
+      end
     end
   end
 end

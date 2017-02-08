@@ -26,4 +26,11 @@ class MagazinesController < ApiController
     Rails.logger.error e.backtrace
     render json: e.message.to_json, status: :bad_request
   end
+
+  def paginate(*args)
+    super.tap do |collection|
+      has_more = !(collection.last_page? || collection.out_of_range?)
+      headers['HasMore'] = has_more.to_s
+    end
+  end
 end
