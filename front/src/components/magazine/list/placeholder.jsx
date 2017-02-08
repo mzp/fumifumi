@@ -27,7 +27,7 @@ function contentArea (alpha) {
     );
 }
 
-function magazineArea () {
+export function magazineArea () {
     return (
         <div className={magazine()}>
             <div className={magazine("title")}>

@@ -1,5 +1,6 @@
 import React from "react";
 import InfiniteScroll from "react-infinite-scroller";
+import {magazineArea} from "./placeholder";
 import connect from "components/lib/connect";
 
 @connect("magazine.list")
@@ -32,7 +33,7 @@ export default class extends React.Component {
             <InfiniteScroll
                 hasMore={hasMore}
                 loadMore={::this.loadMore}
-                loader={<div className="loader">{"Loading ..."}</div>}
+                loader={magazineArea()}
                 pageStart={1}
             >
                 {children}
