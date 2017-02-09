@@ -3,7 +3,7 @@ class MagazinesController < ApiController
   include Rails::Pagination
 
   def index
-    magazines = paginate Magazine.finished, per_page: 3
+    magazines = paginate Magazine.finished.includes(episodes: [:pages]), per_page: 3
 
     render json: magazines.map(&Resource::Magazine.method(:new))
   end
