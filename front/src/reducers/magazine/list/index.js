@@ -4,11 +4,12 @@ import selectedEpisode from "./selected-episode";
 import magazines from "./magazines";
 import boolStore from "reducers/lib/bool-store";
 import valueStore from "reducers/lib/value-store";
+import action from "actions/magazine/list";
 
 export default combineReducers({
-    "fetching": boolStore(["magazine.list.start"], ["magazine.list.fetch"], false),
-    "hasMore": valueStore("magazine.list.has-more", false),
+    "fetching": boolStore([action.start], [action.fetch], false),
+    "hasMore": valueStore(action.hasMore, false),
     magazines,
-    "ready": boolStore(["magazine.list.fetch"], [], false),
+    "ready": boolStore([action.fetch], [], false),
     selectedEpisode
 });

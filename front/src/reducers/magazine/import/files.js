@@ -1,5 +1,6 @@
 /* @flow */
 import {handleActions} from "redux-actions";
+import action from "actions/magazine/import";
 
 function update (files, target, f) {
     return files.map((file) => {
@@ -14,8 +15,8 @@ function update (files, target, f) {
 export default handleActions({
     "@@INIT": (state) => state,
 
-    "magazine.import.error": (state, action) => {
-        const {file, error} = action.payload;
+    [action.error]: (state, {payload}) => {
+        const {file, error} = payload;
 
         return update(state, file, (x) =>
             ({
@@ -25,23 +26,23 @@ export default handleActions({
             }));
     },
 
-    "magazine.import.set": (state, action) =>
-        action.payload.map((file, i) => ({
+    [action.set]: (state, {payload}) =>
+        payload.map((file, i) => ({
             file,
             "id": i,
             "name": file.name,
             "status": "prepare"
         })),
 
-    "magazine.import.start": (state, action) =>
-        update(state, action.payload, (file) =>
+    [action.start]: (state, {payload}) =>
+        update(state, payload, (file) =>
             ({
                 ...file,
                 "status": "start"
             })),
 
-    "magazine.import.success": (state, action) =>
-        update(state, action.payload, (file) =>
+    [action.success]: (state, {payload}) =>
+        update(state, payload, (file) =>
             ({
                 ...file,
                 "status": "success"

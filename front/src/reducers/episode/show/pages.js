@@ -1,9 +1,10 @@
 /* @flow */
 import {handleActions} from "redux-actions";
+import action from "actions/episode/show";
 
 export default handleActions({
     "@@INIT": (state) => state,
 
-    "episode.show.fetch": (state, {payload}) =>
+    [action.fetch]: (state, {payload}) =>
           payload.pages
 }, []);
