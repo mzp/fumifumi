@@ -50,6 +50,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    api-pagination (4.5.2)
     arel (7.1.4)
     ast (2.3.0)
     benchmark-perf (0.2.1)
@@ -101,6 +102,18 @@ GEM
     json_spec (1.1.4)
       multi_json (~> 1.0)
       rspec (>= 2.0, < 4.0)
+    kaminari (1.0.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
+      actionview
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
+      activerecord
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -241,6 +254,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  api-pagination
   byebug
   database_rewinder
   factory_girl_rails
@@ -249,6 +263,7 @@ DEPENDENCIES
   haml_lint
   jbuilder
   json_spec
+  kaminari
   listen
   mysql2
   paperclip!

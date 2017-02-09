@@ -3755,6 +3755,10 @@ react-dropzone@^3.8.0:
   dependencies:
     attr-accept "^1.0.3"
 
+react-infinite-scroller@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-infinite-scroller/-/react-infinite-scroller-1.0.4.tgz#cb171113c4c8ee6aa44669392a55ad50938e2028"
+
 react-placeholder@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/react-placeholder/-/react-placeholder-0.0.3.tgz#71286278f38921c5f31d9993eef4c11fa75afca3"
@@ -3897,7 +3901,7 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-reduce-reducers@^0.1.0:
+reduce-reducers@^0.1.0, reduce-reducers@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.2.tgz#fa1b4718bc5292a71ddd1e5d839c9bea9770f14b"
 

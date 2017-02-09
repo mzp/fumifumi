@@ -6,13 +6,11 @@ import fetch from "api/magazine/fetch";
 export default function *(): Generator<*, *, *> {
     // eslint-disable-next-line no-constant-condition
     while (true) {
-        yield take("saga.magazine.list.fetch");
-        yield put(action.start());
-        const {data, "headers": {hasmore}} = yield call(fetch);
+        const {"payload": {page}} = yield take("saga.magazine.list.fetch-next");
+        const {data, "headers": {hasmore}} = yield call(fetch, page);
 
         // TODO: add error handling
-
-        yield put(action.fetch(data));
+        yield put(action.fetchNext(data));
         yield put(action.hasMore(hasmore === "true"));
     }
 }
