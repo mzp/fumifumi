@@ -11,11 +11,13 @@ Rails.application.routes.draw do
   end
 
   scope :api do
-    resources :magazines, only: %i(index)
-    resources :episodes, only: %i(show), constraints: { id: /\d+/ }
-    namespace :episodes do
-      resources :author, only: %i(index)
-      resources :magazine, only: %i(show)
+    scope :web do
+      resources :magazines, only: %i(index)
+      resources :episodes, only: %i(show), constraints: { id: /\d+/ }
+      namespace :episodes do
+        resources :author, only: %i(index)
+        resources :magazine, only: %i(show)
+      end
     end
   end
 
