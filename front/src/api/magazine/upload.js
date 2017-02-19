@@ -8,5 +8,5 @@ export default function (file) {
 
     data.append("attachment", file);
 
-    return post("/magazines", data, config);
+    return post("/api/web/magazines", data, config);
 }

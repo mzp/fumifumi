@@ -4,7 +4,6 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   get '/' => redirect('/magazines')
 
-  resources :magazines, only: %i(create show), constraints: { id: /\d+/ }
   namespace :magazines do
     resources :dashboard, only: %i(index destroy)
     resources :import, only: %i(create update)
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
 
   scope :api do
     scope :web do
-      resources :magazines, only: %i(index)
+      resources :magazines, only: %i(create index), constraints: { id: /\d+/ }
       resources :episodes, only: %i(show), constraints: { id: /\d+/ }
       namespace :episodes do
         resources :author, only: %i(index)
