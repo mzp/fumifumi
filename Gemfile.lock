@@ -85,7 +85,7 @@ GEM
       haml (>= 4.0.6, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
-    haml_lint (0.20.0)
+    haml_lint (0.21.0)
       haml (~> 4.0)
       rake (>= 10, < 13)
       rubocop (>= 0.47.0)
