@@ -18,6 +18,7 @@ gem 'mysql2'
 gem 'paperclip', github: 'erkki/paperclip', branch: 'unlink_tempfiles'
 gem 'puma'
 gem 'sidekiq'
+gem 'wisper'
 
 group :development, :test do
   gem 'byebug'
@@ -40,4 +41,5 @@ group :test do
   gem 'rspec-benchmark'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'wisper-rspec'
 end
