@@ -4,6 +4,7 @@ FactoryGirl.define do
     title 'The Magazine'
     source { Rails.root.join('spec/fixtures/files/saint_oniisan.epub').open }
     finished_at Time.current
+    original_filename 'saint_oniisan.epub'
 
     factory :wip_magazine do
       finished_at nil

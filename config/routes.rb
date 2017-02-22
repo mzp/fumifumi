@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :agent do
       resources :magazines, only: %i(create)
+      namespace :magazines do
+        resources :exists, only: %i(index)
+      end
     end
   end
 
