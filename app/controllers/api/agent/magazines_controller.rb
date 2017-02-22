@@ -3,11 +3,10 @@ module Api
   module Agent
     class MagazinesController < ApiController
       def create
-        magazine = ::Magazine.create!(
-          title: params[:file].original_filename,
-          source: params[:file].tempfile
-        )
-        ::ImportMagazineJob.perform_later magazine
+        Fumifumi::Magazine::Upload
+          .new(params[:file])
+          .on(:invalid) { return render(json: 'ng'.to_json) }
+          .call
         render json: 'ok'.to_json
       end
     end
