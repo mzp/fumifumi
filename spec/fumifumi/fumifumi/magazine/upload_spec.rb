@@ -17,6 +17,7 @@ RSpec.describe Fumifumi::Magazine::Upload do
         .and have_enqueued_job(ImportMagazineJob)
       expect(Magazine.last.title).to_not be_nil
       expect(Magazine.last.finished_at).to be_nil
+      expect(Magazine.last.original_filename).to eq('saint_oniisan.epub')
     end
   end
 

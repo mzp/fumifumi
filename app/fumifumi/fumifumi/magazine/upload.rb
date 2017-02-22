@@ -22,7 +22,8 @@ module Fumifumi
       def attributes
         {
           title: file.original_filename,
-          source: file.tempfile
+          source: file.tempfile,
+          original_filename: file.original_filename
         }
       end
     end
