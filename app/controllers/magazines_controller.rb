@@ -9,14 +9,11 @@ class MagazinesController < ApiController
   end
 
   def create
-    magazine = ::Magazine.create!(
-      title: params[:attachment].original_filename,
-      source: params[:attachment].tempfile
-    )
-    ::ImportMagazineJob.perform_later magazine
+    Fumifumi::Magazine::Upload
+      .new(params[:attachment])
+      .on(:invalid) { |e| return render_error(e) }
+      .call
     render json: 'ok'.to_json
-  rescue ActiveRecord::RecordInvalid => e
-    render_error(e)
   end
 
   private

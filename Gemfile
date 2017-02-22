@@ -18,6 +18,7 @@ gem 'mysql2'
 gem 'paperclip', github: 'erkki/paperclip', branch: 'unlink_tempfiles'
 gem 'puma'
 gem 'sidekiq'
+gem 'wisper'
 
 group :development, :test do
   gem 'byebug'
@@ -36,8 +37,12 @@ group :test do
   gem 'factory_girl_rails'
   gem 'haml_lint'
   gem 'json_spec'
+  # I need https://github.com/brynary/rack-test/pull/129,
+  # to save extensiton for paper clip content type validation.
+  gem 'rack-test', github: 'brynary/rack-test'
   gem 'rails-controller-testing'
   gem 'rspec-benchmark'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'wisper-rspec'
 end

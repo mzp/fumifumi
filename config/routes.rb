@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    namespace :agent do
+      resources :magazines, only: %i(create)
+    end
+  end
+
   resources :pages, only: %i(show)
 
   %w(/magazines /magazines/new /episodes/magazine/:id /episodes/:id).each do |path|
