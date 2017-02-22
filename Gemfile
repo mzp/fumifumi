@@ -37,6 +37,9 @@ group :test do
   gem 'factory_girl_rails'
   gem 'haml_lint'
   gem 'json_spec'
+  # I need https://github.com/brynary/rack-test/pull/129,
+  # to save extensiton for paper clip content type validation.
+  gem 'rack-test', github: 'brynary/rack-test'
   gem 'rails-controller-testing'
   gem 'rspec-benchmark'
   gem 'rspec-rails'
