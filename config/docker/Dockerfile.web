@@ -1,4 +1,4 @@
-FROM lkwg82/h2o-http2-server:v2.1.0-beta4
+FROM lkwg82/h2o-http2-server:v2.1.0
 
 ADD h2o.ssl.conf /etc/h2o/
 ADD h2o.conf /etc/h2o/
