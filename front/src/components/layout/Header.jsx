@@ -15,6 +15,8 @@ export default class extends React.Component {
                     <Link to="/magazines">{"fumi*fumi"}</Link>
                 </h1>
                 <div className={header("action")}>
+                    <Link to="/magazines">{"📑"}</Link>
+                    <Link to="/magazines?type=tile">{"🗂"}</Link>
                     <a href="/magazines/dashboard">{"📈"}</a>
                 </div>
             </header>);
