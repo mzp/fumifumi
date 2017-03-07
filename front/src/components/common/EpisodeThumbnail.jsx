@@ -4,7 +4,7 @@ import Types from "components/prop-types";
 import Image from "components/lib/Image";
 
 export default class extends React.PureComponent {
-    static displayName = "Episode.Author.Page";
+    static displayName = "Common.EpisodeThumbnail";
     static propTypes = {
         "layout": React.PropTypes.string,
         "url": React.PropTypes.string,

@@ -2,7 +2,7 @@ import React from "react";
 import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
 import Info from "./Info";
-import Page from "./Page";
+import EpisodeThumbnail from "components/common/EpisodeThumbnail";
 import b from "components/lib/b";
 import Types from "components/prop-types";
 
@@ -34,7 +34,7 @@ export default class extends React.Component {
                     <Info name={title} />
                     <div className={layout()}>
                         {episodes.map((e) =>
-                            <Page
+                            <EpisodeThumbnail
                                 key={e.id}
                                 layout={layout("tile")}
                                 url={e.url}
