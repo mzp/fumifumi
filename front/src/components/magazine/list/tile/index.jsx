@@ -1,5 +1,7 @@
 import React from "react";
+import ReactPlaceholder from "react-placeholder";
 import Magazine from "./Magazine";
+import Placeholder from "./placeholder";
 import connect from "components/lib/connect";
 
 @connect("magazine.list")
@@ -22,16 +24,21 @@ export default class extends React.Component {
     }
 
     render () {
-        const {magazines} = this.props;
+        const {magazines, ready} = this.props;
 
         return (
-            <div>
-                {magazines.map((m) =>
-                    <Magazine
-                        key={m.id}
-                        {...m}
-                    />) }
-            </div>
+            <ReactPlaceholder
+                customPlaceholder={Placeholder}
+                ready={ready}
+            >
+                <div>
+                    {magazines.map((m) =>
+                        <Magazine
+                            key={m.id}
+                            {...m}
+                        />) }
+                </div>
+            </ReactPlaceholder>
         );
     }
 }
