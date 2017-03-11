@@ -6,9 +6,7 @@ RSpec.describe EpisodesController, type: :controller do
 
   describe '#show' do
     subject do
-      page = create(:page, magazine: magazine)
-      create_list :page, 3, magazine: magazine
-      magazine.reload.create_toc!(page => episode)
+      create_list(:page, 4, magazine: magazine, episode: episode)
       get :show, params: { id: episode.id }
       response.body
     end
