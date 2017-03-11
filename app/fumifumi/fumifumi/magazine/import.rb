@@ -8,6 +8,7 @@ module Fumifumi
 
       def call
         update_magazine do |magazine|
+          magazine.update! series: series
           magazine.import!(book)
         end
       end
@@ -31,6 +32,15 @@ module Fumifumi
           magazine.reset!
           magazine.tap(&Proc.new).reload
         end
+      end
+
+      def series_name
+        @series_name ||= Amakanize::SeriesName.new(magazine.original_filename).to_s
+      end
+
+      def series
+        return nil if series_name.empty?
+        Series.find_or_create_by(title: series_name)
       end
 
       def tempfile

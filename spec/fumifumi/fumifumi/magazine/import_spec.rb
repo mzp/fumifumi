@@ -26,6 +26,30 @@ RSpec.describe Fumifumi::Magazine::Import do
         expect(subject.pages.size).to eq(5)
       end
     end
+
+    describe 'amakan' do
+      before do
+        magazine.update original_filename: '僕だけがいない街 (1) (カドカワコミックス・エース)_xxx.epub'
+      end
+
+      context 'create' do
+        it do
+          expect { subject }.to change(Series, :count).by(1)
+          expect(magazine.reload.series.title).to eq('僕だけがいない街')
+        end
+      end
+
+      context 'update' do
+        before do
+          Series.create(title: '僕だけがいない街')
+        end
+
+        it do
+          expect { subject }.to_not change(Series, :count)
+          expect(magazine.reload.series.title).to eq('僕だけがいない街')
+        end
+      end
+    end
   end
 
   xcontext 'real epub' do
