@@ -8,6 +8,7 @@ end
 gem 'rails', '5.0.1'
 
 gem 'api-pagination'
+gem 'amakanize'
 gem 'gepub'
 gem 'haml-rails'
 gem 'hashie'
