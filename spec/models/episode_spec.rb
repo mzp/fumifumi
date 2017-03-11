@@ -16,7 +16,6 @@ RSpec.describe Episode do
       expect(subject.title).to eq(input[:title])
       expect(subject.author).to eq(input[:author])
       expect(subject.pages.size).to eq(2)
-#      expect(subject.episodes.size).to eq(2)
     end
   end
 end
