@@ -35,7 +35,11 @@ module Fumifumi
       end
 
       def series_name
-        @series_name ||= Amakanize::SeriesName.new(magazine.original_filename).to_s
+        @series_name ||= Amakanize::SeriesName.new(filename).to_s
+      end
+
+      def filename
+        File.basename(File.basename(magazine.original_filename, '.*'), '_*')
       end
 
       def series
