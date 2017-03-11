@@ -14,21 +14,23 @@ class Magazine < ApplicationRecord
     pages.first
   end
 
-  def reset!
-    pages.delete_all
-    episodes.delete_all
-  end
-
   def episode_pages
     @episode_pages ||= pages.slice_before(&:episode).reject(&:empty?)
   end
 
-  def create_toc!(toc)
-    pages.reduce(nil) do |episode, page|
-      toc[page]&.update! magazine: self
+  concerning :Import do
+    def reset!
+      pages.delete_all
+      episodes.delete_all
+    end
 
-      (toc[page] || episode).tap do |e|
-        page.update! episode: e
+    def import!(book)
+      update! title: book.title, finished_at: Time.current
+      book.cover.each do |page|
+        pages.create!(page.to_h)
+      end
+      book.episodes.each do |episode|
+        episodes.build.import!(episode)
       end
     end
   end

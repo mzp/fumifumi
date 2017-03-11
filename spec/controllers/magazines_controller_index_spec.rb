@@ -42,11 +42,10 @@ RSpec.describe MagazinesController, type: :controller do
 
     describe 'episode' do
       let(:magazine) { create(:magazine) }
-      let!(:page) { create(:page, magazine: magazine) }
+      let!(:page) { create(:page, magazine: magazine, episode: episode) }
       let(:episode) { create(:episode, magazine: magazine) }
       before do
-        create_list(:page, 3, magazine: magazine)
-        magazine.create_toc!(page => episode)
+        create_list(:page, 3, magazine: magazine, episode: episode)
       end
 
       it do

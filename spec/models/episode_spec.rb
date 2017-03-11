@@ -1,18 +1,21 @@
 # frozen_string_literal: true
 RSpec.describe Episode do
-  describe 'sorted scope' do
+  describe '#import!' do
     let(:magazine) { create(:magazine) }
-    let!(:page2) { create(:page, no: 2, magazine: magazine) }
-    let!(:page1) { create(:page, no: 1, magazine: magazine) }
-    let!(:episode2) { build(:episode) }
-    let!(:episode1) { build(:episode) }
-
-    before do
-      magazine.create_toc!(page1 => episode2,
-                           page2 => episode1)
+    let(:episode) { create(:episode, magazine: magazine) }
+    let(:input) do
+      attributes_for(
+        :episode,
+        pages: [attributes_for(:page), attributes_for(:page)]
+      )
     end
 
-    subject { magazine.episodes.sorted }
-    it { expect(subject).to eq([episode2, episode1]) }
+    before { episode.import! Hashie::Mash.new(input) }
+    subject { episode.reload }
+    it do
+      expect(subject.title).to eq(input[:title])
+      expect(subject.author).to eq(input[:author])
+      expect(subject.pages.size).to eq(2)
+    end
   end
 end
