@@ -7,7 +7,8 @@
     padding: 20px;
   }
 
-  &_title {
+  &_title,
+  &_series {
     font-size: 1.2rem;
   }
 

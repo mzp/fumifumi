@@ -4,6 +4,7 @@ class Magazine < ApplicationRecord
 
   has_many :pages, -> { order(:no) }
   has_many :episodes
+  belongs_to :series, required: false
 
   has_attached_file :source
   validates_attachment :source,

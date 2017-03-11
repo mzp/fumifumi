@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222103756) do
+ActiveRecord::Schema.define(version: 20170311135653) do
 
   create_table "episodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "magazine_id"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20170222103756) do
     t.datetime "source_updated_at"
     t.datetime "finished_at"
     t.string   "original_filename"
+    t.integer  "series_id"
+    t.index ["series_id"], name: "index_magazines_on_series_id", using: :btree
   end
 
   create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,6 +47,12 @@ ActiveRecord::Schema.define(version: 20170222103756) do
     t.integer  "episode_id"
     t.index ["episode_id"], name: "index_pages_on_episode_id", using: :btree
     t.index ["magazine_id"], name: "index_pages_on_magazine_id", using: :btree
+  end
+
+  create_table "series", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

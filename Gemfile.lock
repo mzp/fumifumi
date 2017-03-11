@@ -57,6 +57,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    amakanize (0.6.0)
+      activesupport
     api-pagination (4.5.2)
     arel (7.1.4)
     ast (2.3.0)
@@ -262,6 +264,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amakanize
   api-pagination
   byebug
   database_rewinder
