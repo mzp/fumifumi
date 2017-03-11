@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
 
   scope :api do
     scope :web do
+      resources :series, only: %i(index)
       resources :magazines, only: %i(create index), constraints: { id: /\d+/ }
       resources :episodes, only: %i(show), constraints: { id: /\d+/ }
       namespace :episodes do
