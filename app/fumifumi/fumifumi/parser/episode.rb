@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Fumifumi
-  module Episode
-    class Info
+  module Parser
+    class Episode
       REGEXP = /\A(?<author>.*)「(?<title>.*)」\z/
 
       def initialize(source)
