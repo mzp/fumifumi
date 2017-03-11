@@ -2,7 +2,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  get '/' => redirect('/magazines')
+  get '/' => redirect('/series')
 
   namespace :magazines do
     resources :dashboard, only: %i(index destroy)
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   resources :pages, only: %i(show)
 
-  %w(/magazines /magazines/new /episodes/magazine/:id /episodes/:id).each do |path|
+  %w(/series /magazines /magazines/new /episodes/magazine/:id /episodes/:id).each do |path|
     get path => 'react#mount_page'
   end
 
