@@ -1,24 +1,45 @@
 import React from "react";
+import {Link} from "react-router";
 import cx from "classnames";
 import b from "components/lib/b";
 
 export default class extends React.Component {
     static displayName = "Episode.Magazine.Nav"
 
-    static propTypes = {"title": React.PropTypes.string}
+    static propTypes = {
+        "next": React.PropTypes.string,
+        "prev": React.PropTypes.string,
+        "title": React.PropTypes.string
+    }
 
-    static defaultProps = {"title": ""}
+    static defaultProps = {
+        "next": "",
+        "prev": "",
+        "title": ""
+    }
 
     render () {
         const nav = b.with("magazineNav");
         const layout = b.with("navLayout");
-        const {title} = this.props;
+        const {title, prev, next} = this.props;
 
         return (
             <div className={cx(nav(), layout())}>
-                <div className={cx(nav("action"), layout("prev"))}>{"<"}</div>
                 <div className={cx(nav("title"), layout("title"))}>{title}</div>
-                <div className={cx(nav("action"), layout("next"))}>{">"}</div>
+                <Link
+                    // eslint-disable-next-line react/forbid-component-props
+                    className={cx(nav("action"), layout("next"))}
+                    to={next}
+                >
+                    {next && "<"}
+                </Link>
+                <Link
+                    // eslint-disable-next-line react/forbid-component-props
+                    className={cx(nav("action"), layout("prev"))}
+                    to={prev}
+                >
+                    {prev && ">"}
+                </Link>
             </div>
         );
     }

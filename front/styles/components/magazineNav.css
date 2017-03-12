@@ -12,4 +12,6 @@
   &_action {
     @apply --clickable;
   }
+
+  @apply --link-as-text;
 }

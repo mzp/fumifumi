@@ -1,0 +1,7 @@
+:root {
+  --link-as-text: {
+    & a {
+      color: inherit;
+    }
+  }
+}

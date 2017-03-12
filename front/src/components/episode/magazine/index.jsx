@@ -31,11 +31,15 @@ export default class extends React.Component {
     }
 
     render () {
-        const {"data": {title, episodes}, ready} = this.props;
+        const {"data": {title, episodes, next, prev}, ready} = this.props;
 
         return (
             <div>
-                <Nav title={title} />
+                <Nav
+                    next={next && next.url}
+                    prev={prev && prev.url}
+                    title={title}
+                />
                 <ReactPlaceholder
                     customPlaceholder={Placeholder}
                     ready={ready}
