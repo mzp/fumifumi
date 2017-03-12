@@ -8,8 +8,8 @@ export default function (api, action) {
     };
 
     return {
-        "fetch": createAction("saga.resource.fetch", () => ({
-            api,
+        "fetch": createAction("saga.resource.fetch", (...args) => ({
+            "api": () => api(...args),
             resource
         })),
         ...resource

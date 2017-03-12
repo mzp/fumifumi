@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 class Magazine < ApplicationRecord
   scope :finished, -> { where.not(finished_at: nil) }
-  scope :recent, -> { order('title DESC').limit(3) }
+  scope :recent, -> { order('title DESC') }
+  scope :old, -> { order('title ASC') }
 
   has_many :pages, -> { order(:no) }
   has_many :episodes
@@ -18,6 +19,16 @@ class Magazine < ApplicationRecord
 
   def episode_pages
     @episode_pages ||= pages.slice_before(&:episode).reject(&:empty?)
+  end
+
+  concerning :Navigation do
+    def next
+      series&.magazines&.old&.find_by('title >= ? AND id != ?', title, id)
+    end
+
+    def prev
+      series&.magazines&.recent&.find_by('title <= ? AND id != ?', title, id)
+    end
   end
 
   concerning :Import do

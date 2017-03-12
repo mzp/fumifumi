@@ -9,5 +9,6 @@
 
   &_bodyArea {
     padding: 30px var(--side-margin);
+    position: relative;
   }
 }

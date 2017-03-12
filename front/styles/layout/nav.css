@@ -1,0 +1,30 @@
+.navLayout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+
+  &_title,
+  &_next,
+  &_prev {
+    top: 0;
+    height: var(--header-height);
+    position: absolute;
+  }
+
+  &_title {
+    left: 0;
+    right: 0;
+  }
+
+  &_next {
+    left: 0;
+    width: 44px;
+  }
+
+  &_prev {
+    right: 0;
+    width: 44px;
+  }
+}

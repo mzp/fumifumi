@@ -22,7 +22,7 @@ RSpec.describe MagazinesController, type: :controller do
 
         magazines.each do |magazine|
           expect(subject).to include_json(magazine.to_json)
-            .excluding('cover', 'episodes', 'url')
+            .excluding('cover', 'episodes', 'url', 'next', 'prev')
         end
 
         expect(subject).to_not include_json(wip_magazine.to_json)

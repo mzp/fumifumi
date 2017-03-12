@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-RSpec.describe Episodes::MagazineController, type: :controller do
-  describe '#show' do
-    let(:magazine) { create(:magazine) }
+RSpec.describe MagazinesController, type: :controller do
+  subject do
+    get :show, params: { id: magazine.id }
+    response.body
+  end
+
+  describe '#episodes' do
+    let!(:magazine) { create(:magazine) }
     let!(:episode1) { create(:episode, author: 'John Doe', magazine: magazine) }
     let!(:episode2) { create(:episode, author: 'John Doe', magazine: magazine) }
     let!(:other_episode) { create(:episode, author: 'Jane Doe', magazine: create(:magazine)) }
-
-    subject do
-      get :show, params: { id: magazine.id }
-      response.body
-    end
 
     it do
       aggregate_failures do
@@ -26,6 +26,18 @@ RSpec.describe Episodes::MagazineController, type: :controller do
           .excluding('page', 'author_url', 'url', 'pages')
           .at_path('episodes')
       end
+    end
+  end
+
+  describe 'navigation' do
+    let(:series) { create(:series) }
+    let!(:magazine) { create(:magazine, series: series, title: 'Title 2') }
+    let!(:prev) { create(:magazine, series: series, title: 'Title 1') }
+    let!(:next_) { create(:magazine, series: series, title: 'Title 3') }
+
+    it do
+      expect(subject).to be_json_eql("/episodes/magazine/#{next_.id}".to_json).at_path('next/url')
+      expect(subject).to be_json_eql("/episodes/magazine/#{prev.id}".to_json).at_path('prev/url')
     end
   end
 end

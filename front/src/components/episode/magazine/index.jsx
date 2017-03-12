@@ -1,17 +1,20 @@
 import React from "react";
+import ReactPlaceholder from "react-placeholder";
+import Nav from "./Nav";
+import Episodes from "./Episodes";
+import Placeholder from "./placeholder";
+import action from "actions/episode/magazine";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 import Types from "components/prop-types";
-import Tile from "components/episode/tile";
 
-@mainLayout @connect("episode.magazine")
+@mainLayout @connect("episode.magazine.resource")
 export default class extends React.Component {
-    static displayName = "Episode.Magazine"
+    static displayName = "Episode.Magazine.index"
 
     static propTypes = {
+        "data": React.PropTypes.shape(Types.magazine),
         "dispatch": React.PropTypes.func,
-        "episodes": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode)),
-        "magazine": React.PropTypes.shape(Types.magazine),
         "params": React.PropTypes.shape({"id": React.PropTypes.string}),
         "ready": React.PropTypes.bool
     }
@@ -21,22 +24,37 @@ export default class extends React.Component {
         "ready": false
     }
 
-    componentDidMount () {
-        this.props.dispatch({
-            "payload": this.props.params,
-            "type": "saga.episode.magazine"
-        });
+    componentWillMount () {
+        const {dispatch, "params": {id}} = this.props;
+
+        dispatch(action.fetch(id));
+    }
+
+    componentDidUpdate () {
+        const {dispatch, "params": {id}} = this.props;
+
+        if (String(this.props.data.id) !== id) {
+            dispatch(action.fetch(id));
+        }
     }
 
     render () {
-        const {"magazine": {title}, episodes, ready} = this.props;
+        const {"data": {title, episodes, next, prev}, ready} = this.props;
 
         return (
-            <Tile
-                episodes={episodes}
-                ready={ready}
-                title={title}
-            />
+            <div>
+                <Nav
+                    next={next && next.url}
+                    prev={prev && prev.url}
+                    title={title}
+                />
+                <ReactPlaceholder
+                    customPlaceholder={Placeholder}
+                    ready={ready}
+                >
+                    <Episodes episodes={episodes} />
+                </ReactPlaceholder>
+            </div>
         );
     }
 }
