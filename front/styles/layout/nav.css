@@ -19,12 +19,12 @@
   }
 
   &_next {
-    right: 0;
+    left: 0;
     width: 44px;
   }
 
   &_prev {
-    left: 0;
+    right: 0;
     width: 44px;
   }
 }
