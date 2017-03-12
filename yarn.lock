@@ -3783,10 +3783,6 @@ react-dropzone@^3.8.0:
     attr-accept "^1.0.3"
     react-is-deprecated "^0.1.2"
 
-react-infinite-scroller@^1.0.4:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/react-infinite-scroller/-/react-infinite-scroller-1.0.7.tgz#12e705148f8172891942a9ad6572fb2853df61a5"
-
 react-is-deprecated@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/react-is-deprecated/-/react-is-deprecated-0.1.2.tgz#301148f86ea428fe8e673eca7a372160b7579dbd"
@@ -4126,11 +4122,6 @@ run-async@^0.1.0:
 rx-lite@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-3.1.2.tgz#19ce502ca572665f3b647b10939f97fd1615f102"
-
-"scroll-to@file:./front/lib/scroll-to":
-  version "0.2.2"
-  dependencies:
-    tween.js "https://github.com/tweenjs/tween.js/archive/16.4.tar.gz"
 
 semver-diff@^2.0.0:
   version "2.1.0"
@@ -4588,10 +4579,6 @@ tty-browserify@0.0.0:
 tunnel-agent@~0.4.1:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.4.3.tgz#6373db76909fe570e08d73583365ed828a74eeeb"
-
-"tween.js@https://github.com/tweenjs/tween.js/archive/16.4.tar.gz":
-  version "0.0.0-development"
-  resolved "https://github.com/tweenjs/tween.js/archive/16.4.tar.gz#16dda8b6701ccc30b1b5715e165bf5a51877a4b1"
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
