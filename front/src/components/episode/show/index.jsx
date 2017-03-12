@@ -1,13 +1,11 @@
 import React from "react";
-import cx from "classnames";
 import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
-import Page from "./Page";
+import Pages from "./Pages";
 import Info from "./Info";
 import action from "actions/episode/show";
 import Types from "components/prop-types";
 import connect from "components/lib/connect";
-import b from "components/lib/b";
 import {floatLayout} from "components/layout";
 
 @floatLayout @connect("episode.show")
@@ -34,17 +32,8 @@ export default class extends React.Component {
         dispatch(action.fetch(id));
     }
 
-    masked () {
-        if (this.props.info) {
-            return b("masked");
-        }
-
-        return "";
-    }
-
     render () {
         const {"resource": {data, ready}, info} = this.props;
-        const layout = b.with("pagesLayout");
 
         return (
             <ReactPlaceholder
@@ -52,14 +41,10 @@ export default class extends React.Component {
                 ready={ready}
             >
                 <div>
-                    <div className={cx(layout(), this.masked())}>
-                        {(data.pages || []).map((page) =>
-                            <Page
-                                key={page.id}
-                                layout={layout("page")}
-                                {...page}
-                            />)}
-                    </div>
+                    <Pages
+                        info={info}
+                        pages={data.pages}
+                    />
                     <Info
                         show={info}
                         {...data}
