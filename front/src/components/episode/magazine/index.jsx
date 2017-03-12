@@ -24,10 +24,18 @@ export default class extends React.Component {
         "ready": false
     }
 
-    componentDidMount () {
+    componentWillMount () {
         const {dispatch, "params": {id}} = this.props;
 
         dispatch(action.fetch(id));
+    }
+
+    componentDidUpdate () {
+        const {dispatch, "params": {id}} = this.props;
+
+        if (String(this.props.data.id) !== id) {
+            dispatch(action.fetch(id));
+        }
     }
 
     render () {
