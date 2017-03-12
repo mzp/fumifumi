@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class Magazine < ApplicationRecord
   scope :finished, -> { where.not(finished_at: nil) }
+  scope :recent, -> { order('title DESC').limit(3) }
 
   has_many :pages, -> { order(:no) }
   has_many :episodes
