@@ -16,8 +16,15 @@ const magazine = {
     "title": PropTypes.string
 };
 
+const series = {
+    "magazines": PropTypes.arrayOf(PropTypes.shape(magazine)),
+    "title": PropTypes.string,
+    "url": PropTypes.string
+};
+
 export default {
     episode,
     magazine,
-    page
+    page,
+    series
 };
