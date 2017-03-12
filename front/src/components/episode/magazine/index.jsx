@@ -1,17 +1,20 @@
 import React from "react";
+import ReactPlaceholder from "react-placeholder";
+import Nav from "./Nav";
+import Episodes from "./Episodes";
+import Placeholder from "./placeholder";
 import action from "actions/episode/magazine";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 import Types from "components/prop-types";
-import Tile from "components/episode/tile";
 
 @mainLayout @connect("episode.magazine.resource")
 export default class extends React.Component {
     static displayName = "Episode.Magazine.index"
 
     static propTypes = {
-        "dispatch": React.PropTypes.func,
         "data": React.PropTypes.shape(Types.magazine),
+        "dispatch": React.PropTypes.func,
         "params": React.PropTypes.shape({"id": React.PropTypes.string}),
         "ready": React.PropTypes.bool
     }
@@ -22,7 +25,8 @@ export default class extends React.Component {
     }
 
     componentDidMount () {
-        const {dispatch, params: {id}} = this.props;
+        const {dispatch, "params": {id}} = this.props;
+
         dispatch(action.fetch(id));
     }
 
@@ -30,11 +34,15 @@ export default class extends React.Component {
         const {"data": {title, episodes}, ready} = this.props;
 
         return (
-            <Tile
-                episodes={episodes}
-                ready={ready}
-                title={title}
-            />
+            <div>
+                <Nav title={title} />
+                <ReactPlaceholder
+                    customPlaceholder={Placeholder}
+                    ready={ready}
+                >
+                    <Episodes episodes={episodes} />
+                </ReactPlaceholder>
+            </div>
         );
     }
 }

@@ -1,0 +1,15 @@
+.magazineNav {
+  background: black;
+  color: white;
+
+  &_title,
+  &_action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_action {
+    @apply --clickable;
+  }
+}

@@ -6,6 +6,7 @@
 @import 'info';
 @import 'magazineAction';
 @import 'magazineDashboard';
+@import 'magazineNav';
 @import 'navButton';
 @import 'pageThumbnail';
 @import 'placeholder';
