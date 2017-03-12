@@ -7,7 +7,7 @@ import Tile from "components/episode/tile";
 
 @mainLayout @connect("episode.magazine.resource")
 export default class extends React.Component {
-    static displayName = "Episode.Magazine"
+    static displayName = "Episode.Magazine.index"
 
     static propTypes = {
         "dispatch": React.PropTypes.func,
