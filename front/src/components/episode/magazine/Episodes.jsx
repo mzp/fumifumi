@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import EpisodeThumbnail from "components/common/EpisodeThumbnail";
 import b from "components/lib/b";
 import Types from "components/prop-types";
@@ -15,7 +16,7 @@ export default class extends React.Component {
         const layout = b.with("tileLayout");
 
         return (
-            <div className={layout()}>
+            <div className={cx(b("magazineEpisodes"), layout())}>
                 {episodes.map((e) =>
                     <EpisodeThumbnail
                         key={e.id}

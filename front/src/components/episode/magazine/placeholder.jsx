@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import {RectShape} from "react-placeholder/lib/placeholders";
 import b from "components/lib/b";
 
@@ -22,7 +23,7 @@ function page () {
 }
 
 export default (
-    <div className={layout()}>
+    <div className={cx(b("magazineEpisodes"), layout())}>
         {page()}
         {page()}
         {page()}
