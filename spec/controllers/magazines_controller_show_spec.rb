@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Episodes::MagazineController, type: :controller do
+RSpec.describe MagazinesController, type: :controller do
   describe '#show' do
     let(:magazine) { create(:magazine) }
     let!(:episode1) { create(:episode, author: 'John Doe', magazine: magazine) }

@@ -16,6 +16,11 @@ class MagazinesController < ApiController
     render json: 'ok'.to_json
   end
 
+  def show
+    magazine = Magazine.find(params[:id])
+    render json: Resource::Magazine.new(magazine)
+  end
+
   private
 
   def render_error(e)
