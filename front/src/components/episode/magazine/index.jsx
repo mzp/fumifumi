@@ -1,17 +1,17 @@
 import React from "react";
+import action from "actions/episode/magazine";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 import Types from "components/prop-types";
 import Tile from "components/episode/tile";
 
-@mainLayout @connect("episode.magazine")
+@mainLayout @connect("episode.magazine.resource")
 export default class extends React.Component {
     static displayName = "Episode.Magazine"
 
     static propTypes = {
         "dispatch": React.PropTypes.func,
-        "episodes": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode)),
-        "magazine": React.PropTypes.shape(Types.magazine),
+        "data": React.PropTypes.shape(Types.magazine),
         "params": React.PropTypes.shape({"id": React.PropTypes.string}),
         "ready": React.PropTypes.bool
     }
@@ -22,14 +22,12 @@ export default class extends React.Component {
     }
 
     componentDidMount () {
-        this.props.dispatch({
-            "payload": this.props.params,
-            "type": "saga.episode.magazine"
-        });
+        const {dispatch, params: {id}} = this.props;
+        dispatch(action.fetch(id));
     }
 
     render () {
-        const {"magazine": {title}, episodes, ready} = this.props;
+        const {"data": {title, episodes}, ready} = this.props;
 
         return (
             <Tile
