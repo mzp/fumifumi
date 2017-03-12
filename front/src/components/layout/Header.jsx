@@ -12,7 +12,7 @@ export default class extends React.Component {
         return (
             <header className={header()}>
                 <h1 className={header("title")}>
-                    <Link to="/magazines">{"fumi*fumi"}</Link>
+                    <Link to="/series">{"fumi*fumi"}</Link>
                 </h1>
                 <div className={header("action")}>
                     <Link to="/magazines">{"📑"}</Link>
