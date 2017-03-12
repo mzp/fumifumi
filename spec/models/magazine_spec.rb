@@ -70,4 +70,27 @@ RSpec.describe Magazine, type: :model do
       expect(subject.episodes.size).to eq(2)
     end
   end
+
+  describe 'navigation' do
+    let(:series) { create(:series) }
+    let!(:prev_prev) { create(:magazine, series: series, title: '1') }
+    let!(:prev) { create(:magazine, series: series, title: '2') }
+    let!(:current) { create(:magazine, series: series, title: '3') }
+    let!(:next_) { create(:magazine, series: series, title: '4') }
+    let!(:next_next) { create(:magazine, series: series, title: '5') }
+
+    describe '#next' do
+      subject { current.next }
+      it { expect(subject).to eq(next_) }
+      it { expect(subject.next).to eq(next_next) }
+      it { expect(subject.next.next).to be_nil }
+    end
+
+    describe '#prev' do
+      subject { current.prev }
+      it { expect(subject).to eq(prev) }
+      it { expect(subject.prev).to eq(prev_prev) }
+      it { expect(subject.prev.prev).to be_nil }
+    end
+  end
 end
