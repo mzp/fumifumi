@@ -2,6 +2,4 @@
 import {combineReducers} from "redux";
 import import_ from "./import";
 
-export default combineReducers({
-    import_
-});
+export default combineReducers({import_});
