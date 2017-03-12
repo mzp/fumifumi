@@ -49,9 +49,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # Use plain old file wacher(polling), because event base file wathers
-  # doesn't work at network mounted disk(i.e. docker-machine)
-  config.file_watcher = ActiveSupport::FileUpdateChecker
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.web_console.whitelisted_ips = %w(0.0.0.0/0 ::/0)
 end
