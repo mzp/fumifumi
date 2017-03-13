@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 class Magazine < ApplicationRecord
   scope :finished, -> { where.not(finished_at: nil) }
-  scope :recent, -> { order('title DESC') }
-  scope :old, -> { order('title ASC') }
+  scope :recent, -> { order('original_filename DESC') }
+  scope :old, -> { order('original_filename ASC') }
 
   has_many :pages, -> { order(:no) }
   has_many :episodes
@@ -23,11 +23,11 @@ class Magazine < ApplicationRecord
 
   concerning :Navigation do
     def next
-      series&.magazines&.old&.find_by('title >= ? AND id != ?', title, id)
+      series&.magazines&.old&.find_by('original_filename >= ? AND id != ?', original_filename, id)
     end
 
     def prev
-      series&.magazines&.recent&.find_by('title <= ? AND id != ?', title, id)
+      series&.magazines&.recent&.find_by('original_filename <= ? AND id != ?', original_filename, id)
     end
   end
 

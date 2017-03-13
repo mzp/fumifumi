@@ -73,11 +73,11 @@ RSpec.describe Magazine, type: :model do
 
   describe 'navigation' do
     let(:series) { create(:series) }
-    let!(:prev_prev) { create(:magazine, series: series, title: '1') }
-    let!(:prev) { create(:magazine, series: series, title: '2') }
-    let!(:current) { create(:magazine, series: series, title: '3') }
-    let!(:next_) { create(:magazine, series: series, title: '4') }
-    let!(:next_next) { create(:magazine, series: series, title: '5') }
+    let!(:prev_prev) { create(:magazine, series: series, original_filename: '1.epub') }
+    let!(:prev) { create(:magazine, series: series, original_filename: '2.epub') }
+    let!(:current) { create(:magazine, series: series, original_filename: '3.epub') }
+    let!(:next_) { create(:magazine, series: series, original_filename: '4.epub') }
+    let!(:next_next) { create(:magazine, series: series, original_filename: '5.epub') }
 
     describe '#next' do
       subject { current.next }
