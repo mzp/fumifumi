@@ -31,9 +31,9 @@ RSpec.describe MagazinesController, type: :controller do
 
   describe 'navigation' do
     let(:series) { create(:series) }
-    let!(:magazine) { create(:magazine, series: series, title: 'Title 2') }
-    let!(:prev) { create(:magazine, series: series, title: 'Title 1') }
-    let!(:next_) { create(:magazine, series: series, title: 'Title 3') }
+    let!(:magazine) { create(:magazine, series: series, original_filename: '2.epub') }
+    let!(:prev) { create(:magazine, series: series, original_filename: '1.epub') }
+    let!(:next_) { create(:magazine, series: series, original_filename: '3.epub') }
 
     it do
       expect(subject).to be_json_eql("/episodes/magazine/#{next_.id}".to_json).at_path('next/url')
