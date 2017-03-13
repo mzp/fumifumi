@@ -24,8 +24,9 @@ gem 'wisper'
 
 group :development, :test do
   gem 'byebug'
-  gem 'pry'
   gem 'listen'
+  gem 'pry'
+  gem 'spring'
 end
 
 group :development do
