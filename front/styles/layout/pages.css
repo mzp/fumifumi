@@ -16,4 +16,9 @@
       height: 100%;
     }
   }
+
+  &-noScroll {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
 }
