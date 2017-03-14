@@ -1,4 +1,5 @@
 import React from "react";
+import DocumentTitle from "react-document-title";
 import Header from "./Header";
 import routerParams from "./router-params";
 import b from "components/lib/b";
@@ -27,21 +28,23 @@ export default (Component) => @connect("layout") class extends React.Component {
         const layout = b.with("floatLayout");
 
         return (
-            <div className={layout()}>
-                <div className={layout("headerArea", {
-                    "hide": !header,
-                    "show": header
-                })}
-                >
-                    <Header />
+            <DocumentTitle title={"fumi*fumi"}>
+                <div className={layout()}>
+                    <div className={layout("headerArea", {
+                        "hide": !header,
+                        "show": header
+                    })}
+                    >
+                        <Header />
+                    </div>
+                    <div
+                        className={layout("bodyArea")}
+                        onClick={::this.onClick}
+                    >
+                        <Component {...routerParams(this.props)} />
+                    </div>
                 </div>
-                <div
-                    className={layout("bodyArea")}
-                    onClick={::this.onClick}
-                >
-                    <Component {...routerParams(this.props)} />
-                </div>
-            </div>
+            </DocumentTitle>
         );
     }
 };
