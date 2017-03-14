@@ -53,6 +53,7 @@
     "postcss-nesting": "^2.3.1",
     "postcss-sorting": "^1.7.0",
     "react": "^15.4.2",
+    "react-document-title": "^2.0.2",
     "react-dom": "^15.4.2",
     "react-dropzone": "^3.8.0",
     "react-placeholder": "^0.0.3",
