@@ -29,7 +29,7 @@ export default class extends React.Component {
         const layout = b.with("pagesLayout");
 
         return (
-            <div className={cx(layout(), this.masked())}>
+            <div className={cx(layout({"noScroll": this.props.info}), this.masked())}>
                 {pages.map((page) =>
                     <Page
                         key={page.id}

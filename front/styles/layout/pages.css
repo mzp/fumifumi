@@ -1,19 +1,28 @@
+:root {
+  --page-height: calc(100vh - 56px);
+}
+
 .pagesLayout {
   @apply --scroll-x;
 
   display: flex;
   flex-direction: row-reverse;
   width: 100vw;
-  height: 100vh;
+  height: var(--page-height);
 
   &_page {
     @apply --flex-fit;
 
-    height: 100vh;
-    width: calc(100vh / var(--episode-aspect));
+    height: var(--page-height);
+    width: calc(var(--page-height) / var(--episode-aspect));
 
     & img {
       height: 100%;
     }
+  }
+
+  &-noScroll {
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
 }
