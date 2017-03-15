@@ -4,7 +4,9 @@ module Magazines
   class ImportController < ApplicationController
     def create
       Magazine.update_all finished_at: nil
-      ImportAllMagazineJob.perform_later
+      Magazine.all.each do |magazine|
+        ImportMagazineJob.perform_later magazine
+      end
       redirect_to :magazines_dashboard_index
     end
 

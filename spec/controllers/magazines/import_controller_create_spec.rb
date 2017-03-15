@@ -11,7 +11,7 @@ RSpec.describe Magazines::ImportController, type: :controller do
     it do
       expect do
         subject
-      end.to have_enqueued_job(ImportAllMagazineJob)
+      end.to have_enqueued_job(ImportMagazineJob).exactly(magazines.size).times
       expect(response).to redirect_to(:magazines_dashboard_index)
 
       magazines.each do |magazine|
