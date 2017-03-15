@@ -1,4 +1,5 @@
 import React from "react";
+import DocumentTitle from "react-document-title";
 import ReactPlaceholder from "react-placeholder";
 import action from "actions/episode/author";
 import connect from "components/lib/connect";
@@ -33,11 +34,13 @@ export default class extends React.Component {
         const {data, ready, "params": {name}} = this.props;
 
         return (
-            <Tile
-                episodes={data}
-                ready={ready}
-                title={name}
-            />
+            <DocumentTitle title={name}>
+                <Tile
+                    episodes={data}
+                    ready={ready}
+                    title={name}
+                />
+            </DocumentTitle>
         );
     }
 }
