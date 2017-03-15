@@ -1,4 +1,5 @@
 import React from "react";
+import DocumentTitle from "react-document-title";
 import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
 import Pages from "./Pages";
@@ -40,16 +41,18 @@ export default class extends React.Component {
                 customPlaceholder={Placeholder}
                 ready={ready}
             >
-                <div>
-                    <Pages
-                        info={info}
-                        pages={data.pages}
-                    />
-                    <Info
-                        show={info}
-                        {...data}
-                    />
-                </div>
+                <DocumentTitle title={data.title || "..."}>
+                    <div>
+                        <Pages
+                            info={info}
+                            pages={data.pages}
+                        />
+                        <Info
+                            show={info}
+                            {...data}
+                        />
+                    </div>
+                </DocumentTitle>
             </ReactPlaceholder>);
     }
 }

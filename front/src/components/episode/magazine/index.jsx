@@ -1,4 +1,5 @@
 import React from "react";
+import DocumentTitle from "react-document-title";
 import ReactPlaceholder from "react-placeholder";
 import Nav from "./Nav";
 import Episodes from "./Episodes";
@@ -42,19 +43,21 @@ export default class extends React.Component {
         const {"data": {title, episodes, next, prev}, ready} = this.props;
 
         return (
-            <div>
-                <Nav
-                    next={next && next.url}
-                    prev={prev && prev.url}
-                    title={title}
-                />
-                <ReactPlaceholder
-                    customPlaceholder={Placeholder}
-                    ready={ready}
-                >
-                    <Episodes episodes={episodes} />
-                </ReactPlaceholder>
-            </div>
+            <DocumentTitle title={title || "..."}>
+                <div>
+                    <Nav
+                        next={next && next.url}
+                        prev={prev && prev.url}
+                        title={title}
+                    />
+                    <ReactPlaceholder
+                        customPlaceholder={Placeholder}
+                        ready={ready}
+                    >
+                        <Episodes episodes={episodes} />
+                    </ReactPlaceholder>
+                </div>
+            </DocumentTitle>
         );
     }
 }
