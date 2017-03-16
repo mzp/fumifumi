@@ -1,7 +1,7 @@
 {
   "use": [
     "postcss-import",
-    "postcss-custom-properties",
+    "postcss-css-variables",
     "postcss-apply",
     "postcss-nesting",
     "postcss-flexbugs-fixes",
