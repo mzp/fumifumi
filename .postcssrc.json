@@ -2,6 +2,7 @@
   "use": [
     "postcss-import",
     "postcss-css-variables",
+    "postcss-custom-media",
     "postcss-apply",
     "postcss-nesting",
     "postcss-flexbugs-fixes",

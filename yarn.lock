@@ -3542,6 +3542,12 @@ postcss-css-variables@^0.7.0:
     extend "^2.0.1"
     postcss "^5.0.5"
 
+postcss-custom-media@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-custom-media/-/postcss-custom-media-5.0.1.tgz#138d25a184bf2eb54de12d55a6c01c30a9d8bd81"
+  dependencies:
+    postcss "^5.0.0"
+
 postcss-flexbugs-fixes@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-2.1.0.tgz#e1048faa9e3b500159208a8efbd8ed147625a268"
