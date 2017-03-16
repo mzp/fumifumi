@@ -6,3 +6,9 @@
   --episode-width: ((100vw - 2 * var(--side-margin)) / var(--episode-count));
   --episode-aspect: 1.4;
 }
+
+@media (--phone) {
+  :root {
+    --side-margin: 14px;
+  }
+}
