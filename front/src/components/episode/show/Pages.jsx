@@ -1,5 +1,6 @@
 import React from "react";
 import cx from "classnames";
+import reverse from "lodash.reverse";
 import Page from "./Page";
 import Types from "components/prop-types";
 import b from "components/lib/b";
@@ -29,13 +30,18 @@ export default class extends React.Component {
         const layout = b.with("pagesLayout");
 
         return (
-            <div className={cx(layout({"noScroll": this.props.info}), this.masked())}>
-                {pages.map((page) =>
+            <div
+                className={cx(layout({"noScroll": this.props.info}), this.masked())}
+                ref={(e) => {
+                    e.scrollLeft = e.scrollWidth;
+                }}
+            >
+                {reverse(pages.map((page) =>
                     <Page
                         key={page.id}
                         layout={layout("page")}
                         {...page}
-                    />)}
+                    />))}
             </div>);
     }
 

@@ -6,13 +6,15 @@
   @apply --scroll-x;
 
   display: flex;
-  flex-direction: row-reverse;
   width: 100vw;
   height: var(--page-height);
+  scroll-snap-type: mandatory;
+  scroll-snap-destination: 100% 0%;
 
   &_page {
     @apply --flex-fit;
 
+    scroll-snap-coordinate: 100% 0%;
     height: var(--page-height);
     width: calc(var(--page-height) / var(--episode-aspect));
 
