@@ -38,7 +38,9 @@ services:
       - .:/fumifumi
     command: yarn start
   db:
-    image: mysql:5.7
+    build:
+      context: ./config/docker
+      dockerfile: Dockerfile.db
     volumes:
       - mysql-data:/var/lib/mysql
     environment:
