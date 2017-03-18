@@ -6,9 +6,10 @@
   @apply --scroll-x;
 
   display: flex;
-  flex-direction: row-reverse;
   width: 100vw;
   height: var(--page-height);
+  scroll-snap-type: mandatory;
+  scroll-snap-destination: 100% 0%;
 
   &_page {
     @apply --flex-fit;
@@ -18,6 +19,16 @@
 
     & img {
       height: 100%;
+    }
+
+    &-even {
+      scroll-snap-coordinate: 100% 0%;
+    }
+
+    @media (orientation: portrait) {
+      &-odd {
+        scroll-snap-coordinate: 100% 0%;
+      }
     }
   }
 
