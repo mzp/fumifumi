@@ -17,6 +17,13 @@ export default class extends React.Component {
         "pages": []
     }
 
+    componentDidMount () {
+        setTimeout(() => {
+            // XXX: Without this delay, element is not scroll at mobile safari
+            this.e.scrollLeft = this.e.scrollWidth;
+        }, 500);
+    }
+
     masked () {
         if (this.props.info) {
             return b("masked");
@@ -33,7 +40,7 @@ export default class extends React.Component {
             <div
                 className={cx(layout({"noScroll": this.props.info}), this.masked())}
                 ref={(e) => {
-                    e.scrollLeft = e.scrollWidth;
+                    this.e = e;
                 }}
             >
                 {reverse(pages.map((page) =>
