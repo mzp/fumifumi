@@ -14,12 +14,21 @@
   &_page {
     @apply --flex-fit;
 
-    scroll-snap-coordinate: 100% 0%;
     height: var(--page-height);
     width: calc(var(--page-height) / var(--episode-aspect));
 
     & img {
       height: 100%;
+    }
+
+    &-even {
+      scroll-snap-coordinate: 100% 0%;
+    }
+
+    @media (orientation: portrait) {
+      &-odd {
+        scroll-snap-coordinate: 100% 0%;
+      }
     }
   }
 

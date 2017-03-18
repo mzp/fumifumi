@@ -43,10 +43,13 @@ export default class extends React.Component {
                     this.e = e;
                 }}
             >
-                {reverse(pages.map((page) =>
+                {reverse(pages.map((page, i) =>
                     <Page
                         key={page.id}
-                        layout={layout("page")}
+                        layout={layout("page", {
+                            "even": i % 2 === 0,
+                            "odd": i % 2 === 1
+                        })}
                         {...page}
                     />))}
             </div>);
