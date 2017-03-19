@@ -4,6 +4,7 @@ import reverse from "lodash.reverse";
 import Page from "./Page";
 import Types from "components/prop-types";
 import b from "components/lib/b";
+import setScroll from "components/lib/set-scroll";
 
 export default class extends React.Component {
     static displayName = "Episode.Show.Pages"
@@ -18,10 +19,7 @@ export default class extends React.Component {
     }
 
     componentDidMount () {
-        setTimeout(() => {
-            // XXX: Without this delay, element is not scroll at mobile safari
-            this.e.scrollLeft = this.e.scrollWidth;
-        }, 500);
+        setScroll(this.e, this.e.scrollWidth);
     }
 
     masked () {
