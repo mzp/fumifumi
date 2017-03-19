@@ -2,7 +2,10 @@
 module Fumifumi
   module Parser
     class Episode
-      REGEXP = /\A(?<author>.*)「(?<title>.*)」\z/
+      REGEXP = Regexp.union(
+        /\A(?<author>.*)「(?<title>.*)」\z/,
+        /\A(?<author>.*)\((?<title>.*)\)\z/
+      )
 
       def initialize(source)
         @source = source
@@ -12,8 +15,8 @@ module Fumifumi
         return default unless source =~ REGEXP
 
         {
-          author: Regexp.last_match['author'],
-          title: Regexp.last_match['title']
+          author: Regexp.last_match['author'].strip,
+          title: Regexp.last_match['title'].strip
         }
       end
 
