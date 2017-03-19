@@ -11,6 +11,16 @@ class Episode < ApplicationRecord
     pages.first
   end
 
+  concerning :Navigation do
+    def next
+      magazine.pages.find_by('no > ? AND episode_id <> ?', page.no, id)&.episode
+    end
+
+    def prev
+      magazine.pages.reverse_order.find_by('no < ? AND episode_id <> ?', page.no, id)&.episode
+    end
+  end
+
   concerning :Import do
     def import!(episode)
       attributes = episode.to_hash(symbolize_keys: true)

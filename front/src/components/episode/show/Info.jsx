@@ -19,6 +19,8 @@ export default class extends React.Component {
           "author_url": url,
           "magazine_title": magazineTitle,
           "magazine_url": magazineUrl,
+          next,
+          prev,
           show,
           title
         } = this.props;
@@ -37,6 +39,10 @@ export default class extends React.Component {
                 </div>
                 <div className={layout("sub")}>
                     <Link to={magazineUrl}>{magazineTitle}</Link>
+                </div>
+                <div className={layout("navigation")}>
+                    { prev && <Link to={prev.url}>{"<<"}{prev.title}</Link>}
+                    { next && <Link to={next.url}>{next.title}{">>"}</Link>}
                 </div>
             </div>
         );

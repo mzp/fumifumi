@@ -33,6 +33,14 @@ export default class extends React.Component {
         dispatch(action.fetch(id));
     }
 
+    componentDidUpdate () {
+        const {dispatch, "params": {id}} = this.props;
+
+        if (String(this.props.resource.data.id) !== id) {
+            dispatch(action.fetch(id));
+        }
+    }
+
     componentWillUnmount () {
         this.props.dispatch(action.clear());
     }
