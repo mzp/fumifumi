@@ -33,6 +33,10 @@ export default class extends React.Component {
         dispatch(action.fetch(id));
     }
 
+    componentWillUnmount () {
+        this.props.dispatch(action.clear());
+    }
+
     render () {
         const {"resource": {data, ready}, info} = this.props;
 

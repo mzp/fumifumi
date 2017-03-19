@@ -7,6 +7,6 @@ export default function (action) {
         "data": valueStore(action.fetchData, []),
         "fetching": boolStore([action.start], [action.fetchData], false),
         "hasMore": valueStore(action.hasMore, false),
-        "ready": boolStore([action.fetchData], [], false)
+        "ready": boolStore([action.fetchData], [action.notReady], false)
     });
 }
