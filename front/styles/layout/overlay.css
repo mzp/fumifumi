@@ -18,4 +18,14 @@
     text-align: right;
     font-size: 2rem;
   }
+
+  &_navigation {
+    margin-top: 80px;
+    text-align: right;
+    font-size: 1.2rem;
+
+    & a {
+      padding: 10px;
+    }
+  }
 }
