@@ -22,6 +22,10 @@ export default class extends React.Component {
         setScroll(this.e, this.e.scrollWidth);
     }
 
+    componentWillUnmount () {
+        this.e = null;
+    }
+
     masked () {
         if (this.props.info) {
             return b("masked");
@@ -52,5 +56,4 @@ export default class extends React.Component {
                     />))}
             </div>);
     }
-
 }
