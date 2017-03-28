@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe PagesController, type: :controller do
   let(:page) { create(:page, magazine: create(:magazine)) }
 

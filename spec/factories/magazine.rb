@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 FactoryGirl.define do
   factory :magazine do
     sequence :title { |n| format('The Magazine %03d', n) }

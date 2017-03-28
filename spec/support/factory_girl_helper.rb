@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module FactoryGirlHelper
   def create_force(*args)
     build(*args).tap { |model| model.save!(validate: false) }
