@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Magazines
   class DashboardController < ApplicationController
     def index

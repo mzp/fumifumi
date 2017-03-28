@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # https://github.com/rack/rack/issues/1075
 class RackMultipartBuffer
   def initialize(app)

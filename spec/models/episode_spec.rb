@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe Episode do
   describe '#import!' do
     let(:magazine) { create(:magazine) }

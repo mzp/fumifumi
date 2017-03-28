@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Magazine < ApplicationRecord
   scope :finished, -> { where.not(finished_at: nil) }
   scope :recent, -> { order('original_filename DESC') }

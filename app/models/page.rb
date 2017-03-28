@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Page < ApplicationRecord
   belongs_to :magazine
   belongs_to :episode, required: false

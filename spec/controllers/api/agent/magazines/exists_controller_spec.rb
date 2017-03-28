@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 RSpec.describe Api::Agent::Magazines::ExistsController, type: :controller do
   let(:magazine) { create(:magazine) }
   before { get :index, params: { filename: filename } }
