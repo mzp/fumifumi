@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
 gem 'rails', '5.0.1'
 
-gem 'api-pagination'
 gem 'amakanize'
+gem 'api-pagination'
 gem 'gepub'
 gem 'haml-rails'
 gem 'hashie'
