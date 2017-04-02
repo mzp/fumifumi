@@ -8,7 +8,6 @@ let episode () =
   let open Ripple.Object in
   make @@
     "author" +> (EpisodeAuthorReducer.make ()) @+
-    "magazine" +> (EpisodeMagazineReducer.make ()) @+
     "show" +> (EpisodeShowReducer.make ()) @+
      nil
 
@@ -16,6 +15,7 @@ let magazine () =
   let open Ripple.Object in
   make @@
     "import_" +> (Magazine.make ()) @+
+    "show" +> (MagazineShowReducer.make ()) @+
      nil
 
 let make () =
