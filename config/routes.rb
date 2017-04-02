@@ -32,8 +32,15 @@ Rails.application.routes.draw do
 
   resources :pages, only: %i(show)
 
-  %w(/series /magazines /magazines/new /episodes/magazine/:id /episodes/:id).each do |path|
-    get path => 'react#mount_page'
+  [
+    %w(/series series),
+    %w(/magazines magazines),
+    %w(/magazines/new magazines_new),
+    %w(/magazines/:id magazine),
+    %w(/episodes/author episodes_author),
+    %w(/episodes/:id episode)
+  ].each do |path, name|
+    get path => 'react#mount_page', as: name
   end
 
   mount Sidekiq::Web => '/sidekiq'

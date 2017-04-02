@@ -36,8 +36,8 @@ RSpec.describe Api::Web::MagazinesController, type: :controller do
     let!(:next_) { create(:magazine, series: series, original_filename: '3.epub') }
 
     it do
-      expect(subject).to be_json_eql("/episodes/magazine/#{next_.id}".to_json).at_path('next/url')
-      expect(subject).to be_json_eql("/episodes/magazine/#{prev.id}".to_json).at_path('prev/url')
+      expect(subject).to be_json_eql("/magazines/#{next_.id}".to_json).at_path('next/url')
+      expect(subject).to be_json_eql("/magazines/#{prev.id}".to_json).at_path('prev/url')
     end
   end
 end
