@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe EpisodesController, type: :controller do
+RSpec.describe Api::Web::EpisodesController, type: :controller do
   let(:magazine) { create(:magazine) }
   let(:prev) { create(:episode, magazine: magazine) }
   let(:next_) { create(:episode, magazine: magazine) }

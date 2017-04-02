@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MagazinesController, type: :controller do
+RSpec.describe Api::Web::MagazinesController, type: :controller do
   describe '#index' do
     subject do
       get :index

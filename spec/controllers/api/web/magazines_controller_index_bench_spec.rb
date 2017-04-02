@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MagazinesController, type: :controller, bench: true do
+RSpec.describe Api::Web::MagazinesController, type: :controller, bench: true do
   before do
     ApplicationRecord.transaction do
       3.times do
