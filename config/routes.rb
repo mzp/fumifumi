@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :import, only: %i(create update)
   end
 
-  scope :api do
-    scope :web do
+  namespace :api do
+    namespace :web do
       resources :series, only: %i(index)
       resources :magazines, only: %i(create index show), constraints: { id: /\d+/ }
       resources :episodes, only: %i(show), constraints: { id: /\d+/ }
