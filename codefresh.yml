@@ -10,6 +10,7 @@ steps:
     title: Building Frontend assets
     image: '${{BuildingJsImage}}'
     commands:
+      - npm link bs-platform
       - yarn install
       - yarn build:js
       - yarn lint:js
