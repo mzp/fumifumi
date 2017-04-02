@@ -6,7 +6,6 @@
     }
   },
   "plugins": [
-    "flowtype",
     "import",
     "react"
   ],
@@ -18,7 +17,7 @@
     "import/resolver": {
       "node": {
         "extensions": [ ".js", ".jsx" ],
-        "moduleDirectory": ["node_modules", "front/src"]
+        "moduleDirectory": ["node_modules", "front/src", "lib/js/front/src"]
       }
     }
   },
@@ -251,23 +250,6 @@
     "wrap-regex": 2,
     "yield-star-spacing": 2,
     "yoda": 2,
-    "flowtype/boolean-style": 2,
-    "flowtype/define-flow-type": 2,
-    "flowtype/delimiter-dangle": 2,
-    "flowtype/generic-spacing": 2,
-    "flowtype/no-dupe-keys": 2,
-    "flowtype/no-primitive-constructor-types": 2,
-    "flowtype/object-type-delimiter": 2,
-    "flowtype/require-valid-file-annotation": 2,
-    "flowtype/semi": 2,
-    "flowtype/sort-keys": 2,
-    "flowtype/space-after-type-colon": 2,
-    "flowtype/space-before-generic-bracket": 2,
-    "flowtype/space-before-type-colon": 2,
-    "flowtype/type-id-match": 2,
-    "flowtype/union-intersection-spacing": 2,
-    "flowtype/use-flow-type": 2,
-    "flowtype/valid-syntax": 2,
     "import/default" : 2,
     "import/export" : 2,
     "import/extensions" : 2,
@@ -285,9 +267,9 @@
     "import/no-extraneous-dependencies" : 2,
     "import/no-internal-modules" :  [ "error", {
       "allow": [
-        "components/*", "components/*/*", "actions/*/*", "api/*/*",
-        "**/lib/*",
-        "redux-saga/*"
+        "components/*", "components/*/*",
+        "reducers/*",
+        "**/lib/*"
       ]
     } ],
     "import/no-mutable-exports" : 2,

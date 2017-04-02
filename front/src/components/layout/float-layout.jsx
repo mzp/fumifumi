@@ -2,6 +2,7 @@ import React from "react";
 import DocumentTitle from "react-document-title";
 import Header from "./Header";
 import routerParams from "./router-params";
+import {hideheader, toggleheader} from "reducers";
 import b from "components/lib/b";
 import connect from "components/lib/connect";
 
@@ -16,11 +17,11 @@ export default (Component) => @connect("layout") class extends React.Component {
     static defaultProps = {"header": false}
 
     onClick () {
-        this.props.dispatch({"type": "layout.float.toggle"});
+        this.props.dispatch(toggleheader);
     }
 
     componentWillMount () {
-        this.props.dispatch({"type": "layout.float.hide"});
+        this.props.dispatch(hideheader);
     }
 
     render () {

@@ -1,10 +1,12 @@
+/* eslint-disable import/max-dependencies */
 import React from "react";
 import DocumentTitle from "react-document-title";
 import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
 import Pages from "./Pages";
 import Info from "./Info";
-import action from "actions/episode/show";
+import {fetch} from "reducers/resource";
+import {clear} from "reducers";
 import Types from "components/prop-types";
 import connect from "components/lib/connect";
 import {floatLayout} from "components/layout";
@@ -23,26 +25,29 @@ export default class extends React.Component {
     static defaultProps = {
         "info": false,
         "params": {"id": null},
-        "ready": false,
         "resource": {}
     }
 
     componentDidMount () {
         const {dispatch, "params": {id}} = this.props;
 
-        dispatch(action.fetch(id));
+        fetch(dispatch, "episode.show", `/api/web/episodes/${id}`);
     }
 
     componentDidUpdate () {
-        const {dispatch, "params": {id}} = this.props;
+        const {dispatch, "params": {id}, "resource": {ready, data}} = this.props;
 
-        if (String(this.props.resource.data.id) !== id) {
-            dispatch(action.fetch(id));
+        if (!ready) {
+            return;
+        }
+
+        if (String(data.id) !== id) {
+            fetch(dispatch, "episode.show", `/api/web/episodes/${id}`);
         }
     }
 
     componentWillUnmount () {
-        this.props.dispatch(action.clear());
+        this.props.dispatch(clear("episode.show"));
     }
 
     render () {

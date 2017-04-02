@@ -1,0 +1,15 @@
+{
+  "name" : "fumifumi",
+  "version": "0.1.0",
+  "sources" : {
+    "dir" :  "front/src/reducers"
+  },
+  "bs-dependencies": [
+    "ripple",
+    "bs-promise"
+  ],
+  "bsc-flags": [
+    "-ppx \"$$($$(npm bin)/ppx ppx ppx_variants_conv)\"",
+    "-I \"$$($$(npm bin)/ppx flag variantslib)\""
+  ]
+}

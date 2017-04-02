@@ -1,7 +1,7 @@
 import React from "react";
 import DocumentTitle from "react-document-title";
 import ReactPlaceholder from "react-placeholder";
-import action from "actions/episode/author";
+import {fetch} from "reducers/resource";
 import connect from "components/lib/connect";
 import Types from "components/prop-types";
 import {mainLayout} from "components/layout";
@@ -27,7 +27,7 @@ export default class extends React.Component {
     componentDidMount () {
         const {dispatch, "params": {name}} = this.props;
 
-        dispatch(action.fetch(name));
+        fetch(dispatch, "episode.author", `/api/web/episodes/author?name=${name}`);
     }
 
     render () {

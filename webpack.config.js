@@ -23,6 +23,7 @@ module.exports = {
   },
   resolve: {
     modules: [
+      path.join(__dirname, "lib/js/front/src"),
       path.join(__dirname, "front/src"),
       "node_modules"
     ],
