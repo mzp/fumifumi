@@ -1,11 +1,17 @@
-FROM kkarczmarczyk/node-yarn:7.4-slim
+FROM mzpi/bucklescript
 
-RUN apt update
+WORKDIR /home/opam
 
-RUN apt-get install -y libelf1 git --no-install-recommends
+RUN git clone https://github.com/ocaml/opam-repository.git && \
+      opam update && \
+      opam install -y merlin ocp-indent utop ppx_variants_conv && \
+      rm -rf /home/opam/opam-repository
 
-RUN yarn global add flow-typed
-
-RUN flow-typed update-cache
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+      echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list && \
+      apt-get update && \
+      apt-get install -y yarn --no-install-recommends && \
+      apt-get clean && \
+      rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 WORKDIR /fumifumi
