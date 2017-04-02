@@ -10,13 +10,18 @@ steps:
     title: Building Frontend assets
     image: '${{BuildingJsImage}}'
     commands:
-      - npm link bs-platform
-      - yarn install
-      - yarn build:js
-      - yarn lint:js
-      - yarn lint:css
-      - yarn test front/test
-      - ./front/script/build
+      - bash /codefresh/volume/cf-generated/build
+    create_file:
+      path: /codefresh/volume/cf-generated
+      name: build
+      content: |-
+        set -e
+        source ~/.profile
+        npm link bs-platform
+        yarn install
+        yarn lint:js
+        yarn lint:css
+        yarn build:js
   BuildingDockerImage:
     title: Building Docker Image
     type: build
