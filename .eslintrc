@@ -285,9 +285,8 @@
     "import/no-extraneous-dependencies" : 2,
     "import/no-internal-modules" :  [ "error", {
       "allow": [
-        "components/*", "components/*/*", "actions/*/*", "api/*/*",
-        "**/lib/*",
-        "redux-saga/*"
+        "components/*", "components/*/*",
+        "**/lib/*"
       ]
     } ],
     "import/no-mutable-exports" : 2,
