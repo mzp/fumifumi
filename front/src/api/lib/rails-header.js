@@ -1,4 +1,4 @@
-export default function (): object {
+export default function () {
     const token : string =
       document.head.querySelector("meta[name=\"csrf-token\"]");
 
