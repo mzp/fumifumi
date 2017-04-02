@@ -19,9 +19,9 @@ steps:
         source ~/.profile
         npm link bs-platform
         yarn install
+        yarn build:js
         yarn lint:js
         yarn lint:css
-        yarn build:js
   BuildingDockerImage:
     title: Building Docker Image
     type: build
