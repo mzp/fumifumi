@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe SeriesController, type: :controller do
+RSpec.describe Api::Web::SeriesController, type: :controller do
   let!(:series) { create_list(:series, 3) }
   let!(:magazines) { create_list(:magazine, 10, series: series.first) }
 

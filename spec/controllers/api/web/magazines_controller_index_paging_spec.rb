@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe MagazinesController, type: :controller do
+RSpec.describe Api::Web::MagazinesController, type: :controller do
   let!(:magazines) { create_list(:magazine, 10) }
 
   before { get :index, params: params }

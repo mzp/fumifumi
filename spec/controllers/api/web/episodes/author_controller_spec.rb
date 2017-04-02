@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Episodes::AuthorController, type: :controller do
+RSpec.describe Api::Web::Episodes::AuthorController, type: :controller do
   describe '#index' do
     let(:magazine) { create(:magazine) }
     let!(:episode1) { create(:episode, author: 'John Doe', magazine: magazine) }

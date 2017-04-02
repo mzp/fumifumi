@@ -3,6 +3,6 @@
 module Resource
   class MagazineOverview < Base
     field :cover, with: Resource::Page
-    field :url, proc: -> { "/episodes/magazine/#{model.id}" }
+    field :url, proc: -> { magazine_path(model) }
   end
 end

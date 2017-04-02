@@ -9,9 +9,9 @@ import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 import Types from "components/prop-types";
 
-@mainLayout @connect("episode.magazine.resource")
+@mainLayout @connect("magazine.show.resource")
 export default class extends React.Component {
-    static displayName = "Episode.Magazine.index"
+    static displayName = "Magazine.Show.index"
 
     static propTypes = {
         "data": React.PropTypes.shape(Types.magazine),
@@ -28,7 +28,7 @@ export default class extends React.Component {
     componentWillMount () {
         const {dispatch, "params": {id}} = this.props;
 
-        fetch(dispatch, "episode.magazine", `/api/web/magazines/${id}`);
+        fetch(dispatch, "magazine.show", `/api/web/magazines/${id}`);
     }
 
     componentDidUpdate () {
@@ -39,7 +39,7 @@ export default class extends React.Component {
         }
 
         if (String(this.props.data.id) !== id) {
-            fetch(dispatch, "episode.magazine", `/api/web/magazines/${id}`);
+            fetch(dispatch, "magazine.show", `/api/web/magazines/${id}`);
         }
     }
 
