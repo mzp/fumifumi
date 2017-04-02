@@ -12,7 +12,7 @@ export default class extends React.Component {
     render () {
         const {title, magazines} = this.props;
         const series = b.with("seriesThumbnail");
-        const layout = b.with("tileLayout");
+        const layout = b.with("rowLayout");
 
         return (
             <div className={series()}>
@@ -21,7 +21,7 @@ export default class extends React.Component {
                     {magazines.map((m) =>
                         <EpisodeThumbnail
                             key={m.id}
-                            layout={layout("tile")}
+                            layout={layout("item")}
                             url={m.url}
                             {...m.cover}
                         />)

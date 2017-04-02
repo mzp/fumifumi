@@ -1,0 +1,19 @@
+.rowLayout {
+  @apply --scroll-x;
+
+  display: flex;
+  scroll-snap-type: mandatory;
+  scroll-snap-destination: 0% 0%;
+
+  &_item {
+    @apply --flex-fit;
+
+    scroll-snap-coordinate: 0% 0%;
+    flex-basis: var(--item-width);
+    height: var(--item-height);
+
+    & img {
+      width: 100%;
+    }
+  }
+}
