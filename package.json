@@ -10,7 +10,6 @@
     "lint:js": "eslint --ext .jsx --ext .js front/src front/test",
     "lint:js:fix": "eslint --ext .jsx --ext .js front/src front/test --fix",
     "lint:css": "stylelint front/styles/**/*.css",
-    "typecheck": "flow check",
     "watch:js": "NODE_ENV=test webpack -w",
     "watch:css": "postcss -w -c .postcssrc.json -l",
     "test": "NODE_ENV=test NODE_PATH=front/src ava"
@@ -36,10 +35,8 @@
     "classnames": "^2.2.5",
     "csswring": "^5.1.1",
     "eslint": "^3.13.0",
-    "eslint-plugin-flowtype": "^2.29.2",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.8.0",
-    "flow-bin": "^0.37.4",
     "lodash.find": "^4.6.0",
     "lodash.flatmap": "^4.5.0",
     "lodash.get": "^4.4.2",
