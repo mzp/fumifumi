@@ -2,7 +2,7 @@ import React from "react";
 import ReactPlaceholder from "react-placeholder";
 import Series from "./Series";
 import Placeholder from "./placeholder";
-import action from "actions/series/list";
+import {fetch} from "reducers/resource";
 import {mainLayout} from "components/layout";
 import connect from "components/lib/connect";
 import Types from "components/prop-types";
@@ -22,7 +22,7 @@ export default class extends React.Component {
     }
 
     componentDidMount () {
-        this.props.dispatch(action.fetch());
+        fetch(this.props.dispatch, "series.list", "/api/web/series");
     }
 
     render () {

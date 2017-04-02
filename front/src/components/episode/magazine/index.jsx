@@ -4,7 +4,7 @@ import ReactPlaceholder from "react-placeholder";
 import Nav from "./Nav";
 import Episodes from "./Episodes";
 import Placeholder from "./placeholder";
-import action from "actions/episode/magazine";
+import {fetch} from "reducers/resource";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 import Types from "components/prop-types";
@@ -28,19 +28,24 @@ export default class extends React.Component {
     componentWillMount () {
         const {dispatch, "params": {id}} = this.props;
 
-        dispatch(action.fetch(id));
+        fetch(dispatch, "episode.magazine", `/api/web/magazines/${id}`);
     }
 
     componentDidUpdate () {
         const {dispatch, "params": {id}} = this.props;
 
+        if (!this.props.ready) {
+            return;
+        }
+
         if (String(this.props.data.id) !== id) {
-            dispatch(action.fetch(id));
+            fetch(dispatch, "episode.magazine", `/api/web/magazines/${id}`);
         }
     }
 
     render () {
-        const {"data": {title, episodes, next, prev}, ready} = this.props;
+        const {data, ready} = this.props;
+        const {title, episodes, next, prev} = data || {};
 
         return (
             <DocumentTitle title={title || "..."}>

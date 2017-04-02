@@ -18,7 +18,7 @@
     "import/resolver": {
       "node": {
         "extensions": [ ".js", ".jsx" ],
-        "moduleDirectory": ["node_modules", "front/src"]
+        "moduleDirectory": ["node_modules", "front/src", "lib/js/front/src"]
       }
     }
   },
@@ -286,6 +286,7 @@
     "import/no-internal-modules" :  [ "error", {
       "allow": [
         "components/*", "components/*/*",
+        "reducers/*",
         "**/lib/*"
       ]
     } ],

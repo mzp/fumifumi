@@ -2,6 +2,7 @@
 import React from "react";
 import Dropzone from "react-dropzone";
 import Status from "./status";
+import {import_} from "reducers/magazine";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 
@@ -18,10 +19,7 @@ export default class extends React.Component {
     };
 
     handleDrop (files) {
-        this.props.dispatch({
-            "payload": files,
-            "type": "saga.magazine.import"
-        });
+        import_(this.props.dispatch, files);
     }
 
     render () {
