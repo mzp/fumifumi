@@ -2,7 +2,7 @@ type response = <
   data: Js.Json.t;
   status: int;
   statustext: string;
-  headers: Js.Json.t;
+  headers: string Js.Dict.t;
   config: Js.Json.t
 > Js.t
 
