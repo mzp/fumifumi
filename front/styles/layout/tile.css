@@ -4,10 +4,10 @@
 
   &_tile {
     margin-top: 10px;
-    flex-basis: calc(var(--episode-width));
+    flex-basis: var(--item-width);
     flex-shrink: 0;
     flex-grow: 0;
-    height: calc(var(--episode-aspect) * var(--episode-width));
+    height: var(--item-height);
 
     & img {
       width: 100%;
