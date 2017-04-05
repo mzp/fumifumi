@@ -1,5 +1,6 @@
 :root {
   --page-height: calc(100vh - 56px);
+  --page-width: calc(var(--page-height) / var(--item-aspect));
 }
 
 .pagesLayout {
@@ -15,7 +16,7 @@
     @apply --flex-fit;
 
     height: var(--page-height);
-    width: calc(var(--page-height) / var(--episode-aspect));
+    width: var(--page-width);
 
     & img {
       height: 100%;

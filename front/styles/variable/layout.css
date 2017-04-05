@@ -2,9 +2,10 @@
   --header-height: 44px;
   --header-text-size: 1.5rem;
   --side-margin: 84px;
-  --episode-count: 4;
-  --episode-width: ((100vw - 2 * var(--side-margin)) / var(--episode-count));
-  --episode-aspect: 1.4;
+  --item-count: 4;
+  --item-aspect: 1.4;
+  --item-width: calc((100vw - 2 * var(--side-margin)) / var(--item-count));
+  --item-height: calc(var(--item-aspect) * var(--item-width));
 }
 
 @media (--phone) {
