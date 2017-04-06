@@ -6,9 +6,9 @@ module Api
       include Rails::Pagination
 
       def index
-        magazines = paginate Magazine.finished.includes(episodes: [:pages]), per_page: 3
+        magazines = paginate Magazine.finished.recent.where(series: params[:series_id]).includes(:pages)
 
-        render json: magazines.map(&Resource::Magazine.method(:new))
+        render json: magazines.map(&Resource::MagazineOverview.method(:new))
       end
 
       def create

@@ -4704,7 +4704,7 @@ ripemd160@^1.0.0:
 
 ripple@mzp/ripple:
   version "0.1.0"
-  resolved "https://codeload.github.com/mzp/ripple/tar.gz/a38da02a56f61e8d82af63d0f50f0acc3e840535"
+  resolved "https://codeload.github.com/mzp/ripple/tar.gz/94041800367b9d37207c1f71d851d0e75cc88eb3"
   dependencies:
     bs-jest "github:buckletypes/bs-jest"
 
