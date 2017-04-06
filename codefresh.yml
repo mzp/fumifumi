@@ -17,6 +17,7 @@ steps:
       content: |-
         set -e
         source ~/.profile
+        git clean -fdx
         npm link bs-platform
         yarn install
         yarn build:js
