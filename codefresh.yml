@@ -23,6 +23,7 @@ steps:
         yarn build:js
         yarn lint:js
         yarn lint:css
+        ./front/script/build
   BuildingDockerImage:
     title: Building Docker Image
     type: build
