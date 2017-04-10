@@ -17,6 +17,7 @@ module Fumifumi
 
             tempfile do |temp|
               temp.write item.content
+              temp.seek 0
               yield items[page], temp, index
             end
           end
