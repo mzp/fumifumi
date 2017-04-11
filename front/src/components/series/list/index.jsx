@@ -33,7 +33,11 @@ export default class extends React.Component {
     }
 
     componentDidMount () {
-        fetch(this.props.dispatch, "series.list", "/api/web/series");
+        const {dispatch, "series": {ready}} = this.props;
+
+        if (!ready) {
+            fetch(dispatch, "series.list", "/api/web/series");
+        }
     }
 
     handleLoad (id) {
