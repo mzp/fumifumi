@@ -5,6 +5,7 @@ import Nav from "./Nav";
 import Episodes from "./Episodes";
 import Placeholder from "./placeholder";
 import {fetch} from "reducers/resource";
+import {clear} from "reducers";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 import Types from "components/prop-types";
@@ -41,6 +42,10 @@ export default class extends React.Component {
         if (String(this.props.data.id) !== id) {
             fetch(dispatch, "magazine.show", `/api/web/magazines/${id}`);
         }
+    }
+
+    componentWillUnmount () {
+        this.props.dispatch(clear("magazine.show"));
     }
 
     render () {
