@@ -1,9 +1,8 @@
 import React from "react";
 import DocumentTitle from "react-document-title";
-import ReactPlaceholder from "react-placeholder";
 import Nav from "./Nav";
 import Episodes from "./Episodes";
-import Placeholder from "./placeholder";
+import Placeholder from "./Placeholder";
 import {fetch} from "reducers/resource";
 import {clear} from "reducers";
 import connect from "components/lib/connect";
@@ -60,12 +59,9 @@ export default class extends React.Component {
                         prev={prev && prev.url}
                         title={title}
                     />
-                    <ReactPlaceholder
-                        customPlaceholder={Placeholder}
-                        ready={ready}
-                    >
+                    <Placeholder ready={ready}>
                         <Episodes episodes={episodes} />
-                    </ReactPlaceholder>
+                    </Placeholder>
                 </div>
             </DocumentTitle>
         );
