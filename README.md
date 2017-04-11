@@ -1,13 +1,11 @@
-# fumi\*fumi
+# :books: fumi\*fumi
 [![Build status](https://g.codefresh.io/api/badges/build?branch=master&repoName=fumifumi&repoOwner=mzp&pipelineName=spec&accountName=mzp)](https://g.codefresh.io/repositories/mzp/fumifumi/builds?filter=trigger:build)
 
 fumi\*fumi is web app to manage ebooks, especially comic magazine. It imports magazines, splits these, and merges with same author.
 
 ![](https://raw.githubusercontent.com/mzp/fumifumi/master/docs/screenshot.png)
 
-## Build
-
-### Development
+## :wrench: Build
 
 ```sh
 docker-compose build
@@ -21,15 +19,15 @@ docker-compose run app ./bin/rails db:setup
 dockre-compose up app job js
 ```
 
-### Deployment
+## :computer: Deployment
 See [#10](https://github.com/mzp/fumifumi/pull/10).
 
-## Usage
-TBD
+## :star: Usage
+:construction:
 
-## LICENSE
+## :copyright: LICENSE
 MIT LICENSE
 
-## Acknowledge
+## :gift: Acknowledge
 ### `spec/fixtures/files/saint_oniisan.epub`
 [聖☆おにいさん 第1話「ブッダの休日」](http://morningmanga.com/st023cc/) by 中村光 is licensed under a [Creative Commons 表示 - 改変禁止 2.1 日本 License](https://creativecommons.org/licenses/by-nd/2.1/jp/).
