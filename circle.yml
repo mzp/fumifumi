@@ -17,6 +17,8 @@ database:
 test:
   override:
     - bundle update
+    - npm install -g bs-platform
+    - npm link bs-platform
     - yarn upgrade --ignore-engines
 deployment:
   auto-bundle-update:
