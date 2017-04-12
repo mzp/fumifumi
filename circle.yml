@@ -8,6 +8,9 @@ machine:
       ruby-2.4.0
   post:
         - curl -o- -L https://yarnpkg.com/install.sh | bash
+dependencies:
+  override:
+    - echo skip
 database:
   override:
     - echo skip
