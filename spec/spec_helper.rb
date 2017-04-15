@@ -25,10 +25,13 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
+    DatabaseRewinder.clean
+  end
+
+  config.before(:example, elasticsearch: true) do
     ::Elasticsearch::Model::Registry.all.each do |model|
       model.__elasticsearch__.delete_index! force: true
     end
-    DatabaseRewinder.clean
   end
 
   config.include FactoryGirl::Syntax::Methods

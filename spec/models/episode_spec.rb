@@ -55,7 +55,7 @@ RSpec.describe Episode do
     end
   end
 
-  describe 'search' do
+  describe 'search', elasticsearch: true do
     let(:magazine) { create(:magazine) }
     let!(:foo) { create(:episode, title: 'foo', magazine: magazine) }
     let!(:bar) { create(:episode, title: 'bar', magazine: magazine) }
