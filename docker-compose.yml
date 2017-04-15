@@ -24,6 +24,7 @@ services:
     links:
       - db
       - redis
+      - elasticsearch
     environment:
       FUMIFUMI_STORAGE_ROOT: /storage
   job:
@@ -47,10 +48,20 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
   redis:
     image: redis:3-alpine
+  elasticsearch:
+    build:
+      context: ./config/docker
+      dockerfile: Dockerfile.elasticsearch
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
 volumes:
   storage-data:
     driver: local
   bundle-data:
     driver: local
   mysql-data:
+    driver: local
+  elasticsearch-data:
     driver: local
