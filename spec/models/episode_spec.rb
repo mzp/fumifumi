@@ -54,4 +54,18 @@ RSpec.describe Episode do
       it { expect(subject.prev.prev).to be_nil }
     end
   end
+
+  describe 'search' do
+    let(:magazine) { create(:magazine) }
+    let!(:foo) { create(:episode, title: 'foo', magazine: magazine) }
+    let!(:bar) { create(:episode, title: 'bar', magazine: magazine) }
+    subject { described_class.search('*').records.to_a }
+    it do
+      sleep 1 # waiw for indexed
+      aggregate_failures do
+        expect(subject).to include(foo)
+        expect(subject).to include(bar)
+      end
+    end
+  end
 end

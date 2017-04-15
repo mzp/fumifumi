@@ -25,6 +25,9 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
+    ::Elasticsearch::Model::Registry.all.each do |model|
+      model.__elasticsearch__.delete_index! force: true
+    end
     DatabaseRewinder.clean
   end
 

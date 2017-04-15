@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Episode < ApplicationRecord
+  include Searchable
+
   belongs_to :magazine
   has_many :pages, -> { order(:no) }
 
