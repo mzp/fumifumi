@@ -51,6 +51,7 @@ export function seriesArea () {
     );
 }
 
+// eslint-disable-next-line no-extra-parens
 export default (
     <div>
         {seriesArea()}
