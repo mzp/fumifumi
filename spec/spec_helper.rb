@@ -28,6 +28,12 @@ RSpec.configure do |config|
     DatabaseRewinder.clean
   end
 
+  config.before(:example, elasticsearch: true) do
+    ::Elasticsearch::Model::Registry.all.each do |model|
+      model.__elasticsearch__.delete_index! force: true
+    end
+  end
+
   config.include FactoryGirl::Syntax::Methods
   config.include JsonSpec::Helpers
   config.include RSpec::Benchmark::Matchers

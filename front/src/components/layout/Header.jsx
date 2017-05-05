@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router";
 import b from "components/lib/b";
+import Search from "components/lib/search";
 
 export default class extends React.Component {
     static displayName = "Header"
@@ -15,6 +16,7 @@ export default class extends React.Component {
                     <Link to="/series">{"fumi*fumi"}</Link>
                 </h1>
                 <div className={header("action")}>
+                    <Search />
                     <a href="/magazines/dashboard">{"📈"}</a>
                 </div>
             </header>);

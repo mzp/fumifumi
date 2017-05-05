@@ -27,6 +27,6 @@ public/test
 
 sample.epub
 
-node_modules/
-lib/
+/node_modules/
+/lib/
 .merlin

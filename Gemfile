@@ -11,6 +11,7 @@ gem 'rails', '5.0.1'
 
 gem 'amakanize'
 gem 'api-pagination'
+gem 'elasticsearch-model', '~> 5.0'
 gem 'gepub'
 gem 'haml-rails'
 gem 'hashie'

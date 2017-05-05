@@ -1,12 +1,13 @@
 @import 'button';
 @import 'dropzone';
 @import 'episodeInfo';
-@import 'masked';
 @import 'header';
 @import 'info';
 @import 'magazineAction';
 @import 'magazineDashboard';
-@import 'magazineNav';
 @import 'magazineEpisodes';
+@import 'magazineNav';
+@import 'masked';
 @import 'placeholder';
+@import 'searchResult';
 @import 'seriesThumbnail';
