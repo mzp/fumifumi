@@ -21,6 +21,7 @@ function page () {
         </div>);
 }
 
+// eslint-disable-next-line no-extra-parens
 export default (
     <div className={layout()}>
         {page()}
