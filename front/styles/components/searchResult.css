@@ -1,0 +1,26 @@
+.searchResult {
+  padding: 5px;
+
+  &:hover {
+    background-color: #efefef;
+  }
+
+  & img {
+    height: 100%;
+  }
+
+  & a {
+    display: block;
+    height: 100%;
+  }
+
+  &_thumbnail {
+    display: inline-block;
+  }
+
+  &_title {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 5px;
+  }
+}
