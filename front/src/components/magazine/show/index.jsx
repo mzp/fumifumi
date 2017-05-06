@@ -1,4 +1,6 @@
+/* eslint-disable import/max-dependencies */
 import React from "react";
+import PropTypes from "prop-types";
 import DocumentTitle from "react-document-title";
 import Nav from "./Nav";
 import Episodes from "./Episodes";
@@ -14,10 +16,10 @@ export default class extends React.Component {
     static displayName = "Magazine.Show.index"
 
     static propTypes = {
-        "data": React.PropTypes.shape(Types.magazine),
-        "dispatch": React.PropTypes.func,
-        "params": React.PropTypes.shape({"id": React.PropTypes.string}),
-        "ready": React.PropTypes.bool
+        "data": PropTypes.shape(Types.magazine),
+        "dispatch": PropTypes.func,
+        "params": PropTypes.shape({"id": PropTypes.string}),
+        "ready": PropTypes.bool
     }
 
     static defaultProps = {

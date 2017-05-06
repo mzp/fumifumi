@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
 import Info from "./Info";
@@ -10,9 +11,9 @@ export default class extends React.Component {
     static displayName = "Episode.Tile"
 
     static propTypes = {
-        "episodes": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode)),
-        "ready": React.PropTypes.bool,
-        "title": React.PropTypes.string
+        "episodes": PropTypes.arrayOf(PropTypes.shape(Types.episode)),
+        "ready": PropTypes.bool,
+        "title": PropTypes.string
     }
 
     static defaultProps = {

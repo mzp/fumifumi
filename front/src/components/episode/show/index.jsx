@@ -1,5 +1,6 @@
 /* eslint-disable import/max-dependencies */
 import React from "react";
+import PropTypes from "prop-types";
 import DocumentTitle from "react-document-title";
 import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
@@ -16,10 +17,10 @@ export default class extends React.Component {
     static displayName = "Episode.Show"
 
     static propTypes = {
-        "dispatch": React.PropTypes.func,
-        "info": React.PropTypes.bool,
-        "params": React.PropTypes.shape({"id": React.PropTypes.string}),
-        "resource": React.PropTypes.shape({"data": React.PropTypes.shape(Types.episode)})
+        "dispatch": PropTypes.func,
+        "info": PropTypes.bool,
+        "params": PropTypes.shape({"id": PropTypes.string}),
+        "resource": PropTypes.shape({"data": PropTypes.shape(Types.episode)})
     }
 
     static defaultProps = {

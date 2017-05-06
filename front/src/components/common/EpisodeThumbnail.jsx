@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router";
 import Types from "components/prop-types";
 import Image from "components/lib/Image";
@@ -6,8 +7,8 @@ import Image from "components/lib/Image";
 export default class extends React.PureComponent {
     static displayName = "Common.EpisodeThumbnail";
     static propTypes = {
-        "layout": React.PropTypes.string,
-        "url": React.PropTypes.string,
+        "layout": PropTypes.string,
+        "url": PropTypes.string,
         ...Types.page
     };
 

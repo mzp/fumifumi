@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import DocumentTitle from "react-document-title";
 import Header from "./Header";
 import routerParams from "./router-params";
@@ -10,8 +11,8 @@ export default (Component) => @connect("layout") class extends React.Component {
     static displayName = "Header"
 
     static propTypes = {
-        "dispatch": React.PropTypes.func,
-        "header": React.PropTypes.bool
+        "dispatch": PropTypes.func,
+        "header": PropTypes.bool
     }
 
     static defaultProps = {"header": false}

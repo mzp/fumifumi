@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Types from "components/prop-types";
 import Image from "components/lib/Image";
 
@@ -6,7 +7,7 @@ export default class extends React.Component {
     static displayName = "Episode.Page"
 
     static propTypes = {
-        "layout": React.PropTypes.string,
+        "layout": PropTypes.string,
         ...Types.page
     }
 

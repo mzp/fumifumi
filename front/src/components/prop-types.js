@@ -1,4 +1,4 @@
-import {PropTypes} from "react";
+import PropTypes from "prop-types";
 
 const page = {"image_url": PropTypes.string};
 

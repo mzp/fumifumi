@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import onClickOutside from "react-onclickoutside";
 import Result from "./Result";
 import {search, clear} from "reducers/search";
@@ -11,8 +12,8 @@ export default class extends React.Component {
     static displayName = "Search"
 
     static propTypes = {
-        "dispatch": React.PropTypes.func,
-        "results": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode))
+        "dispatch": PropTypes.func,
+        "results": PropTypes.arrayOf(PropTypes.shape(Types.episode))
     }
 
     static defaultProps = {
