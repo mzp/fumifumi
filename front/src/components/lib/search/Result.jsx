@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import cx from "classnames";
 import {Link} from "react-router";
 import b from "components/lib/b";
@@ -7,10 +8,10 @@ export default class extends React.Component {
     static displayName = "Result"
 
     static propTypes = {
-        "layout": React.PropTypes.string,
-        "page": React.PropTypes.shape({"thumbnail_url": React.PropTypes.string}),
-        "title": React.PropTypes.string,
-        "url": React.PropTypes.string
+        "layout": PropTypes.string,
+        "page": PropTypes.shape({"thumbnail_url": PropTypes.string}),
+        "title": PropTypes.string,
+        "url": PropTypes.string
     }
 
     static defaultProps = {

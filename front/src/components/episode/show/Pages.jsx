@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import cx from "classnames";
 import reverse from "lodash.reverse";
 import Page from "./Page";
@@ -9,8 +10,8 @@ import setScroll from "components/lib/set-scroll";
 export default class extends React.Component {
     static displayName = "Episode.Show.Pages"
     static propTypes = {
-        "info": React.PropTypes.bool,
-        "pages": React.PropTypes.arrayOf(React.PropTypes.shape(Types.page))
+        "info": PropTypes.bool,
+        "pages": PropTypes.arrayOf(PropTypes.shape(Types.page))
     }
 
     static defaultProps = {

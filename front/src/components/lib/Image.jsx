@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 /* eslint-disable react/no-set-state */
 export default class extends React.Component {
     static displayName = "Image"
 
-    static propTypes = {"src": React.PropTypes.string.isRequired}
+    static propTypes = {"src": PropTypes.string.isRequired}
 
     constructor (...args) {
         super(...args);

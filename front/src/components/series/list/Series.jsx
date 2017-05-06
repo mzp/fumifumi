@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import cx from "classnames";
 import b from "components/lib/b";
 import EpisodeThumbnail from "components/common/EpisodeThumbnail";
@@ -7,13 +8,13 @@ import Types from "components/prop-types";
 export default class extends React.Component {
     static displayName = "Series.List.Series"
     static propTypes = {
-        "hasMore": React.PropTypes.bool,
+        "hasMore": PropTypes.bool,
         "magazines":
-          React.PropTypes.arrayOf(
-              React.PropTypes.shape(
+          PropTypes.arrayOf(
+              PropTypes.shape(
                 Types.magazine)),
-        "onLoad": React.PropTypes.func,
-        "title": React.PropTypes.string
+        "onLoad": PropTypes.func,
+        "title": PropTypes.string
     }
     static defaultProps = {
         "hasMore": false,

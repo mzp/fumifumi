@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactPlaceholder from "react-placeholder";
 import Series from "./Series";
 import Placeholder from "./placeholder";
@@ -12,14 +13,14 @@ import Types from "components/prop-types";
 export default class extends React.Component {
     static displayName = "Series.List.index"
     static propTypes = {
-        "dispatch": React.PropTypes.func,
-        "magazines": React.PropTypes.objectOf(
-            React.PropTypes.arrayOf(
-              React.PropTypes.shape(Types.magazine)
+        "dispatch": PropTypes.func,
+        "magazines": PropTypes.objectOf(
+            PropTypes.arrayOf(
+              PropTypes.shape(Types.magazine)
         )),
-        "series": React.PropTypes.shape({
-            "data": React.PropTypes.arrayOf(React.PropTypes.shape(Types.series)),
-            "ready": React.PropTypes.bool
+        "series": PropTypes.shape({
+            "data": PropTypes.arrayOf(PropTypes.shape(Types.series)),
+            "ready": PropTypes.bool
         })
     }
 

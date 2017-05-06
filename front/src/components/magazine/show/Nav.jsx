@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router";
 import cx from "classnames";
 import b from "components/lib/b";
@@ -7,9 +8,9 @@ export default class extends React.Component {
     static displayName = "Episode.Magazine.Nav"
 
     static propTypes = {
-        "next": React.PropTypes.string,
-        "prev": React.PropTypes.string,
-        "title": React.PropTypes.string
+        "next": PropTypes.string,
+        "prev": PropTypes.string,
+        "title": PropTypes.string
     }
 
     static defaultProps = {

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import DocumentTitle from "react-document-title";
 import ReactPlaceholder from "react-placeholder";
 import {fetch} from "reducers/resource";
@@ -12,10 +13,10 @@ export default class extends React.Component {
     static displayName = "Episode.Author"
 
     static propTypes = {
-        "data": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode)),
-        "dispatch": React.PropTypes.func,
-        "params": React.PropTypes.shape({"name": React.PropTypes.string}).isRequired,
-        "ready": React.PropTypes.bool
+        "data": PropTypes.arrayOf(PropTypes.shape(Types.episode)),
+        "dispatch": PropTypes.func,
+        "params": PropTypes.shape({"name": PropTypes.string}).isRequired,
+        "ready": PropTypes.bool
     }
 
     static defaultProps = {

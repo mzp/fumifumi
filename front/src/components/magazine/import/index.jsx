@@ -1,5 +1,6 @@
 /* eslint-disable react/forbid-component-props */
 import React from "react";
+import PropTypes from "prop-types";
 import Dropzone from "react-dropzone";
 import Status from "./status";
 import {import_} from "reducers/magazine";
@@ -10,8 +11,8 @@ import {mainLayout} from "components/layout";
 export default class extends React.Component {
     static displayName = "Magazine.Import"
     static propTypes = {
-        "dispatch": React.PropTypes.func,
-        "files": React.PropTypes.arrayOf(Object)
+        "dispatch": PropTypes.func,
+        "files": PropTypes.arrayOf(Object)
     };
     static defaultProps = {
         "dispatch": null,

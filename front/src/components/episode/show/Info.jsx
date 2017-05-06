@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {Link} from "react-router";
 import b from "components/lib/b";
 import Types from "components/prop-types";
@@ -7,7 +8,7 @@ export default class extends React.Component {
     static displayName = "Episode.Info"
 
     static propTypes = {
-        "show": React.PropTypes.bool,
+        "show": PropTypes.bool,
         ...Types.episode
     }
 

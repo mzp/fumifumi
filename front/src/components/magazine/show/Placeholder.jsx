@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactPlaceholder from "react-placeholder";
 import cx from "classnames";
 import {RectShape} from "react-placeholder/lib/placeholders";
@@ -38,8 +39,8 @@ export default class extends React.Component {
     static displayName = "Magazine.Show.Placehodler"
 
     static propTypes = {
-        "children": React.PropTypes.element.isRequired,
-        "ready": React.PropTypes.bool
+        "children": PropTypes.element.isRequired,
+        "ready": PropTypes.bool
     }
 
     static defaultProps = {"ready": false}

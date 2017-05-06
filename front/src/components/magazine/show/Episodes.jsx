@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import cx from "classnames";
 import EpisodeThumbnail from "components/common/EpisodeThumbnail";
 import b from "components/lib/b";
@@ -7,7 +8,7 @@ import Types from "components/prop-types";
 export default class extends React.Component {
     static displayName = "Episode.Magazine.Episodes"
 
-    static propTypes = {"episodes": React.PropTypes.arrayOf(React.PropTypes.shape(Types.episode))}
+    static propTypes = {"episodes": PropTypes.arrayOf(PropTypes.shape(Types.episode))}
 
     static defaultProps = {"episodes": []}
 

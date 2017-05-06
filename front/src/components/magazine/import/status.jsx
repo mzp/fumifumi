@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default class extends React.PureComponent {
     static displayName = "Magazine.Import.Status"
     static propTypes = {
-        "error": React.PropTypes.shape({"response": React.PropTypes.object}),
-        "status": React.PropTypes.string.isRequired
+        "error": PropTypes.shape({"response": PropTypes.object}),
+        "status": PropTypes.string.isRequired
     };
     static defaultProps = {"error": null};
 
