@@ -1,10 +1,10 @@
 import React from "react";
+import onClickOutside from "react-onclickoutside";
 import Result from "./Result";
 import {search, clear} from "reducers/search";
 import connect from "components/lib/connect";
 import b from "components/lib/b";
 import Types from "components/prop-types";
-import onClickOutside from 'react-onclickoutside'
 
 @connect("search") @onClickOutside
 export default class extends React.Component {
@@ -20,11 +20,11 @@ export default class extends React.Component {
         "results": []
     }
 
-    handleClickOutside () {
+    componentWillUnmount () {
         clear(this.props.dispatch);
     }
 
-    componentWillUnmount () {
+    handleClickOutside () {
         clear(this.props.dispatch);
     }
 
