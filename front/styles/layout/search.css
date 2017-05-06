@@ -10,16 +10,12 @@
     padding: 2px;
   }
 
-  &_results:empty {
-    display: none;
-  }
-
   &_results {
     font-size: 1rem;
     position: absolute;
     left: 0;
     top: calc(1.2rem + 8px);
-    z-index: 10000;
+    z-index: 100;
     background: white;
     width: var(--search-width);
     height: 200px;

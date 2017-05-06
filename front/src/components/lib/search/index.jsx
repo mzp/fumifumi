@@ -33,6 +33,20 @@ export default class extends React.Component {
         search(this.props.dispatch, e.target.value);
     }
 
+    results () {
+        return this.props.results || [];
+    }
+
+    style () {
+        let display = "";
+
+        if (this.results().length === 0) {
+            display = "none";
+        }
+
+        return {display};
+    }
+
     render () {
         const layout = b.with("searchLayout");
 
@@ -43,8 +57,11 @@ export default class extends React.Component {
                     onChange={::this.onSearch}
                     type="search"
                 />
-                <div className={layout("results")}>
-                    {(this.props.results || []).map((result) =>
+                <div
+                    className={layout("results")}
+                    style={this.style()}
+                >
+                    {this.results().map((result) =>
                         <Result
                             key={result.id}
                             layout={layout("result")}
