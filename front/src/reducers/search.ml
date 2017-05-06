@@ -12,6 +12,9 @@ let search dispatch query =
   |> Bs_promise.then_ (fun response -> dispatch @@ `SearchResult response##data)
   |> ignore
 
+let clear dispatch =
+  dispatch @@ `SearchResult (Js.Json.array_ [||])
+
 let results () =
   Ripple.Primitive.json (Js.Json.array_ [||]) begin fun state -> function
     | `SearchResult xs -> xs

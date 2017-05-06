@@ -1,6 +1,6 @@
 import React from "react";
 import Result from "./Result";
-import {search} from "reducers/search";
+import {search, clear} from "reducers/search";
 import connect from "components/lib/connect";
 import b from "components/lib/b";
 import Types from "components/prop-types";
@@ -17,6 +17,10 @@ export default class extends React.Component {
     static defaultProps = {
         "dispatch": null,
         "results": []
+    }
+
+    componentWillUnmount () {
+        clear(this.props.dispatch);
     }
 
     onSearch (e) {
