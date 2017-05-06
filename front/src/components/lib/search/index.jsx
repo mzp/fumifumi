@@ -1,11 +1,12 @@
 import React from "react";
+import onClickOutside from "react-onclickoutside";
 import Result from "./Result";
-import {search} from "reducers/search";
+import {search, clear} from "reducers/search";
 import connect from "components/lib/connect";
 import b from "components/lib/b";
 import Types from "components/prop-types";
 
-@connect("search")
+@connect("search") @onClickOutside
 export default class extends React.Component {
     static displayName = "Search"
 
@@ -17,6 +18,14 @@ export default class extends React.Component {
     static defaultProps = {
         "dispatch": null,
         "results": []
+    }
+
+    componentWillUnmount () {
+        clear(this.props.dispatch);
+    }
+
+    handleClickOutside () {
+        clear(this.props.dispatch);
     }
 
     onSearch (e) {
