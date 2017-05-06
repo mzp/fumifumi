@@ -15,5 +15,9 @@
     position: absolute;
     right: 10px;
     bottom: 3px;
+
+    & > div {
+      display: inline-block;
+    }
   }
 }
