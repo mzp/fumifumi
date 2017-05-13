@@ -79,9 +79,9 @@ GEM
       elasticsearch-transport (= 5.0.4)
     elasticsearch-api (5.0.4)
       multi_json
-    elasticsearch-model (5.0.0)
+    elasticsearch-model (5.0.1)
       activesupport (> 3)
-      elasticsearch (> 1)
+      elasticsearch (~> 5)
       hashie
     elasticsearch-transport (5.0.4)
       faraday
@@ -92,7 +92,7 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faraday (0.12.0.1)
+    faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     gepub (0.6.9.2)
@@ -169,7 +169,7 @@ GEM
       slop (~> 3.4)
     puma (3.8.2)
     rack (2.0.1)
-    rack-protection (1.5.3)
+    rack-protection (2.0.0)
       rack
     rails (5.0.1)
       actioncable (= 5.0.1)
