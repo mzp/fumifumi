@@ -47,7 +47,7 @@ let jsonify { ready; data; loading; next } =
     ready = Js.Boolean.to_js_boolean ready;
     loading = Js.Boolean.to_js_boolean loading;
     next = Js.Null.from_opt next;
-    data = Js.Json.array_ data
+    data = Js.Json.array data
   }]
 
 let create kind next data = {

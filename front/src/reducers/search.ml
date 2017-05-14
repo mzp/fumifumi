@@ -13,10 +13,10 @@ let search dispatch query =
   |> ignore
 
 let clear dispatch =
-  dispatch @@ `SearchResult (Js.Json.array_ [||])
+  dispatch @@ `SearchResult (Js.Json.array [||])
 
 let results () =
-  Ripple.Primitive.json (Js.Json.array_ [||]) begin fun state -> function
+  Ripple.Primitive.json (Js.Json.array [||]) begin fun state -> function
     | `SearchResult xs -> xs
     | _ -> state
   end
