@@ -9,7 +9,7 @@ let make_url query =
 
 let search dispatch query =
   Axios.get (make_url query) Js.null
-  |> Bs_promise.then_ (fun response -> dispatch @@ `SearchResult response##data)
+  |> Js.Promise.then_ (fun response -> Js.Promise.resolve @@ dispatch @@ `SearchResult response##data)
   |> ignore
 
 let clear dispatch =

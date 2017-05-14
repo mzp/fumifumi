@@ -5,8 +5,7 @@
     "dir" :  "front/src/reducers"
   },
   "bs-dependencies": [
-    "ripple",
-    "bs-promise"
+    "ripple"
   ],
   "bsc-flags": [
     "-ppx \"$$($$(npm bin)/ppx ppx ppx_variants_conv)\"",

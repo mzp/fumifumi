@@ -20,7 +20,7 @@ let fetch dispatch kind url =
     dispatch (`Start kind)
   in
     Axios.get url Js.null
-    |> Bs_promise.then_ (fun response -> dispatch @@ `Fetch (kind, response##data))
+    |> Js.Promise.then_ (fun response -> Js.Promise.resolve @@ dispatch @@ `Fetch (kind, response##data))
     |> ignore
 
 let jsonify { ready; data } =

@@ -20,7 +20,7 @@ module Entry = struct
   type t = {
     id : int;
     file: File.t;
-    error : Axios.error option;
+    error : Js.Promise.error option;
     name : string;
     status : [`Prepare | `Start | `Success | `Error ]
   }
@@ -61,19 +61,19 @@ type 'a t = 'a constraint 'a = [>
   | `ImportQueue of File.t list
   | `ImportStart of File.t
   | `ImportSuccess of File.t
-  | `ImportError of File.t * Axios.error
+  | `ImportError of File.t * Js.Promise.error
 ]
 
 let import_ (dispatch : 'a -> unit) files =
   let files =
     Array.to_list files in
   dispatch @@ `ImportQueue files;
-  ignore @@ ListLabels.fold_left files ~init:(Bs_promise.resolve ()) ~f:begin fun before file ->
+  ignore @@ ListLabels.fold_left files ~init:(Js.Promise.resolve ()) ~f:begin fun before file ->
     before
-    |> Bs_promise.then_ (fun () -> dispatch @@ `ImportStart file)
-    |> Bs_promise.andThen (fun () -> File.post file)
-    |> Bs_promise.then_ (fun _ -> dispatch @@ `ImportSuccess file)
-    |> Bs_promise.catch (fun e -> dispatch @@ `ImportError (file, e))
+    |> Js.Promise.then_ (fun () -> Js.Promise.resolve @@ dispatch @@ `ImportStart file)
+    |> Js.Promise.then_ (fun () -> File.post file)
+    |> Js.Promise.then_ (fun _ -> Js.Promise.resolve @@ dispatch @@ `ImportSuccess file)
+    |> Js.Promise.catch (fun e -> Js.Promise.resolve @@ dispatch @@ `ImportError (file, e))
   end
 
 let file () =

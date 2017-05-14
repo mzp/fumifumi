@@ -21,13 +21,13 @@ let next_url_of link =
 
 let fetch_data dispatch kind url =
   Axios.get url Js.null
-  |> Bs_promise.then_ (fun response ->
+  |> Js.Promise.then_ (fun response ->
       let open OptionMonad in
       let next =
         (Js.Dict.get response##headers "link") >>= next_url_of in
       let data =
         Json.expect_array response##data in
-      dispatch @@ `FetchPages (kind, next, data))
+      Js.Promise.resolve @@ dispatch @@ `FetchPages (kind, next, data))
   |> ignore
 
 let fetch dispatch kind url =
