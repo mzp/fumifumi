@@ -1,46 +1,18 @@
 module Action = struct
   type 'a t = 'a constraint 'a = [>
-    | `Start of Resource.kind
-    | `Loading of Resource.kind
-    | `FetchPages of Resource.kind * Resource.url option * Js.Json.t array
+    | `Start of string
+    | `Loading of string
+    | `FetchPages of string * Resource.url option * Js.Json.t array
   ]
 end
 
 type t = {
-  kind : Resource.kind;
+  kind : string;
   ready: bool;
   data : Js.Json.t array;
-  next : Resource.url option;
+  next : string option;
   loading: bool
 }
-
-let next_url_of link =
-  Js.Re.fromString ("<([^>]+)>; rel=\"next\"")
-  |> Js.Re.exec link
-  |> OptionMonad.map (fun result -> (Js.Re.matches result).(1))
-
-let fetch_data dispatch kind url =
-  Axios.get url Js.null
-  |> Js.Promise.then_ (fun response ->
-      let open OptionMonad in
-      let next =
-        (Js.Dict.get response##headers "link") >>= next_url_of in
-      let data =
-        Json.expect_array response##data in
-      Js.Promise.resolve @@ dispatch @@ `FetchPages (kind, next, data))
-  |> ignore
-
-let fetch dispatch kind url =
-  let () =
-    dispatch (`Start kind)
-  in
-  fetch_data dispatch kind url
-
-let fetchNext dispatch kind url =
-  let () =
-    dispatch (`Loading kind)
-  in
-  fetch_data dispatch kind url
 
 let jsonify { ready; data; loading; next } =
   Obj.magic [%bs.obj {
