@@ -14,7 +14,7 @@ let episode () =
 let magazine () =
   let open Ripple.Object in
   make @@
-    "import_" +> (Magazine.make ()) @+
+    "import_" +> (Reducer_magazine.make ()) @+
     "show" +> (Reducer_magazineShow.make ()) @+
      nil
 
