@@ -24,6 +24,6 @@ let make () =
     "series" +> series () @+
     "episode" +> episode () @+
     "magazine" +> magazine () @+
-    "search" +> Search.make () @+
+    "search" +> Reducer_search.make () @+
     "layout" +> Reducer_layout.make () @+
     nil
