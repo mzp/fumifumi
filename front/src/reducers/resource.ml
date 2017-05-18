@@ -20,7 +20,7 @@ let fetch dispatch kind url =
     dispatch (`Start kind)
   in
     Axios.get url Js.null
-    |> Bs_promise.then_ (fun response -> dispatch @@ `Fetch (kind, response##data))
+    |> Js.Promise.then_ (fun response -> Js.Promise.resolve @@ dispatch @@ `Fetch (kind, response##data))
     |> ignore
 
 let jsonify { ready; data } =
@@ -31,7 +31,7 @@ let jsonify { ready; data } =
 
 let empty kind = {
   kind;
-  data=Js.Json.array_ [||];
+  data=Js.Json.array [||];
   ready=false
 }
 
@@ -39,7 +39,7 @@ let f ({ kind } as current) = function
   | `Start k when k = kind ->
     { current with ready = false }
   | `Clear k when k = kind ->
-    { current with ready = false; data = Js.Json.array_ [||] }
+    { current with ready = false; data = Js.Json.array [||] }
   | `Fetch (k, data) when k = kind ->
     { current with ready = true; data }
   | _ ->

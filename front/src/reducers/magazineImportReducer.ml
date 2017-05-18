@@ -1,5 +1,5 @@
 let files () =
-  Ripple.Primitive.json (Js.Json.array_ [||]) (fun _ _ -> Js.Json.array_ [||])
+  Ripple.Primitive.json (Js.Json.array [||]) (fun _ _ -> Js.Json.array [||])
 
 let make () =
   let open Ripple.Object in

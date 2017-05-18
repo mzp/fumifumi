@@ -9,14 +9,14 @@ let make_url query =
 
 let search dispatch query =
   Axios.get (make_url query) Js.null
-  |> Bs_promise.then_ (fun response -> dispatch @@ `SearchResult response##data)
+  |> Js.Promise.then_ (fun response -> Js.Promise.resolve @@ dispatch @@ `SearchResult response##data)
   |> ignore
 
 let clear dispatch =
-  dispatch @@ `SearchResult (Js.Json.array_ [||])
+  dispatch @@ `SearchResult (Js.Json.array [||])
 
 let results () =
-  Ripple.Primitive.json (Js.Json.array_ [||]) begin fun state -> function
+  Ripple.Primitive.json (Js.Json.array [||]) begin fun state -> function
     | `SearchResult xs -> xs
     | _ -> state
   end
