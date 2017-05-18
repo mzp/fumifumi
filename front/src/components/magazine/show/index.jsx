@@ -5,8 +5,7 @@ import DocumentTitle from "react-document-title";
 import Nav from "./Nav";
 import Episodes from "./Episodes";
 import Placeholder from "./Placeholder";
-import {fetch} from "reducers/resource";
-import {clear} from "reducers";
+import {clear, resourcefetch} from "reducers";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 import Types from "components/prop-types";
@@ -30,7 +29,7 @@ export default class extends React.Component {
     componentWillMount () {
         const {dispatch, "params": {id}} = this.props;
 
-        fetch(dispatch, "magazine.show", `/api/web/magazines/${id}`);
+        dispatch(resourcefetch(["magazine.show", `/api/web/magazines/${id}`]));
     }
 
     componentDidUpdate () {
@@ -41,7 +40,7 @@ export default class extends React.Component {
         }
 
         if (String(this.props.data.id) !== id) {
-            fetch(dispatch, "magazine.show", `/api/web/magazines/${id}`);
+            dispatch(resourcefetch(["magazine.show", `/api/web/magazines/${id}`]));
         }
     }
 

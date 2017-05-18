@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import DocumentTitle from "react-document-title";
 import ReactPlaceholder from "react-placeholder";
-import {fetch} from "reducers/resource";
+import {resourcefetch} from "reducers";
 import connect from "components/lib/connect";
 import Types from "components/prop-types";
 import {mainLayout} from "components/layout";
@@ -28,7 +28,7 @@ export default class extends React.Component {
     componentDidMount () {
         const {dispatch, "params": {name}} = this.props;
 
-        fetch(dispatch, "episode.author", `/api/web/episodes/author?name=${name}`);
+        dispatch(resourcefetch(["episode.author", `/api/web/episodes/author?name=${name}`]));
     }
 
     render () {

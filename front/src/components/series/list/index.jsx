@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import ReactPlaceholder from "react-placeholder";
 import Series from "./Series";
 import Placeholder from "./placeholder";
-import {fetch} from "reducers/resource";
-import {fetchNext} from "reducers/pagingResource";
+import {resourcefetch, pagingnext} from "reducers";
 import {mainLayout} from "components/layout";
 import connect from "components/lib/connect";
 import Types from "components/prop-types";
@@ -37,14 +36,18 @@ export default class extends React.Component {
         const {dispatch, "series": {ready}} = this.props;
 
         if (!ready) {
-            fetch(dispatch, "series.list", "/api/web/series");
+            dispatch(resourcefetch(["series.list", "/api/web/series"]));
         }
     }
 
     handleLoad (id) {
         const magazines = this.props.magazines[id];
 
-        fetchNext(this.props.dispatch, `series.list.magazines.${id}`, magazines.next);
+
+        this.props.dispatch(pagingnext([
+            `series.list.magazines.${id}`,
+            magazines.next
+        ]));
     }
 
     seriesElement (series) {

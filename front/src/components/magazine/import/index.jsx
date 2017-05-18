@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Dropzone from "react-dropzone";
 import Status from "./status";
-import {import_} from "reducers/magazine";
+import {import_} from "reducers";
 import connect from "components/lib/connect";
 import {mainLayout} from "components/layout";
 
@@ -20,7 +20,7 @@ export default class extends React.Component {
     };
 
     handleDrop (files) {
-        import_(this.props.dispatch, files);
+        this.props.dispatch(import_(files));
     }
 
     render () {
