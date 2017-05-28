@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import onClickOutside from "react-onclickoutside";
 import Result from "./Result";
-import {search, clear} from "reducers/search";
+import {search, searchclear} from "reducers";
 import connect from "components/lib/connect";
 import b from "components/lib/b";
 import Types from "components/prop-types";
@@ -22,15 +22,15 @@ export default class extends React.Component {
     }
 
     componentWillUnmount () {
-        clear(this.props.dispatch);
+        this.props.dispatch(searchclear);
     }
 
     handleClickOutside () {
-        clear(this.props.dispatch);
+        this.props.dispatch(searchclear);
     }
 
     onSearch (e) {
-        search(this.props.dispatch, e.target.value);
+        this.props.dispatch(search(e.target.value));
     }
 
     results () {

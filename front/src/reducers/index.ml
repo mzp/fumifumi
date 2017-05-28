@@ -2,4 +2,11 @@
 include Action
 
 (* export store *)
-include (val Ripple.Redux.to_redux (Reducer.make ()) : Ripple.Redux.Export)
+let tasks () = List.concat [
+    Task_search.tasks ();
+    Task_magazine.tasks ();
+    Task_resource.tasks ();
+    Task_pagingResource.tasks ()
+]
+
+include (val Ripple.Redux.to_redux ~tasks:(tasks ()) (Reducer.make ()) : Ripple.Redux.Export)

@@ -1,9 +1,20 @@
-import {createStore} from "redux";
-import {reducer, jsonify} from "reducers";
+import {createStore, applyMiddleware, compose} from "redux";
+import {reducer, jsonify, taskMiddleware} from "reducers";
+
+function createComposeEnhancers () {
+  /* eslint-disable no-underscore-dangle */
+    if (typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
+        return window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({"stateSanitizer": jsonify});
+    }
+
+    return compose;
+
+  /* eslint-enable no-underscore-dangle */
+}
 
 export default function (initialState: any) {
-    /* eslint-disable no-underscore-dangle */
+    const composeEnhancers = createComposeEnhancers();
+
     return createStore(reducer, initialState,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({"stateSanitizer": jsonify}));
-    /* eslint-enable no-underscore-dangle */
+      composeEnhancers(applyMiddleware(taskMiddleware)));
 }

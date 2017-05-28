@@ -15,10 +15,10 @@ let magazines (series : series) =
     Js.Null.to_opt series##magazines_url in
   let data =
     series##magazines in
-  (id, PagingResource.create kind next data)
+  (id, Reducer_pagingResource.create kind next data)
 
 let seriesMagazines () =
-  Ripple.Object.lift (PagingResource.make "") [] @@ fun current -> function
+  Ripple.Object.lift (Reducer_pagingResource.make "") [] @@ fun current -> function
   | `Fetch ("series.list", data) ->
     data
     |> Json.expect_array
@@ -29,7 +29,7 @@ let seriesMagazines () =
 let make () =
   let open Ripple.Object in
   make (
-    "series" +> (Resource.make "series.list") @+
+    "series" +> (Reducer_resource.make "series.list") @+
     "magazines" +> (seriesMagazines ()) @+
     nil
   )

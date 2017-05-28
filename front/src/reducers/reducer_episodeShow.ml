@@ -7,7 +7,7 @@ let info () =
 let make () =
   let open Ripple.Object in
   make (
-    "resource" +> (Resource.make "episode.show") @+
+    "resource" +> (Reducer_resource.make "episode.show") @+
     "info" +> (info ()) @+
     nil
   )

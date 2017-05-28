@@ -1,21 +1,21 @@
 let series () =
   let open Ripple.Object in
   make @@
-    "list" +> (SeriesListReducer.make ()) @+
+    "list" +> (Reducer_seriesList.make ()) @+
      nil
 
 let episode () =
   let open Ripple.Object in
   make @@
-    "author" +> (EpisodeAuthorReducer.make ()) @+
-    "show" +> (EpisodeShowReducer.make ()) @+
+    "author" +> (Reducer_episodeAuthor.make ()) @+
+    "show" +> (Reducer_episodeShow.make ()) @+
      nil
 
 let magazine () =
   let open Ripple.Object in
   make @@
-    "import_" +> (Magazine.make ()) @+
-    "show" +> (MagazineShowReducer.make ()) @+
+    "import_" +> (Reducer_magazine.make ()) @+
+    "show" +> (Reducer_magazineShow.make ()) @+
      nil
 
 let make () =
@@ -24,6 +24,6 @@ let make () =
     "series" +> series () @+
     "episode" +> episode () @+
     "magazine" +> magazine () @+
-    "search" +> Search.make () @+
-    "layout" +> LayoutReducer.make () @+
+    "search" +> Reducer_search.make () @+
+    "layout" +> Reducer_layout.make () @+
     nil

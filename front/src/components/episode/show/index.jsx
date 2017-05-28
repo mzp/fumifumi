@@ -6,8 +6,7 @@ import ReactPlaceholder from "react-placeholder";
 import Placeholder from "./placeholder";
 import Pages from "./Pages";
 import Info from "./Info";
-import {fetch} from "reducers/resource";
-import {clear} from "reducers";
+import {clear, resourcefetch} from "reducers";
 import Types from "components/prop-types";
 import connect from "components/lib/connect";
 import {floatLayout} from "components/layout";
@@ -32,7 +31,7 @@ export default class extends React.Component {
     componentDidMount () {
         const {dispatch, "params": {id}} = this.props;
 
-        fetch(dispatch, "episode.show", `/api/web/episodes/${id}`);
+        dispatch(resourcefetch(["episode.show", `/api/web/episodes/${id}`]));
     }
 
     componentDidUpdate () {
@@ -43,7 +42,7 @@ export default class extends React.Component {
         }
 
         if (String(data.id) !== id) {
-            fetch(dispatch, "episode.show", `/api/web/episodes/${id}`);
+            dispatch(resourcefetch(["episode.show", `/api/web/episodes/${id}`]));
         }
     }
 
