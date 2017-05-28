@@ -1,13 +1,13 @@
 let results () =
-  Ripple.Primitive.json (Js.Json.array [||]) begin fun state -> function
+  Ripple.Value.json begin fun state -> function
     | `SearchResult xs -> xs
     | `SearchClear -> Js.Json.array [||]
     | _ -> state
   end
+  |> Ripple.Lift.option (Js.Json.array [||])
 
 let make () =
   let open Ripple.Object in
-  make (
-    "results" +> (results ()) @+
-    nil
-  )
+  builder (fun t ->
+      t
+      |> field "results" (results ()))

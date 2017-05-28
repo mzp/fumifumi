@@ -1,12 +1,12 @@
 let header () =
-  Ripple.Primitive.bool false (fun current -> function
+  Ripple.Value.bool (fun current -> function
     | `HideHeader -> false
     | `ToggleHeader -> not current
     | _ -> current)
+  |> Ripple.Lift.option false
 
 let make () =
   let open Ripple.Object in
-  make (
-    "header" +> (header ()) @+
-    nil
-  )
+  builder (fun t ->
+      t
+      |> field "header" (header ()))

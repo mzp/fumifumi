@@ -39,29 +39,29 @@ module Entry = struct
   }
 end
 
+let redux ({Entry.file} as entry) = function
+  (* Because f, file are file objects of JS, we cannot use caml_equal. *)
+  | `ImportStart f when f == file ->
+    { entry with status=`Start }
+  | `ImportSuccess f when f == file ->
+    { entry with status=`Success }
+  | `ImportError (f, error) when f == file ->
+    { entry with status=`Error; error=Some error }
+  | _ ->
+    entry
+
 let file () =
-  Ripple.Primitive.make Entry.jsonify (Entry.empty) (fun ({Entry.file} as entry) -> function
-    (* Because f, file are file objects of JS, we cannot use caml_equal. *)
-    | `ImportStart f when f == file ->
-        { entry with status=`Start }
-    | `ImportSuccess f when f == file ->
-        { entry with status=`Success }
-    | `ImportError (f, error) when f == file ->
-        { entry with status=`Error; error=Some error }
-    | _ ->
-        entry
-  )
+  Ripple.Reducer.make redux Entry.jsonify
 
 let files () =
-  Ripple.Array.lift (file ()) [] (fun xs -> function
-    | `ImportQueue ys ->
-        List.mapi Entry.make ys
-    | _ -> xs)
+  Ripple.Lift.array (file ())
+  |> Ripple.Reducer.map (fun xs -> function
+      | `ImportQueue ys -> List.mapi Entry.make ys
+      | _ -> xs)
+  |> Ripple.Lift.option []
 
 let make () =
   let open Ripple.Object in
-  make (
-
-    "files" +> (files ()) @+
-    nil
-  )
+  builder (fun t ->
+      t
+      |> field "files" (files ()))

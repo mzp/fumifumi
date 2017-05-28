@@ -8,4 +8,5 @@ end
 
 type t
 
-val make : string -> ('a Action.t,  t) Ripple.Reducer.t
+val create : string -> Js.Json.t -> t
+val make : unit -> ('a Action.t,  t) Ripple.Reducer.t
