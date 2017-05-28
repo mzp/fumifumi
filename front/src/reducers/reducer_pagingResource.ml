@@ -2,7 +2,7 @@ module Action = struct
   type 'a t = 'a constraint 'a = [>
     | `Start of string
     | `Loading of string
-    | `FetchPages of string * Resource.url option * Js.Json.t array
+    | `FetchPages of string * string option * Js.Json.t array
   ]
 end
 
