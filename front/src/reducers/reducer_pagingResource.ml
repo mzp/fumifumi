@@ -2,7 +2,7 @@ module Action = struct
   type 'a t = 'a constraint 'a = [>
     | `Start of string
     | `Loading of string
-    | `FetchPages of string * Resource.url option * Js.Json.t array
+    | `FetchPages of string * string option * Js.Json.t array
   ]
 end
 
@@ -29,8 +29,6 @@ let create kind next data = {
   data
 }
 
-let empty kind = create kind None [||]
-
 let f ({ kind } as current) = function
   | `Start k when k = kind ->
     { current with ready = false; loading = true; data = [||] }
@@ -45,5 +43,5 @@ let f ({ kind } as current) = function
   | _ ->
     current
 
-let make kind =
-  Ripple.Primitive.make jsonify (empty kind) f
+let make () =
+  Ripple.Reducer.make f jsonify

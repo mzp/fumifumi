@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, compose} from "redux";
-import {reducer, jsonify, taskMiddleware} from "reducers";
+import {reducer, jsonify, taskMiddleware, initialState} from "reducers";
 
 function createComposeEnhancers () {
   /* eslint-disable no-underscore-dangle */
@@ -12,7 +12,7 @@ function createComposeEnhancers () {
   /* eslint-enable no-underscore-dangle */
 }
 
-export default function (initialState: any) {
+export default function () {
     const composeEnhancers = createComposeEnhancers();
 
     return createStore(reducer, initialState,

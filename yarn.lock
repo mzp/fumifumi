@@ -1192,6 +1192,12 @@ browserslist@^1.1.1, browserslist@^1.1.3, browserslist@^1.7.6:
     caniuse-db "^1.0.30000639"
     electron-to-chromium "^1.2.7"
 
+"bs-jest@git+https://github.com/buckletypes/bs-jest.git":
+  version "0.1.0"
+  resolved "git+https://github.com/buckletypes/bs-jest.git#3fa508c25bb70be7087980afffa05fd492be4d94"
+  dependencies:
+    jest "^19.0.2"
+
 "bs-jest@github:buckletypes/bs-jest":
   version "0.1.0"
   resolved "https://codeload.github.com/buckletypes/bs-jest/tar.gz/63b5b72f09872657e061a9796f2544aed02fe950"
@@ -1204,13 +1210,15 @@ browserslist@^1.1.1, browserslist@^1.1.3, browserslist@^1.7.6:
   dependencies:
     bs-platform "^1.7.3"
 
+"bs-lwt@github:mzp/bs-lwt":
+  version "3.0.0.2-dev"
+  resolved "https://codeload.github.com/mzp/bs-lwt/tar.gz/23f9f086691f747ed88cda78b3c0939901ed4cf5"
+  dependencies:
+    bs-platform "^1.7.3"
+
 bs-platform@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-1.7.3.tgz#83de0134affdc723545477ce737606847da70104"
-
-bs-promise@^0.3.0:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/bs-promise/-/bs-promise-0.3.1.tgz#b5c3873721f791f883530771914df9fa25889d17"
 
 bser@1.0.2:
   version "1.0.2"
@@ -4746,16 +4754,10 @@ ripemd160@^1.0.0:
 
 "ripple@https://github.com/mzp/ripple.git":
   version "0.1.0"
-  resolved "https://github.com/mzp/ripple.git#385dac1307bf8a1b66104c91eaf3b44ce60746b0"
+  resolved "https://github.com/mzp/ripple.git#eb4898b88b0a143002fe49a7f7209f9890e598a9"
   dependencies:
-    bs-jest "github:buckletypes/bs-jest"
+    bs-jest "git+https://github.com/buckletypes/bs-jest.git"
     bs-lwt "git+https://github.com/mzp/bs-lwt.git"
-
-ripple@mzp/ripple:
-  version "0.1.0"
-  resolved "https://codeload.github.com/mzp/ripple/tar.gz/94041800367b9d37207c1f71d851d0e75cc88eb3"
-  dependencies:
-    bs-jest "github:buckletypes/bs-jest"
 
 run-async@^0.1.0:
   version "0.1.0"

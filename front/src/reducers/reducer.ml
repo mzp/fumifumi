@@ -1,29 +1,27 @@
+open Ripple.Object
+
 let series () =
-  let open Ripple.Object in
-  make @@
-    "list" +> (Reducer_seriesList.make ()) @+
-     nil
+  builder (fun t ->
+      t
+      |> obj_field "list" (Reducer_seriesList.make ()))
 
 let episode () =
-  let open Ripple.Object in
-  make @@
-    "author" +> (Reducer_episodeAuthor.make ()) @+
-    "show" +> (Reducer_episodeShow.make ()) @+
-     nil
+  builder (fun t ->
+      t
+      |> obj_field "author" (Reducer_episodeAuthor.make ())
+      |> obj_field "show" (Reducer_episodeShow.make ()))
 
 let magazine () =
-  let open Ripple.Object in
-  make @@
-    "import_" +> (Reducer_magazine.make ()) @+
-    "show" +> (Reducer_magazineShow.make ()) @+
-     nil
+  builder (fun t ->
+      t
+      |> obj_field "import_" (Reducer_magazine.make ())
+      |> obj_field "show" (Reducer_magazineShow.make ()))
 
 let make () =
-  let open Ripple.Object in
-  make @@
-    "series" +> series () @+
-    "episode" +> episode () @+
-    "magazine" +> magazine () @+
-    "search" +> Reducer_search.make () @+
-    "layout" +> Reducer_layout.make () @+
-    nil
+  builder (fun t ->
+      t
+      |> obj_field "series" (series ())
+      |> obj_field "episode" (episode ())
+      |> obj_field "magazine" (magazine ())
+      |> obj_field "search" (Reducer_search.make ())
+      |> obj_field "layout" (Reducer_layout.make ()))

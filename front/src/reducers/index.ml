@@ -7,6 +7,11 @@ let tasks () = List.concat [
     Task_magazine.tasks ();
     Task_resource.tasks ();
     Task_pagingResource.tasks ()
-]
+  ]
 
-include (val Ripple.Redux.to_redux ~tasks:(tasks ()) (Reducer.make ()) : Ripple.Redux.Export)
+let m =
+  let (reducer, value) =
+    Reducer.make () in
+  Ripple.Export.export ~tasks:(tasks ()) reducer value
+
+include (val m : Ripple.Export.M)

@@ -18,12 +18,6 @@ let jsonify { ready; data } =
     data = data;
   }]
 
-let empty kind = {
-  kind;
-  data=Js.Json.array [||];
-  ready=false
-}
-
 let f ({ kind } as current) = function
   | `Start k when k = kind ->
     { current with ready = false }
@@ -34,5 +28,11 @@ let f ({ kind } as current) = function
   | _ ->
     current
 
-let make kind =
-  Ripple.Primitive.make jsonify (empty kind) f
+let create kind data = {
+  kind;
+  data;
+  ready=false
+}
+
+let make () =
+  Ripple.Reducer.make f jsonify

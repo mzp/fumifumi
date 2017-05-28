@@ -18,18 +18,21 @@ let magazines (series : series) =
   (id, Reducer_pagingResource.create kind next data)
 
 let seriesMagazines () =
-  Ripple.Object.lift (Reducer_pagingResource.make "") [] @@ fun current -> function
-  | `Fetch ("series.list", data) ->
-    data
-    |> Json.expect_array
-    |> Array.to_list
-    |> List.map (fun x -> magazines @@ coerce x)
-  | _ -> current
+  Ripple.Lift.object_ (Reducer_pagingResource.make ())
+  |> Ripple.Reducer.map (fun current -> function
+      | `Fetch ("series.list", data) ->
+        data
+        |> Json.expect_array
+        |> Array.to_list
+        |> List.map (fun x -> magazines @@ coerce x)
+      | _ -> current)
+  |> Ripple.Lift.option []
 
 let make () =
   let open Ripple.Object in
-  make (
-    "series" +> (Reducer_resource.make "series.list") @+
-    "magazines" +> (seriesMagazines ()) @+
-    nil
-  )
+  builder (fun t ->
+      t
+      |> field "series" (
+        Reducer_resource.make ()
+        |> Ripple.Lift.option (Reducer_resource.create "series.list" (Js.Json.array [||])))
+      |> field "magazines" (seriesMagazines ()))

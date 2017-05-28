@@ -1,6 +1,7 @@
 let make () =
   let open Ripple.Object in
-  make (
-    "resource" +> (Reducer_resource.make "magazine.show") @+
-    nil
-  )
+  builder (fun t ->
+      t
+      |> field "resource" (
+        Reducer_resource.make ()
+        |> Ripple.Lift.option (Reducer_resource.create "magazine.show" (Js.Json.array [||]))))
