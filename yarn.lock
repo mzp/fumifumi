@@ -1198,21 +1198,9 @@ browserslist@^1.1.1, browserslist@^1.1.3, browserslist@^1.7.6:
   dependencies:
     jest "^19.0.2"
 
-"bs-jest@github:buckletypes/bs-jest":
-  version "0.1.0"
-  resolved "https://codeload.github.com/buckletypes/bs-jest/tar.gz/63b5b72f09872657e061a9796f2544aed02fe950"
-  dependencies:
-    jest "^19.0.2"
-
 "bs-lwt@git+https://github.com/mzp/bs-lwt.git":
   version "3.0.0"
   resolved "git+https://github.com/mzp/bs-lwt.git#2faa5009118064886661388efebab4133fa351ed"
-  dependencies:
-    bs-platform "^1.7.3"
-
-"bs-lwt@github:mzp/bs-lwt":
-  version "3.0.0.2-dev"
-  resolved "https://codeload.github.com/mzp/bs-lwt/tar.gz/23f9f086691f747ed88cda78b3c0939901ed4cf5"
   dependencies:
     bs-platform "^1.7.3"
 
@@ -4753,8 +4741,8 @@ ripemd160@^1.0.0:
   resolved "https://registry.yarnpkg.com/ripemd160/-/ripemd160-1.0.1.tgz#93a4bbd4942bc574b69a8fa57c71de10ecca7d6e"
 
 "ripple@https://github.com/mzp/ripple.git":
-  version "0.1.0"
-  resolved "https://github.com/mzp/ripple.git#eb4898b88b0a143002fe49a7f7209f9890e598a9"
+  version "0.1.1"
+  resolved "https://github.com/mzp/ripple.git#0aa34af1164ab3a4cb7fcfa04809f26b430c0c34"
   dependencies:
     bs-jest "git+https://github.com/buckletypes/bs-jest.git"
     bs-lwt "git+https://github.com/mzp/bs-lwt.git"
